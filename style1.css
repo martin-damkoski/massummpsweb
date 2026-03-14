@@ -1,0 +1,2967 @@
+/* ========================================== */
+/* 1. ГЛОБАЛНИ НАГОДУВАЊА                     */
+/* ========================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+#info, #istorija, #kadar {
+    scroll-margin-top: 100px; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #ffffff;
+}
+
+/* ========================================== */
+/* 2. ГЛАВЕН ХЕДЕР                            */
+/* ========================================== */
+.main-header {
+    width: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 100; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+.school-name {
+    font-size: clamp(1.2rem, 4vw, 2.2rem);
+    font-weight: bold;
+    font-family: montserrat, sans-serif;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.top-nav {
+    display: flex;
+    gap: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #ddd;
+    transition: 0.3s;
+}
+
+.main-nav {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.main-nav li a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: block; 
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: rgba(4, 47, 108, 0.95);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 10px 0;
+    border-top: 2px solid #f1b418;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown-content li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.8rem;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-content li a:hover {
+    background-color: #f1b418;
+    color: #143058;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.arrow-small {
+    font-size: 0.7rem;
+    margin-left: 5px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.dropdown:hover .arrow-small {
+    transform: rotate(180deg);
+}
+
+/* ========================================== */
+/* 3. HERO СЕКЦИЈА СО ВИДЕО                   */
+/* ========================================== */
+.hero-video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.hero-title {
+    font-size: clamp(2.2rem, 8vw, 5rem);
+    font-weight: 900;
+    font-family: montserrat, sans-serif;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-main, .btn-outline {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-main { background: #2563eb; color: white; border: none; }
+.btn-outline { border: 2px solid rgb(208, 195, 15); color: white; }
+
+.btn-main:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+    background: rgb(208, 195, 15);
+    color: black;
+    transform: translateY(-2px);
+}
+
+/* ========================================== */
+/* 4. МОБИЛНО ХАМБУРГЕР КОПЧЕ И СТРАНИЧНО МЕНИ*/
+/* ========================================== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    overflow-x: hidden;
+    transition: 0.5s ease;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+
+.side-menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 300px;
+    justify-content: flex-start;
+}
+
+.menu-header {
+    padding: 40px 0 20px;
+    text-align: center;
+}
+
+.small-menu-logo {
+    height: 80px;
+    width: auto;
+}
+
+.side-menu-links a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    display: block;
+    border-bottom: 1px solid #111;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.side-menu-links a:hover {
+    background-color: #1a1a1a;
+    color: #f1b418;
+    padding-left: 35px;
+}
+
+.has-dropdown {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #050505;
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #0c0c0c;
+    transition: max-height 0.3s ease;
+}
+
+.submenu.open {
+    max-height: 500px;
+}
+
+.submenu a {
+    padding-left: 50px !important;
+    font-size: 0.85rem !important;
+    color: #bbb !important;
+    text-transform: none !important;
+}
+
+.menu-footer {
+    margin-top: auto;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    background: #f1b418; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none !important;
+}
+
+.side-menu .closebtn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+/* ========================================== */
+/* 5. НОВОСТИ - GRID СИСТЕМ                   */
+/* ========================================== */
+.news-portal-section {
+    background-color: #f9f9f9;
+    padding: 60px 5%;
+    color: #333;
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portal-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    color: #143058;
+    border-bottom: 4px solid #fca311;
+    display: inline-block;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+}
+
+.pupin-news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 25px;
+    grid-template-areas: 
+        "tl center center tr"
+        "ml center center mr"
+        "bl bl br br"; 
+}
+
+/* Области */
+.tl-item { grid-area: tl; }
+.tr-item { grid-area: tr; }
+.center-item { grid-area: center; }
+.ml-item { grid-area: ml; }
+.mr-item { grid-area: mr; }
+.bl-item { grid-area: bl; }
+.br-item { grid-area: br; }
+
+.grid-item {
+    display: flex;
+    flex-direction: column; 
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ОВА Е ПРОМЕНЕТО: Поставување на IMG таговите */
+img.news-image-placeholder {
+    background-color: #eaeaea;
+    transition: 0.3s;
+    width: 100%;
+    object-fit: cover; /* Ова спречува сликите да се развлекуваат */
+    display: block; /* Спречува празен простор под сликата */
+}
+
+.grid-item:hover img.news-image-placeholder {
+    filter: brightness(0.85);
+}
+
+.lg-placeholder { height: 480px; }
+.md-placeholder { height: 250px; }
+.sm-placeholder { height: 160px; }
+
+.grid-text-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.center-item h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: #143058;
+}
+
+.center-item .news-excerpt {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.grid-item h4 {
+    font-size: 1.1rem;
+    color: #143058;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    transition: 0.3s;
+}
+
+.grid-item:hover h4 {
+    color: #fca311; 
+}
+
+.news-date {
+    display: block;
+    font-size: 0.85rem;
+    color: #fca311;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.read-more-pupin {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    margin-top: auto; 
+}
+
+.read-more-pupin:hover {
+    color: #1e40af;
+}
+
+.no-more-news {
+    text-align: center;
+    padding: 50px 0;
+    font-style: italic;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Скриен текст во картичките за поп-апот */
+.full-text {
+    display: none;
+}
+
+/* ========================================== */
+/* 6. MODAL (ПОП-АП) ПРОЗОРЕЦ                 */
+/* ========================================== */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 99999; 
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(10, 20, 40, 0.85); 
+    backdrop-filter: blur(5px); 
+}
+
+/* Додадено: Scroll за модалот ако има многу текст */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 35px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh; /* Максимална висина на екранот */
+    overflow-y: auto; /* Скролање ако текстот е предолг */
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    animation: modalSlideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modalSlideDown {
+    from { transform: translateY(-70px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    right: 25px; 
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    color: #e63946;
+    transform: rotate(90deg);
+}
+
+#modalTitle { 
+    color: #143058; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    padding-right: 30px; 
+}
+
+/* ========================================== */
+/* 7. ОФИЦИЈАЛЕН ФУТЕР И CTA БАНЕРИ           */
+/* ========================================== */
+.footer-cta-banner {
+    position: relative;
+    background-image: url('https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/mihajlopupinslikistrana_00005-e1692367348515.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 4px solid #f1b418;
+    border-bottom: 4px solid #f1b418;
+}
+
+.cta-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(14, 42, 71, 0.90);
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 5%; 
+    box-sizing: border-box;
+}
+
+.cta-heading {
+    margin: 0; 
+    color: white; 
+    text-align: left;
+    line-height: 1.2;
+}
+
+.cta-serif {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.cta-italic {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: #fca311;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.btn-cta-contact {
+    background-color: #fca311;
+    color: #ffffff;
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(252, 163, 17, 0.3);
+    white-space: nowrap; 
+}
+
+.btn-cta-contact:hover {
+    background-color: #e08f09;
+    transform: translateY(-3px);
+}
+
+.complex-footer {
+    background-color: #143058;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-grid-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 5% 50px;
+}
+
+.f-col h4 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.diamond-bullet { color: #fca311; font-size: 0.9rem; }
+
+.f-about-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #bac4d1;
+}
+
+.f-social-modern {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.f-social-modern a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; 
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(252, 163, 17, 0.4);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.f-social-modern a i {
+    color: #fca311; 
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.f-social-modern a:hover {
+    background: #fca311;
+    transform: translateY(-3px);
+    border-color: #fca311;
+}
+
+.f-social-modern a:hover i {
+    color: #143058;
+}
+
+.f-links { list-style: none; padding: 0; margin: 0; }
+.f-links li { margin-bottom: 12px; }
+
+.f-links a {
+    color: #bac4d1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.f-arrow { color: #fca311; font-size: 0.9rem; transition: 0.3s; }
+.f-links a:hover { color: #ffffff; transform: translateX(5px); }
+
+.f-newsletter {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    margin-top: 15px;
+}
+
+.f-newsletter input {
+    flex: 1;
+    padding: 0 15px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-right: none;
+}
+
+.f-newsletter input::placeholder { color: #8a9bb0; }
+
+.f-newsletter button {
+    width: 50px;
+    border: none;
+    background: #fca311;
+    color: #143058;
+    font-size: 1.2rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.f-newsletter button:hover { background: #e08f09; }
+
+.f-contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #bac4d1;
+}
+
+.f-contact-row i {
+    color: #fca311;
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+
+.f-contact-row a { color: #ffffff; text-decoration: none; transition: 0.3s; }
+.f-contact-row a:hover { color: #fca311; }
+
+.footer-bottom-line {
+    background-color: #0c1f3b;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+
+.fb-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #8a9bb0;
+}
+
+.fb-container b { color: #ffffff; }
+.fb-center img { height: 40px; opacity: 0.9; }
+
+.back-to-top-btn {
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: #fca311;
+    color: #143058;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.back-to-top-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* ========================================== */
+/* 8. РЕСПОНЗИВНОСТ (MEDIA QUERIES)           */
+/* ========================================== */
+
+@media (max-width: 1024px) {
+    .pupin-news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+            "center center"
+            "tl tr"
+            "ml mr"
+            "bl br"; 
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-grid-container { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 40px; 
+    }
+    .cta-content { 
+        flex-direction: column; 
+        text-align: center; 
+        justify-content: center; 
+        gap: 20px;
+    }
+    .cta-heading { text-align: center; }
+}
+
+@media (max-width: 900px) {
+    .nav-menu { display: none !important; }
+    .menu-toggle { display: flex !important; }
+    .header-container { padding: 15px 5%; }
+}
+
+@media (max-width: 768px) {
+    .pupin-news-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "center"
+            "tl"
+            "tr"
+            "ml"
+            "mr"
+            "bl"
+            "br";
+    }
+    .lg-placeholder { height: 300px; }
+    
+    .modal-content {
+        width: 95%;
+        margin: 15% auto;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid-container { grid-template-columns: 1fr; }
+    .fb-container { 
+        flex-direction: column; 
+        gap: 15px; 
+        text-align: center; 
+    }
+    .back-to-top-btn { display: none; }
+}
+/* ========================================== */
+/* ВАУ ПРЕЛОДЕР ЗА НОВОСТИ (3D АТОМ)          */
+/* ========================================== */
+
+/* ========================================== */
+/* ГЛОБАЛЕН ВАУ ПРЕЛОДЕР (3D АТОМ)            */
+/* ========================================== */
+
+.site-preloader {
+    position: fixed; /* ОВА Е НАЈВАЖНОТО - Го прави преку цел екран! */
+    top: 0; left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background-color: #0c1f3b; /* Темно сина позадина за да блесне атомот */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999; /* Го става над сè останато на сајтот */
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Овие остануваат истите за атомот */
+.loader-atom {
+    position: relative;
+    width: 120px; 
+    height: 120px;
+    margin-bottom: 30px;
+    transform-style: preserve-3d;
+}
+
+.core {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 24px; height: 24px;
+    margin-top: -12px; margin-left: -12px;
+    background-color: #fca311;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #fca311, 0 0 40px #fca311;
+    animation: pulse-core 1.2s infinite alternate ease-in-out;
+}
+
+.electron {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.1); /* Посветли орбити за на темна позадина */
+    border-top: 3px solid #fca311;
+    border-bottom: 3px solid #fca311;
+}
+
+.electron-1 { animation: spin1 1.8s linear infinite; }
+.electron-2 { animation: spin2 1.8s linear infinite; }
+.electron-3 { animation: spin3 1.8s linear infinite; }
+
+@keyframes spin1 { 
+    0% { transform: rotateY(0deg) rotateX(70deg) rotateZ(0deg); } 
+    100% { transform: rotateY(0deg) rotateX(70deg) rotateZ(360deg); } 
+}
+@keyframes spin2 { 
+    0% { transform: rotateY(60deg) rotateX(70deg) rotateZ(0deg); } 
+    100% { transform: rotateY(60deg) rotateX(70deg) rotateZ(360deg); } 
+}
+@keyframes spin3 { 
+    0% { transform: rotateY(120deg) rotateX(70deg) rotateZ(0deg); } 
+    100% { transform: rotateY(120deg) rotateX(70deg) rotateZ(360deg); } 
+}
+
+@keyframes pulse-core {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    100% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 30px #fca311, 0 0 60px #fca311; }
+}
+
+.loading-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.loading-text span {
+    animation: dot-blink 1.5s infinite;
+    opacity: 0;
+}
+.loading-text span:nth-child(1) { animation-delay: 0s; }
+.loading-text span:nth-child(2) { animation-delay: 0.3s; }
+.loading-text span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes dot-blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+/* --- ГАЛЕРИЈА СЛАЈДЕР --- */
+.gallery-section { 
+    padding: 80px 5%; 
+    background: #f1f5f9; 
+    text-align: center; 
+}
+
+.gallery-section .section-header { 
+    margin-bottom: 50px; 
+}
+
+.gallery-section .section-header h2 { 
+    font-size: 36px; 
+    color: #1e293b; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+.gallery-section .section-header p { 
+    color: #64748b; 
+    font-size: 18px; 
+    max-width: 600px; 
+    margin: 10px auto; 
+}
+
+.gallery-container {
+    max-width: 1100px; 
+    margin: 0 auto; 
+    position: relative;
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    background: #000;
+}
+
+.gallery-slide { 
+    display: none; 
+    width: 100%; 
+    height: 600px; 
+    position: relative; 
+}
+
+.gallery-slide.active { 
+    display: block; 
+    animation: fadeSlide 0.6s ease; 
+}
+
+.gallery-slide img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 0.8; 
+    transition: opacity 0.5s ease; 
+}
+
+.gallery-slide:hover img { 
+    opacity: 1; 
+}
+
+.gallery-caption {
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    padding: 30px; 
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: white; 
+    text-align: left;
+}
+
+.gallery-caption h3 { 
+    font-size: 28px; 
+    margin-bottom: 10px; 
+    color: #f59e0b; 
+}
+
+.gallery-nav {
+    position: absolute; 
+    top: 50%; 
+    width: 100%; 
+    display: flex;
+    justify-content: space-between; 
+    transform: translateY(-50%); 
+    pointer-events: none; /* За да не блокира кликање на сликата */
+}
+
+.gallery-btn {
+    background: rgba(255,255,255,0.2); 
+    color: white; 
+    border: none;
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    font-size: 20px;
+    cursor: pointer; 
+    pointer-events: all; /* Враќање на кликањето само за копчето */
+    transition: all 0.3s ease; 
+    backdrop-filter: blur(5px);
+    margin: 0 20px;
+}
+
+.gallery-btn:hover { 
+    background: #f59e0b; 
+    color: #000; 
+    transform: scale(1.1); 
+}
+
+.gallery-indicators { 
+    position: absolute; 
+    bottom: 20px; 
+    right: 30px; 
+    display: flex; 
+    gap: 8px; 
+    z-index: 10;
+}
+
+.dot { 
+    width: 12px; 
+    height: 12px; 
+    background: rgba(255,255,255,0.4); 
+    border-radius: 50%; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
+
+.dot.active { 
+    background: #f59e0b; 
+    width: 24px; 
+    border-radius: 6px; 
+}
+
+@keyframes fadeSlide { 
+    from { opacity: 0.4; } 
+    to { opacity: 1; } 
+}
+
+/* Респонзивност за помали екрани */
+@media (max-width: 768px) {
+    .gallery-slide { height: 400px; }
+    .gallery-caption h3 { font-size: 22px; }
+    .gallery-btn { width: 40px; height: 40px; margin: 0 10px; font-size: 16px;}
+}
+/* =========================================
+   CUSTOM ИТ/ЕЛЕКТРО ПРЕЛОАДЕР
+   ========================================= */
+.tech-preloader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: #0b1120; /* Многу темна ИТ сина/црна боја */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.atom-loader {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Прстените на атомот */
+.electron-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #3b82f6; /* Неонска сина */
+    border-bottom-color: #f59e0b; /* Златна/Жолта */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3), inset 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.ring-x {
+    animation: rotateX 2s linear infinite;
+}
+
+.ring-y {
+    animation: rotateY 2.5s linear infinite;
+}
+
+.ring-z {
+    animation: rotateZ 3s linear infinite;
+}
+
+/* Внатрешното јадро што пулсира */
+.core-glow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #3b82f6, #1d4ed8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px #3b82f6, 0 0 40px #1d4ed8;
+    animation: pulseCore 1.5s ease-in-out infinite alternate;
+}
+
+/* Текстот долу како во терминал */
+/* Ажуриран текст за прелоадерот */
+.tech-loading-text {
+    color: #38bdf8;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    
+    /* Нови правила за совршено центрирање */
+    text-align: center; 
+    width: 100%;
+    padding: 0 15px; /* Да не се лепи до ивиците на екранот */
+    box-sizing: border-box;
+    margin-left: 3px; /* Го компензира празниот простор од letter-spacing */
+}
+
+/* Респонзивност - Специјално за мобилни телефони */
+@media (max-width: 480px) {
+    .tech-loading-text {
+        font-size: 16px; /* Го намалуваме фонтот за да собере во еден ред */
+        letter-spacing: 2px;
+        margin-left: 2px;
+    }
+}
+.cursor-blink {
+    color: #f59e0b;
+    animation: blink 1s step-end infinite;
+}
+
+/* АНИМАЦИИ */
+@keyframes rotateX {
+    0% { transform: rotateX(70deg) rotateZ(0deg); }
+    100% { transform: rotateX(70deg) rotateZ(360deg); }
+}
+
+@keyframes rotateY {
+    0% { transform: rotateY(70deg) rotateZ(0deg); }
+    100% { transform: rotateY(70deg) rotateZ(360deg); }
+}
+
+@keyframes rotateZ {
+    0% { transform: rotateX(45deg) rotateY(45deg) rotateZ(0deg); }
+    100% { transform: rotateX(45deg) rotateY(45deg) rotateZ(360deg); }
+}
+
+@keyframes pulseCore {
+    0% { transform: scale(0.9); box-shadow: 0 0 15px #3b82f6; }
+    100% { transform: scale(1.1); box-shadow: 0 0 30px #3b82f6, 0 0 50px #1d4ed8; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+/* Класата за четвртиот дијагонален прстен */
+.ring-w {
+    animation: rotateW 3.5s linear infinite;
+}
+
+/* Анимацијата за аголот од горе-десно кон долу-лево */
+@keyframes rotateW {
+    0% { transform: rotateX(-45deg) rotateY(45deg) rotateZ(0deg); }
+    100% { transform: rotateX(-45deg) rotateY(45deg) rotateZ(360deg); }
+}
+/* =========================================
+   ДЕТАЛЕН ОПИС (ТЕКСТ БЛОК ПОД ГАЛЕРИЈАТА)
+   ========================================= */
+
+/* АЖУРИРАНО: Основна секција со position: relative; */
+.facilities-summary-section {
+    padding: 80px 5%;
+    background-color: transparent; /* Ја отстрануваме претходната бела позадина */
+    text-align: center;
+    position: relative; /* Овозможува позиционирање на псевдо-елементот */
+    overflow: hidden; /* Спречува проширување на позадината надвор од секцијата */
+}
+
+/* НОВО: Псевдо-елемент за позадинската слика со опацитивност */
+.facilities-summary-section::before {
+    content: ""; /* Задолжително за псевдо-елементи */
+    position: absolute; /* Позиционирање во однос на секцијата */
+    top: 0;
+    left: 0;
+    width: 100%; /* Целосна ширина */
+    height: 100%; /* Целосна висина */
+    
+    /* ТУКА ЈА ПОСТАВУВАШ СЛИКАТА */
+    background-image: url('https://www.anit.it/wp-content/uploads/2025/07/iStock-1176455904-scaled.jpg'); /* Сликата од библиотеката */
+    background-size: cover; /* Ја проширува сликата да ја покрие целата секција */
+    background-position: center; /* Ја центрира сликата */
+    
+    /* ТУКА ЈА ПОСТАВУВАШ ОПАЦИТИВНОСТА (помал опацити) */
+    opacity: 0.15; /* Оваа вредност ја прави сликата многу суптилна (0.15 = 15%) */
+    
+    z-index: -1; /* Го поставува псевдо-елементот зад содржината */
+}
+
+/* Овие делови остануваат исти, само ги потврдувам */
+.fs-container {
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+.fs-title {
+    font-size: 38px;
+    color: #1e3a5f; /* Темната сина боја на училиштето */
+    margin-bottom: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.fs-title .highlight-yellow {
+    color: #f59e0b; /* Златна боја */
+}
+
+/* Оваа бела табла сега е напред и не-проирна */
+.fs-text-box {
+    background: #f8fafc; /* Многу светла сиво-сина позадина */
+    padding: 40px 50px;
+    border-radius: 12px;
+    border-left: 5px solid #f59e0b; /* Акцентна линија од левата страна */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    position: relative;
+    text-align: justify; /* Го порамнува текстот убаво од двете страни */
+}
+
+/* Икона за наводник */
+.quote-icon {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    font-size: 30px;
+    color: #f59e0b;
+    background: #ffffff; /* Бела позадина за да ја 'скрие' позадинската слика */
+    padding: 0 10px;
+}
+
+.fs-text-box p {
+    font-size: 17px;
+    line-height: 1.8; /* Зголемен проред за текстот да 'дише' */
+    color: #475569; 
+    font-style: italic; /* Го задржуваме италик стилот од сликата */
+    margin: 0;
+}
+
+/* Респонзивност за мобилен */
+@media (max-width: 768px) {
+    .fs-title { 
+        font-size: 28px; 
+    }
+    .fs-text-box { 
+        padding: 30px 20px; 
+        text-align: left; /* На мобилен е подобро да е лево порамнет */
+    }
+    .quote-icon {
+        left: 10px;
+    }
+}
+/* =========================================
+   МОДЕРЕН БЕСКОНЕЧЕН СКРОЛЕР (MARQUEE 2.0)
+   ========================================= */
+.modern-scroll-section {
+    padding: 60px 0;
+    background: #f1f5f9;
+    overflow: hidden; 
+}
+
+.scroll-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden; /* Спречува појавување на хоризонтален скролбар */
+}
+
+.scroll-track {
+    display: flex;
+    width: max-content; 
+    /* Анимацијата трае 25 секунди за еден циклус */
+    animation: scrollInfinite 25s linear infinite; 
+}
+
+/* Кога ќе помине глувчето - ЗАПРИ */
+.scroll-track:hover {
+    animation-play-state: paused;
+}
+
+.scroll-card {
+    width: 350px;
+    height: 450px;
+    background: #fff;
+    margin: 0 15px; /* 15px лево + 15px десно = 30px маргина */
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; 
+}
+
+.scroll-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.scroll-card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+.card-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-info h3 {
+    color: #1e3a5f;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.card-info p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* СОВРШЕНО МАПИРАНА АНИМАЦИЈА */
+@keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    /* (350px ширина + 30px маргина) * 5 картички = 1900px */
+    100% { transform: translateX(-1900px); } 
+}
+
+/* Прилагодување за мобилни уреди */
+@media (max-width: 768px) {
+    .scroll-card {
+        width: 280px; /* Помали картички за мобилен */
+        height: 400px;
+    }
+    .scroll-track {
+        /* Користиме друга анимација за мобилен поради другата ширина */
+        animation-name: scrollInfiniteMobile;
+    }
+}
+
+/* Анимација за мобилен */
+@keyframes scrollInfiniteMobile {
+    0% { transform: translateX(0); }
+    /* (280px ширина + 30px маргина) * 5 картички = 1550px */
+    100% { transform: translateX(-1550px); }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* =========================================
+   ВОНРЕДНИ УЧЕНИЦИ СЕКЦИЈА
+   ========================================= */
+.extra-students-section {
+    padding: 80px 5%;
+    background: #f8fafc;
+}
+
+/* Картички за III и IV степен */
+.degrees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.degree-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.degree-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.degree-content {
+    padding: 30px;
+    border-top: 4px solid #f59e0b; /* Жолтата линија од твојата слика */
+}
+
+.degree-content h3 {
+    font-size: 24px;
+    color: #475569;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.struka-text {
+    font-style: italic;
+    color: #64748b;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.degree-content h4 {
+    color: #1e3a5f;
+    margin-bottom: 10px;
+}
+
+.profile-list {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-list li {
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+.profile-list i {
+    color: #f59e0b; /* Портокаловиот дијамант */
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+/* Информативни Панели (Пријавување, Испити...) */
+.info-panels-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-panel {
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid #1e3a5f;
+}
+
+.panel-title {
+    font-size: 22px;
+    color: #1e3a5f;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+.panel-title i {
+    color: #38bdf8;
+    margin-right: 10px;
+}
+
+.panel-body p {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Линкови за документи */
+.doc-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.doc-links a {
+    background: #f1f5f9;
+    color: #1e3a5f;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.doc-links a:hover {
+    background: #1e3a5f;
+    color: #fff;
+}
+
+/* Кутии за уплатници */
+.payment-box {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.payment-box h4 {
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+/* Сликите за уплатници - ограничени за да не се преголеми */
+.uplatnica-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-height: 300px; /* Да не ја преземат цела страна */
+    object-fit: contain;
+}
+
+.warning-text {
+    background: #fffbeb;
+    color: #b45309;
+    padding: 15px;
+    border-left: 4px solid #f59e0b;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Копчиња */
+.action-btns {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.btn-outline-blue {
+    border: 2px solid #1e3a5f;
+    color: #1e3a5f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-outline-blue:hover {
+    background: #1e3a5f;
+    color: #fff;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 30px 0;
+}
+
+/* Респонзивност */
+@media (max-width: 768px) {
+    .degrees-grid { grid-template-columns: 1fr; }
+    .info-panel { padding: 25px; }
+}
+/* Порамнување и маргина за главниот наслов во секцијата */
+.extra-students-section .section-header {
+    text-align: center;
+    margin-bottom: 60px; /* Ова ќе го оддалечи од картичките долу */
+}
+
+.extra-students-section .section-header h2 {
+    margin-bottom: 15px; /* Простор помеѓу самиот наслов и текстот под него */
+}
+/* =========================================
+   ТРИГОДИШНО ОБРАЗОВАНИЕ (ЗИГ-ЗАГ РАСПОРЕД)
+   ========================================= */
+
+/* АЖУРИРАНО: Основна секција со position: relative; */
+.three-year-section {
+    padding: 80px 5%;
+    background-color: transparent; /* Ја отстрануваме претходната бела позадина */
+    position: relative; /* Овозможува позиционирање на псевдо-елементот */
+    overflow: hidden; /* Спречува проширување на позадината надвор од секцијата */
+}
+
+/* НОВО: Псевдо-елемент за позадинската слика со опацитивност */
+.three-year-section::before {
+    content: ""; /* Задолжително за псевдо-елементи */
+    position: absolute; /* Позиционирање во однос на секцијата */
+    top: 0;
+    left: 0;
+    width: 100%; /* Целосна ширина */
+    height: 100%; /* Целосна висина */
+    
+    /* ТУКА ЈА ПОСТАВУВАШ НОВАТА СЛИКА */
+    background-image: url('https://media.istockphoto.com/id/1202287160/vector/power-line-graphic-black-white-landscape-sketch-illustration-vector.jpg?s=612x612&w=0&k=20&c=4-0cm2JW8vAnOVXjCrjSMtSeIxnkdTsMDKyD3QzQs0w='); 
+    background-size: cover; /* Ја проширува сликата да ја покрие целата секција */
+    background-position: center; /* Ја центрира сликата */
+    
+    /* ТУКА ЈА ПОСТАВУВАШ ОПАЦИТИВНОСТА (помал опацити) */
+    opacity: 0.10; /* Оваа вредност ја прави сликата многу суптилна (0.10 = 10%) за подобра читливост на текстот */
+    
+    z-index: -1; /* Го поставува псевдо-елементот зад содржината */
+}
+
+.three-year-section .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* АЖУРИРАНО: Го задржуваме контејнерот на содржината бел */
+.profiles-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Ова овозможува содржината да остане чиста и читлива на бела позадина */
+    padding: 50px; /* Додаваме малку внатрешен простор */
+    border-radius: 12px; /* По желба: заоблени агли за контејнерот */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* По желба: лесна сенка за длабочина */
+}
+
+.profile-row {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+/* Последната редица нема маргина на дното */
+.profile-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Оваа класа го превртува редоследот за вториот профил (Слика лево, Текст десно) */
+.reverse-row {
+    flex-direction: row-reverse;
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.profile-visual {
+    flex: 1;
+}
+
+.profile-title {
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.orange-line {
+    width: 50px;
+    height: 3px;
+    background-color: #f59e0b; /* Портокалова боја од Пупин */
+    margin-bottom: 25px;
+}
+
+.profile-desc {
+    font-style: italic; /* За да биде како на сликата */
+    font-size: 17px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.profile-bullets {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-bullets li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.profile-bullets i {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: #f59e0b;
+    font-size: 10px;
+}
+
+/* Слики и рамки */
+.profile-img-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.job-opportunities {
+    margin-top: 25px;
+    padding-left: 15px;
+    border-left: 3px solid #e2e8f0;
+}
+
+.job-opportunities p {
+    font-style: italic;
+    font-size: 18px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.pdf-download-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #f59e0b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.pdf-download-link:hover {
+    color: #1e3a5f;
+    text-decoration: underline;
+}
+
+/* Респонзивност за мобилен */
+@media (max-width: 768px) {
+    .profile-row, 
+    .reverse-row {
+        flex-direction: column; /* На мобилен се редат едно под друго */
+        gap: 30px;
+    }
+    
+    .profiles-container {
+        padding: 30px; /* Помал простор на мобилен */
+    }
+}
+/* =========================================
+   ВРЕМЕНСКА ЛИНИЈА (TIMELINE) ЗА ПРООДНОСТ
+   ========================================= */
+.timeline-section {
+    padding: 80px 5%;
+    background: #ffffff;
+}
+
+.timeline-section .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-section .section-header p {
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 2px solid #cbd5e1; /* Вертикалната линија */
+    padding-left: 40px;
+    position: relative;
+}
+
+.timeline-item {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Кругчето на линијата */
+.timeline-marker {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #94a3b8;
+    background-color: #ffffff;
+    left: -49px; /* Пресметано за да лежи точно на линијата */
+    top: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 22px;
+    color: #1e3a5f;
+    margin-bottom: 15px;
+}
+
+.timeline-content .sub-heading {
+    font-size: 18px;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.timeline-content .small-text {
+    font-size: 13px;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* Листи со портокалови икони */
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.timeline-list li {
+    margin-bottom: 8px;
+    color: #475569;
+    display: flex;
+    align-items: flex-start;
+}
+
+.timeline-list li i {
+    color: #f59e0b; /* Портокаловата боја од сликите */
+    font-size: 12px;
+    margin-top: 5px;
+    margin-right: 12px;
+}
+
+/* Кутии за уплатници специфично за timeline */
+.timeline-content .payment-box {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.timeline-content .payment-box p {
+    margin-bottom: 5px;
+}
+
+/* Респонзивност - помали маргини на мобилен */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 25px;
+    }
+    .timeline-marker {
+        left: -34px;
+    }
+}
+.subject-link {
+    color: #475569; 
+    text-decoration: none; /* Ова ја трга цртата */
+    font-weight: 600; 
+    transition: color 0.3s ease; 
+}
+
+.subject-link:hover {
+    color: #f59e0b; /* Портокалова боја при ховер */
+    text-decoration: none; 
+}
+/* =========================================
+   УНИКАТНИ ТЕХНОЛОШКИ КАРТИЧКИ (4 ГОДИШНО)
+   ========================================= */
+.four-year-tech-section {
+    padding: 100px 5% 150px 5%; /* Зголемена долна маргина од 100px на 150px */
+    background-color: #0b1120;
+    color: #fff;
+    overflow: visible; /* Исклучуваме hidden за да може картичките да 'дишат' на дното */
+    position: relative;
+}
+
+/* Прилагодување на главниот наслов за темна позадина */
+.four-year-tech-section .section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.four-year-tech-section .section-header h2 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.four-year-tech-section .section-header p {
+    color: #cbd5e1;
+    font-size: 18px;
+}
+
+/* Контејнер за картичките */
+/* 2. Му овозможуваме на блокот за картички да се шири во висина */
+.tech-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: auto; /* Ова е клучот - дозволуваме висината да биде автоматска */
+    min-height: 100%; /* Обезбедува целосна висина ако е потребно */
+}
+
+/* 3. Отстрануваме overflow hidden од самите картички за да не се сече текстот */
+.tech-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    width: calc(33.333% - 20px);
+    min-width: 320px;
+    padding: 30px 30px 40px 30px; /* Малку повеќе простор долу за картичката */
+    position: relative;
+    
+    /* ОВИЕ СЕ НАЈВАЖНИТЕ ПРОМЕНИ */
+    overflow: visible; /* ИСКЛУЧУВАМЕ HIDDEN за да не се сече содржината */
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Дозволуваме висината на секоја картичка да зависи од текстот */
+}
+/* Пулсирачки ефект во позадина (се активира на ховер) */
+.card-glow-overlay {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+    filter: blur(60px);
+}
+
+/* Хедер на картичка */
+.card-header {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.card-header h3 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Содржина на картичка */
+.card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tech-desc {
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Листа на предмети со поразлични икони */
+.tech-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Ја турка содржината надолу за сите картички да бидат исти */
+}
+
+.tech-list li {
+    margin-bottom: 10px;
+    color: #e2e8f0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.tech-list i {
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+/* Вработување и копче */
+.tech-jobs {
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-jobs h4 {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tech-jobs p {
+    color: #cbd5e1;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.btn-tech-download {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* =========================================
+   СПЕЦИФИЧНИ БОИ ЗА СЕКОЈА КАРТИЧКА
+   ========================================= */
+
+/* 1. Компјутери - Неонско Сина */
+.kta-card .tech-icon,
+.kta-card .tech-list i { color: #22d3ee; }
+
+.kta-card .card-glow-overlay { background: #22d3ee; }
+
+.btn-tech-download { border: 2px solid #22d3ee; color: #22d3ee; }
+.btn-tech-download:hover { background: #22d3ee; color: #fff; box-shadow: 0 0 20px rgba(34, 211, 238, 0.5); }
+
+.kta-card:hover { 
+    border-color: #22d3ee; 
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.2);
+    background: rgba(34, 211, 238, 0.05);
+}
+.kta-card:hover .card-glow-overlay { opacity: 0.2; }
+
+
+/* 2. Електроника - Неонско Виолетова */
+.et-card .tech-icon,
+.et-card .tech-list i { color: #a855f7; }
+
+.et-card .card-glow-overlay { background: #a855f7; }
+
+.et-card .btn-tech-download { border: 2px solid #a855f7; color: #a855f7; }
+.et-card .btn-tech-download:hover { background: #a855f7; color: #fff; box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+
+.et-card:hover { 
+    border-color: #a855f7; 
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+    background: rgba(168, 85, 247, 0.05);
+}
+.et-card:hover .card-glow-overlay { opacity: 0.2; }
+
+
+/* 3. Енергетика - Неонско Жолта */
+.energetika-card .tech-icon,
+.energetika-card .tech-list i { color: #f59e0b; }
+
+.energetika-card .card-glow-overlay { background: #f59e0b; }
+
+.energetika-card .btn-tech-download { border: 2px solid #f59e0b; color: #f59e0b; }
+.energetika-card .btn-tech-download:hover { background: #f59e0b; color: #fff; box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+
+.energetika-card:hover { 
+    border-color: #f59e0b; 
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+    background: rgba(245, 158, 11, 0.05);
+}
+.energetika-card:hover .card-glow-overlay { opacity: 0.2; }
+
+
+/* Глобален ефект на ховер (пораснување) */
+.tech-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Респонзивност */
+@media (max-width: 1024px) {
+    .tech-card { width: calc(50% - 20px); } /* 2 картички во ред на таблет */
+}
+
+@media (max-width: 768px) {
+    .tech-cards-container { flex-direction: column; align-items: center; }
+    .tech-card { width: 100%; max-width: 400px; } /* 1 картичка во ред на мобилен */
+}
+/* =========================================
+   ИНТЕРАКТИВНА КУТИЈА ЗА ПЕТТИ СТЕПЕН
+   ========================================= */
+
+/* =========================================
+   СЕКЦИЈА ЗА ПЕТТИ СТЕПЕН (СО ПОЗАДИНСКА СЛИКА)
+   ========================================= */
+
+/* АЖУРИРАНО: Основна секција за Петти Степен */
+.extra-students-section {
+    padding: 80px 5%;
+    background-color: transparent; /* Транспарентна за да се гледа сликата */
+    position: relative; /* Клучно за псевдо-елементот */
+    overflow: hidden;
+}
+
+/* НОВО: Псевдо-елемент со сликата од бандерите */
+.extra-students-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Истата слика што ја побара */
+    background-image: url('https://bgvfund.org/wp-content/uploads/2024/11/1-1.jpg');
+    background-size: cover;
+    background-position: center;
+    
+    opacity: 0.10; /* Суптилен ефект од 10% */
+    z-index: -1; /* Оди позади сета содржина */
+}
+
+/* Насловот нека биде убаво позициониран */
+.extra-students-section .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative; /* За да биде над позадинската слика */
+}
+
+/* Контејнерот што ги држи сите панели */
+.info-panels-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative; /* За да биде над позадинската слика */
+}
+
+/* НОВО: Стил за информативните панели (Пријавување и Испити) за да бидат бели картички */
+.info-panel {
+    background-color: #ffffff; /* Бела позадина за да се чита текстот */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Лесна сенка */
+    margin-bottom: 40px;
+}
+
+.panel-title {
+    font-size: 24px;
+    color: #1e3a5f;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f59e0b; /* Портокалова линија под насловот */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.panel-body p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 15px;
+}
+
+.warning-text {
+    font-weight: bold;
+    color: #d97706; /* Потемна портокалова за напомена */
+    background: #fef3c7;
+    padding: 10px 15px;
+    border-left: 4px solid #d97706;
+    border-radius: 4px;
+}
+
+/* ОВА ОСТАНУВА ИСТО (Интерактивната кутија што веќе има бела позадина) */
+.specialist-interactive-box {
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+    min-height: 450px; 
+}
+
+/* Лева страна со копчиња */
+.specialist-tabs {
+    background: #1e3a5f;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-btn {
+    color: #ffffff;
+    padding: 16px 25px;
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn:last-child {
+    border-bottom: none;
+}
+
+/* Активното копче (Портокалово) */
+.tab-btn.active {
+    background-color: #f59e0b;
+    border-left: 5px solid #fff; /* Дава убав ефект дека е избрано */
+}
+
+/* Десна страна со листи */
+.specialist-content {
+    width: 45%;
+    padding: 30px 40px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Скриени панели по дифолт */
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Прикажи го активниот панел */
+.tab-panel.active-panel {
+    display: block;
+}
+
+/* Анимација за меко појавување на текстот */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Респонзивност */
+@media (max-width: 900px) {
+    .specialist-interactive-box {
+        flex-direction: column;
+    }
+    .specialist-tabs, .specialist-content {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   КОНТАКТ СЕКЦИЈА
+   ========================================= */
+.contact-section {
+    padding: 80px 5%;
+    background-color: #ffffff;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: stretch; /* За да бидат исти по висина */
+}
+
+/* Лева страна - Информации */
+.contact-info {
+    flex: 1;
+    max-width: 400px;
+}
+
+.contact-info h2 {
+    font-size: 36px;
+    color: #1e3a5f; /* Темно сината боја на Пупин */
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact-orange-line {
+    width: 60px;
+    height: 4px;
+    background-color: #f59e0b; /* Портокаловата линија */
+    margin-bottom: 40px;
+}
+
+.contact-block {
+    margin-bottom: 25px;
+}
+
+.contact-block h4 {
+    color: #f59e0b;
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.contact-block p {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+/* Социјални мрежи */
+.contact-socials {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.contact-socials a {
+    color: #1e3a5f;
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-socials a:hover {
+    color: #f59e0b;
+    transform: translateY(-3px);
+}
+
+/* Десна страна - Мапа */
+.contact-map {
+    flex: 2; /* Мапата зазема повеќе простор */
+    min-height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Модерна сенка */
+}
+
+/* Респонзивност за мобилен и таблет */
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-info {
+        max-width: 100%;
+    }
+    
+    .contact-map {
+        min-height: 400px;
+        width: 100%;
+    }
+}
+/* =========================================
+   ПРЕЛОАДЕР (ТЕМЕН И ПОДОЛГ)
+   ========================================= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #012d94; /* Темна позадина (модерна темно-сина) */
+    z-index: 99999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Транзицијата ја направив 0.8s за помазно и поспоро избледување */
+    transition: opacity 0.8s ease, visibility 0.8s ease; 
+}
+
+/* Анимацијата останува иста */
+.loader {
+    height: 64px;
+    aspect-ratio: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.loader:before,
+.loader:after {
+    content: "";
+    border: 8px solid #f59e0b; /* Портокалова боја */
+    box-sizing: content-box;
+    margin: auto;
+    aspect-ratio: 1;
+    animation: 
+      l10-0 infinite .5s  steps(4,jump-none) alternate,
+      l10-1 infinite  2s steps(2,jump-none);
+}
+.loader:after {
+    animation-delay: -.3s;
+}
+
+@keyframes l10-0 {
+    0% {width: 0% }
+    to {width: 75%}
+}
+@keyframes l10-1 {
+    0% {border-radius: 0%  }
+    to {border-radius: 100%}
+}
+/* =========================================
+   ЈАВНИ НАБАВКИ - СЕКЦИЈА
+   ========================================= */
+.javni-nabavki-section {
+    padding: 80px 20px;
+    background-color: #fcfcfc;
+    display: flex;
+    justify-content: center;
+}
+.jn-container {
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-left: 5px solid rgb(12, 34, 231); /* Сината боја од логото */
+}
+.jn-container h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 700;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+.document-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid #dcdcdc;
+    margin-left: 10px;
+}
+.document-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+.document-list li::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 12px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #b0b0b0;
+    transition: all 0.3s ease;
+}
+.document-list li:hover::before {
+    border-color: rgb(12, 34, 231);
+    background: rgb(12, 34, 231);
+}
+.document-list a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #555;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+}
+.document-list a:hover {
+    color: rgb(12, 34, 231);
+    transform: translateX(5px);
+}
+.pdf-icon {
+    color: #f39c12; /* Портокалова/жолта за PDF */
+    margin-right: 15px;
+    font-size: 22px;
+}
+
+/* =========================================
+   ЛЕБДЕЧКИ ПРАШАЛНИК (ТОПКАТА)
+   ========================================= */
+.floating-q {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(255, 153, 0); /* Жолтата боја на Пупин */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999; /* Најгоре од сè */
+    
+    /* Анимација која го движи низ екранот */
+    animation: floatAround 18s infinite alternate ease-in-out;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.floating-q:hover {
+    transform: scale(1.1);
+    background-color: rgb(3, 16, 138); /* Се менува во сино на ховер */
+    animation-play-state: paused; /* Застанува кога ќе поминеш со маус */
+}
+
+/* Патеката по која топката се движи низ екранот */
+@keyframes floatAround {
+    0%   { top: 15%; left: 10%; }
+    25%  { top: 80%; left: 30%; }
+    50%  { top: 20%; left: 85%; }
+    75%  { top: 75%; left: 75%; }
+    100% { top: 40%; left: 15%; }
+}
+
+/* =========================================
+   ЕФЕКТ: СИТЕН ГЛИТЕР (ТРАГАТА)
+   ========================================= */
+.glitter-particle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none; /* За да не пречат при кликање на други работи */
+    z-index: 9998; /* Веднаш зад топката */
+    animation: sparkleFade 1s forwards ease-out;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); /* Мал сјај околу самата светка */
+}
+
+/* Анимација: светката се намалува, паѓа малку надолу и избледува */
+@keyframes sparkleFade {
+    0% { transform: scale(1) translateY(0); opacity: 1; }
+    100% { transform: scale(0) translateY(30px); opacity: 0; }
+}
+
+/* =========================================
+   ТОСТ ПРОЗОРЕЦ (ФАКТИ ЗА УЧИЛИШТЕТО)
+   ========================================= */
+.fact-toast {
+    position: fixed;
+    bottom: -150px; /* Скриен надвор од екранот на почеток */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(3, 16, 139);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Ефект на отскокнување */
+    max-width: 90%;
+    width: 400px;
+}
+
+.fact-toast.show {
+    bottom: 40px; /* Се појавува нагоре кога ќе се додаде класата .show */
+}
+
+.fact-toast p {
+    margin: 0 0 15px 0;
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.fact-toast button {
+    background-color: rgb(255, 255, 0);
+    border: none;
+    color: #111;
+    padding: 8px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.fact-toast button:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+/* =========================================
+   ПРЕЛОАДЕР (БРАНОВИ) - СТИЛОВИ
+   ========================================= */
+
+/* Оверлејот што го покрива екранот додека се вчитува */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1d102b; /* Чиста бела позадина */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Класа за криење на прелоадерот */
+.loader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Самиот прелоадер (модифициран од твојот код) */
+/* Самиот прелоадер (направен подолг) */
+.wave-loader {
+    display: inline-grid;
+    height: 40px; /* Малку ја намалив висината за да изгледа поелегантно кога е подолг */
+    aspect-ratio: 10; /* Ова е клучот: го прави многу поширок/подолг (беше 6) */
+}
+
+.wave-loader:before,
+.wave-loader:after {
+    content: "";
+    grid-area: 1/1;
+    height: 100%;
+    /* Сината боја на Пупин за првиот бран */
+    --c: #0000 64%, rgb(12, 34, 231) 66% 98%, #0000 101%;
+    background:
+      radial-gradient(35% 146% at 50% 159%, var(--c)) 0 0,
+      radial-gradient(35% 146% at 50% -59%, var(--c)) 25% 100%;
+    /* Зголемено на 5 сегменти за да го пополни подолгиот простор */
+    background-size: calc(100%/5) 50%; 
+    background-repeat: repeat-x;
+    clip-path: inset(0 100% 0 0);
+    /* Ја зголемив анимацијата на 2s за да тече мазно низ подолгиот елемент */
+    animation: waveLoad 2s infinite linear; 
+}
+
+.wave-loader:after {
+    scale: -1;
+    /* Жолтата боја на Пупин за вториот (превртен) бран */
+    --c: #0000 64%, rgb(218, 186, 3) 66% 98%, #0000 101%;
+}
+
+@keyframes waveLoad {
+    50% { clip-path: inset(0); }
+    to { clip-path: inset(0 0 0 100%); }
+}
+/* =========================================
+   ДРЖАВНА МАТУРА - ЧИСТ ДИЗАЈН
+   ========================================= */
+
+.matura-page-wrapper {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px; /* Додадов и малку padding за да не се лепи текстот до ивиците ако е бела позадината */
+    font-family: inherit;
+    color: #030303;
+    background-color: #e3eaff; /* ОВА ЈА ПРАВИ ПОЗАДИНАТА БЕЛА */
+    border-radius: 12px; /* Мало заоблување на аглите за да изгледа поубаво */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Лесна сенка за да се одвои од позадината */
+}
+
+/* Обичен текст */
+.matura-text {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.italic-text {
+    font-style: italic;
+    color: #000000;
+}
+
+.matura-bold-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Главни Наслови со жолта линија */
+.matura-heading {
+    font-size: 28px;
+    color: #000000;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.matura-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 450px;
+    height: 3px;
+    background-color: rgb(255, 217, 0); /* Жолтата боја */
+}
+
+/* Помали наслови */
+.matura-subheading {
+    font-size: 22px;
+    color: #000000;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.matura-small-heading {
+    font-size: 18px;
+    color: #000000;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+/* Листа со големи жолти кругови */
+.matura-yellow-list {
+    list-style: none;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+.matura-yellow-list > li {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.matura-yellow-list > li::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(158, 3, 3);
+    border-radius: 50%;
+}
+
+/* Под-линкови (помалите жолти кругови од сликата) */
+.matura-sub-links {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+.matura-sub-links li {
+    margin-bottom: 8px;
+}
+.matura-sub-links a {
+    text-decoration: none;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+.matura-sub-links a:hover {
+    color: rgb(86, 0, 118);
+}
+.small-yellow-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: rgb(218, 186, 3);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Документи / Папки како линкови */
+.matura-doc-link {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.matura-doc-link a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+.matura-doc-link a:hover {
+    color: rgb(12, 34, 231);
+}
+.matura-doc-link i {
+    color: rgba(2, 61, 124, 0.973); /* Жолтата икона за документ */
+    font-size: 18px;
+    margin-right: 12px;
+}
+
+/* Празен простор за уплатницата */
+/* Контејнерот за уплатницата (сега без испрекинати линии) */
+.uplatnica-space {
+    margin: 30px 0;
+    width: 100%;
+    max-width: 600px; /* Малку проширено за да се чита убаво текстот на уплатницата */
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Самата слика од уплатницата */
+.uplatnica-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Лесна сенка за да изгледа како вистинска хартија */
+    border: 1px solid #ddd;
+}
+/* =========================================
+   КОМИЧЕН ПРЕЛОАДЕР (ЦРТАН ПАД) - ФИКСЕН
+   ========================================= */
+
+#comic-preloader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(34, 44, 134); /* Пупин сина боја */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999; /* Осигурува дека е над хедерот и видеото! */
+    overflow: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Класа која го крие прелоадерот */
+#comic-preloader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* За да не блокира кликање откако ќе исчезне */
+}
+
+.comic-scene {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comic-cap {
+    width: 250px; /* ГОЛЕМА КАПА */
+    animation: cartoonDrop 2s infinite ease-in-out;
+    transform-origin: bottom center; 
+}
+
+/* ФИЗИКА НА ЦРТАН ФИЛМ (Squish & Bounce) */
+@keyframes cartoonDrop {
+    0% { 
+        transform: translateY(-150vh) rotate(-20deg); 
+    }
+    30% { 
+        transform: translateY(0) rotate(10deg); /* Удира во средина */
+    }
+    40% { 
+        transform: translateY(-50px) rotate(-15deg); /* Мал отскок */
+    }
+    50% { 
+        transform: translateY(0) scaleY(0.4) scaleX(1.4); /* СПЛЕСКУВАЊЕ */
+    }
+    65% { 
+        transform: translateY(-250px) rotate(180deg) scale(1); /* Силно отскокнува повисоко */
+    }
+    100% { 
+        transform: translateY(150vh) rotate(360deg); /* Паѓа надвор од екранот надолу */
+    }
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документи | СЕТУГС"МИХАЈЛО ПУПИН"</title>
+    <link rel="icon" href="mpp.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    if (menu.style.width === "300px") {
+        menu.style.width = "0";
+    } else {
+        menu.style.width = "300px";
+    }
+}
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+    
+    // Ротација на стрелката (опционално)
+    var arrow = submenu.previousElementSibling.querySelector('.arrow');
+    if(arrow) arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+// Прелоадер
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('docs-preloader');
+    if(preloader){
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 600);
+        }, 1200);
+    }
+});
+</script>
+</head>
+<body id="pocetok" style="background-color: #f4f7fa;">
+
+    <div id="docs-preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: radial-gradient(circle, #143058 0%, #050814 100%); z-index: 999999; display: flex; justify-content: center; align-items: center; transition: opacity 0.6s ease;">
+        <div style="text-align: center;">
+            <i class="fas fa-folder-open" style="font-size: 5rem; color: #fca311; margin-bottom: 20px; animation: pulse 1.5s infinite;"></i>
+            <h2 style="color: #fff; font-family: montserrat; letter-spacing: 5px;">ДОКУМЕНТИ</h2>
+            <p style="color: #bac4d1; font-style: italic;">Се вчитува архивата...</p>
+        </div>
+    </div>
+
+    <header class="main-header" id="pocetok">
+    <div class="header-container">
+        <div class="logo">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
+            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="top-nav">
+                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
+                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="dokumenti.html" style="color:#fca311;">ДОКУМЕНТИ</a>
+            </div>
+
+            <ul class="main-nav">
+    <li><a href="index.html">ПОЧЕТНА</a></li>
+    
+    <li class="dropdown">
+        <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="zanas.html#info">Општи Информации</a></li>
+            <li><a href="zanas.html#istorija">Историја</a></li>
+            <li><a href="zanas.html#info">Мисија и Визија</a></li>
+            <li><a href="zanas.html#kadar">Наставен Колектив</a></li>
+            
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
+            <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
+            <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
+            <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
+            <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="informacii.html#oglasna">Огласна Табла</a></li>
+            <li><a href="informacii.html#upisi">Уписи</a></li>
+            <li><a href="informacii.html#natprevari">Натпревари</a></li>
+            <li><a href="informacii.html#denovi">Денови На Електротехника</a></li>
+            <li><a href="informacii.html#erasmus">ERASMUS+</a></li>
+            <li><a href="informacii.html#praksa">Практично Образование</a></li>
+            <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
+        </ul>
+    </li>
+
+    <li><a href="novosti.html">НОВОСТИ</a></li>
+    <li><a href="kontakt.html">КОНТАКТ</a></li>
+</ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero-video-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="GLAVNO.MOV" type="video/quicktime">
+        <source src="GLAVNO.MOV" type="video/mp4"> Вашиот прелистувач не поддржува видео.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">ДОКУМЕНТИ И ОБРАСЦИ</h1>
+        <p class="hero-subtitle">Сите потребни документи, пријави и процедури на едно место.</p>
+    </div>
+</section>
+
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    
+    <div class="side-menu-wrapper">
+        <div class="menu-header">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
+        </div>
+
+        <nav class="side-menu-links">
+            <a href="index.html">ПОЧЕТНА</a>
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
+                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="zanas-sub" class="submenu">
+                    <a href="zanas.html">Општи Информации</a>
+                    <a href="zanas.html">Историја</a>
+                    <a href="zanas.html">Мисија и Визија</a>
+                    <a href="zanas.html">Наставен Колектив</a>
+                    <a href="zanas.html">Училиштен Одбор</a>
+                </div>
+            
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
+                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="nastava-sub" class="submenu">
+                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
+                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
+                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
+                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
+                    <a href="nastava.html#peti-stepen">Петти Степен</a>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="info-sub" class="submenu">
+                    <a href="informacii.html">Огласна Табла</a>
+                    <a href="informacii.html">Уписи</a>
+                    <a href="informacii.html">Натпревари</a>
+                    <a href="informacii.html">Денови На Електротехника</a>
+                    <a href="informacii.html">ERASMUS+</a>
+                    <a href="informacii.html">Практично Образование</a>
+                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
+                </div>
+            </div>
+
+            <a href="novosti.html">НОВОСТИ</a>
+            <a href="kontakt.html">КОНТАКТ</a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="duplicate-procedure-section" style="padding: 80px 5%; background-color: #ffffff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        
+        <div class="section-title-wrapper" style="text-align: center; margin-bottom: 50px;">
+            <h2 style="color: #143058; font-family: montserrat; font-size: 2.2rem; margin-bottom: 15px;">Постапка за издавање на дупликат (препис) свидетелство или диплома</h2>
+            <div style="width: 300px; height: 4px; background: #fca311; margin: 0 auto;"></div>
+            <p style="color: #555; font-size: 1.1rem; margin-top: 20px;">Доколку сакате да извадите дупликат свидетелство или диплома, ве молиме следете ги следните чекори:</p>
+        </div>
+
+        <div class="steps-grid">
+            
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Поднесете барање</h4>
+                    <p>Поднесете <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%90%D0%A0%D0%90%D0%8A%D0%95-%D1%81%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D0%B5%D0%BB%D1%81%D1%82%D0%B2%D0%BE-%D0%B8-%D0%B4%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%D0%B0.pdf" style="color: #fca311; font-weight: bold; text-decoration: underline;" target="_blank">барање за издавање на диплома</a>. Барањето се поднесува кај секретарот на училиштето.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Службен весник</h4>
+                    <p>Потребно е пријавување во службен весник за изгубена или поништена диплома/свидетелство.</p>
+                </div>
+            </div>
+
+            <div class="step-card full-width-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Уплата на жиро сметка на училиштето</h4>
+                    <ul style="color: #555; margin-bottom: 20px; line-height: 1.8;">
+                        <li><strong>Цена за свидетелство:</strong> 500 ден.</li>
+                        <li><strong>Цена за диплома:</strong> 700 ден.</li>
+                        <li><strong>Цел на дознака:</strong> Издавање на дупликат свидетелство/диплома</li>
+                    </ul>
+                    <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/polaganje-ipiti-1024x768.jpg" alt="Уплатница 1" class="uplatnica-img">
+                </div>
+            </div>
+
+            <div class="step-card full-width-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Уплата на административна такса</h4>
+                    <p style="color: #555; margin-bottom: 20px;">Уплатете <strong>50 ден.</strong> административна такса.</p>
+                    <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/polaganje-ipiti-1024x768.jpg" alt="Уплатница 2" class="uplatnica-img">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="document-archive-section" style="padding: 80px 5%; background-color: #f9fbfd;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        
+        <div class="section-title-wrapper" style="text-align: center; margin-bottom: 50px;">
+            <h2 style="color: #143058; font-family: montserrat; font-size: 2.2rem; margin-bottom: 15px;">Преземање на документи</h2>
+            <div style="width: 100px; height: 4px; background: #fca311; margin: 0 auto;"></div>
+        </div>
+
+        <div class="docs-category-grid">
+            
+            <div class="doc-cat-card">
+                <div class="doc-cat-header">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Редовни ученици</h3>
+                </div>
+                <div class="doc-links-wrapper">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/redoven-ucenik-baranje.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за редовен ученик</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/redoven-ucenik-potvrda.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Потврда за редовен ученик</a>
+                </div>
+            </div>
+
+            <div class="doc-cat-card">
+                <div class="doc-cat-header">
+                    <i class="fas fa-user-clock"></i>
+                    <h3>Вонредни ученици</h3>
+                </div>
+                <div class="doc-links-wrapper">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D1%83%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0-1-%D0%B3%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за упис во 1ва година</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D1%83%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0-2-%D0%B3%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8.pdf"  target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за упис во 2ра година</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D1%83%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0-3-%D0%B3%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за упис во 3та година</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D1%83%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0-4-%D0%B3%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за упис во 4та година</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за полагање на испити</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B0-%D0%BF%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D1%83%D0%B2%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B8%D1%81%D0%BF%D0%B8%D1%82%D0%B8.pdf"  target="_blank" download class="modern-doc-link"><i class="fas fa-file-signature"></i> Записник за испити</a>
+                </div>
+            </div>
+
+            <div class="doc-cat-card">
+                <div class="doc-cat-header">
+                    <i class="fas fa-level-up-alt"></i>
+                    <h3>Вертикална проодност</h3>
+                </div>
+                <div class="doc-links-wrapper">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D1%83%D0%BF%D0%B8%D1%81-%D0%BF%D1%80%D0%B5%D0%BC%D0%B8%D0%BD.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за упис (премин)</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за полагање испити</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B0-%D0%BF%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D1%83%D0%B2%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B8%D1%81%D0%BF%D0%B8%D1%82%D0%B8.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-signature"></i> Записник за испити</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D1%83%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0-4-%D0%B3%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за упис во 4та година</a>
+                </div>
+            </div>
+
+            <div class="doc-cat-card">
+                <div class="doc-cat-header">
+                    <i class="fas fa-award"></i>
+                    <h3>Петти степен</h3>
+                </div>
+                <div class="doc-links-wrapper">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D1%83%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0-%D0%BF%D0%B5%D1%82%D1%82%D0%B8-%D1%81%D1%82%D0%B5%D0%BF%D0%B5%D0%BD.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за упис на V степен</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%91%D0%B0%D1%80%D0%B0%D1%9A%D0%B5-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B2%D0%BE%D0%BD%D1%80%D0%B5%D0%B4%D0%BD%D0%B8-5-%D1%81%D1%82%D0%B5%D0%BF%D0%B5%D0%BD.pdf"  target="_blank" download class="modern-doc-link"><i class="fas fa-file-alt"></i> Барање за полагање испити</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B0-%D0%BF%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D1%83%D0%B2%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B8%D1%81%D0%BF%D0%B8%D1%82%D0%B8.pdf"  target="_blank" download class="modern-doc-link"><i class="fas fa-file-signature"></i> Записник за испити</a>
+                </div>
+            </div>
+
+            <div class="doc-cat-card">
+                <div class="doc-cat-header">
+                    <i class="fas fa-university"></i>
+                    <h3>Државна матура</h3>
+                </div>
+                <div class="doc-links-wrapper">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%94%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0-%D0%9A%D0%A2%D0%90-2022-23.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Пријава - КТА</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%94%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0-%D0%95%D0%A2-2022-23.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Пријава - ЕТК</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%94%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0-%D0%95%D0%95-2022-23.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Пријава - ЕЕ</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D0%B8-%D0%B7%D0%B0-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D0%BD-%D0%B4%D0%B5%D0%BB-%D0%BE%D0%B4-%D0%94%D0%9C-2022-2023-KTA.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Интерен дел - КТА</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D0%B8-%D0%B7%D0%B0-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D0%BD-%D0%B4%D0%B5%D0%BB-%D0%BE%D0%B4-%D0%94%D0%9C-2022-2023-ET.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Интерен дел - ЕТК</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D0%B8-%D0%B7%D0%B0-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D0%BD-%D0%B4%D0%B5%D0%BB-%D0%BE%D0%B4-%D0%94%D0%9C-2022-2023-EE.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Интерен дел - ЕЕ</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D0%BE%D1%82%D0%B2%D1%80%D0%B4%D0%B0-%D0%B7%D0%B0-%D0%94%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Потврда за пријавување</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9A%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%86%D0%B8%D1%98%D0%B0-%D0%B7%D0%B0-%D0%B4%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Концепција</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%B7%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%9A%D0%B5.pdf" target="_blank" download class="modern-doc-link" target="_blank"><i class="fas fa-file-pdf"></i> Правилник</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%94%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Правила за полагање</a>
+                </div>
+            </div>
+
+            <div class="doc-cat-card">
+                <div class="doc-cat-header">
+                    <i class="fas fa-stamp"></i>
+                    <h3>Завршен испит</h3>
+                </div>
+                <div class="doc-links-wrapper">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D0%B8-%D0%B7%D0%B0-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D0%BD-%D0%B4%D0%B5%D0%BB-%D0%BE%D0%B4-%D0%97%D0%98_KTA.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Пријава - КТА</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D0%B8-%D0%B7%D0%B0-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D0%BD-%D0%B4%D0%B5%D0%BB-%D0%BE%D0%B4-%D0%97%D0%98_ET.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Пријава - ЕТК</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B8%D1%98%D0%B0%D0%B2%D0%B8-%D0%B7%D0%B0-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D0%BD-%D0%B4%D0%B5%D0%BB-%D0%BE%D0%B4-%D0%97%D0%98_EE.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Пријава - ЕЕ</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D0%BE%D1%82%D0%B2%D1%80%D0%B4%D0%B0-%D0%B7%D0%B0-%D0%97%D0%98.pdf" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Потврда</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/Prijava-zavrsen-ispit-III-stepen.pdf" download class="modern-doc-link" target="_blank"><i class="fas fa-file-pdf"></i> Пријава (III степен)</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9A%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%86%D0%B8%D1%98%D0%B0-%D0%B7%D0%B0-%D0%B4%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Концепција</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/Pravilnik-za-zavrsen-ispit.pdf" download class="modern-doc-link"><i class="fas fa-file-pdf" target="_blank"></i> Правилник</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%94%D1%80%D0%B6%D0%B0%D0%B2%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0.pdf" target="_blank" download class="modern-doc-link"><i class="fas fa-file-pdf"></i> Правила за полагање</a>
+                </div>
+            </div>
+
+        </div> 
+    </div>
+</section>
+
+<div class="footer-cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+        <h2 class="cta-heading">
+            <span class="cta-serif">Имате прашања?</span> 
+            <span class="cta-italic">слободно контактирајте не</span>
+        </h2>
+        <a href="kontakt.html" class="btn-cta-contact">КОНТАКТ</a>
+    </div>
+</div>
+
+
+
+<footer class="complex-footer">
+    <div class="footer-grid-container">
+        
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Михајло Пупин</h4>
+            <p class="f-about-text">Традиција, иновација и квалитетно образование. Создаваме лидери во електротехниката и ИТ секторот повеќе од 6 децении.</p>
+            
+            <div class="f-social-modern">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+               <a href="https://www.instagram.com/explore/locations/744265755952687/setugs-mihajlo-pupin--skopje/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://mk.linkedin.com/in/angelka-andreski-61632848" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Брза Навигација</h4>
+            <ul class="f-links">
+                <li><a href="novosti.html"><i class="fas fa-angle-right f-arrow"></i> Сите новости</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Огласна табла</a></li>
+                <li><a href="maturski.html"><i class="fas fa-angle-right f-arrow"></i> Државна матура</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Уписи 2026/27</a></li>
+                <li><a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-angle-right f-arrow"></i> Е-Дневник</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Е-Билтен</h4>
+            <p class="f-about-text">Добивајте ги најновите вести, известувања за натпревари и уписи директно на вашиот е-маил.</p>
+            
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Успешно се пријавивте за Е-Билтенот!');">
+                <input type="email" placeholder="Вашиот е-маил..." required>
+                <button type="submit" title="Пријави се"><i class="fas fa-envelope"></i></button>
+            </form>
+        </div>
+
+        <div class="f-col f-contact-info">
+            <h4><span class="diamond-bullet">◆</span> Контакт</h4>
+            <div class="f-contact-row">
+                <i class="fas fa-map-marker-alt"></i> 
+                <span>ул. Благоја Стефковски бр. 6<br>1000 Скопје</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-phone-alt"></i> 
+                <span>+389 2 609 0307<br>+389 2 609 0308</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-envelope"></i> 
+                <span><a href="mailto:mpskontakt@yahoo.com">mpskontakt@yahoo.com</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line">
+        <div class="fb-container">
+            <div class="fb-left">
+                &copy; 2026 СЕТУ <b>Михајло Пупин</b>. Сите права се заштитени.
+            </div>
+            <div class="fb-center">
+                <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo">
+            </div>
+            <div class="fb-right">
+                Изработено од Мартин Дамкоски <i class="fas fa-heart" style="color:#ff00c3;"></i> за МАССУМ
+            </div>
+        </div>
+        
+        <a href="#pocetok" class="back-to-top-btn" title="Оди најгоре"><i class="fas fa-arrow-up"></i></a>
+    </div>
+</footer>
+</body>
+</html>

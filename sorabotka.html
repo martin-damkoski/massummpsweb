@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СОРАБОТКА | СЕТУГС"МИХАЈЛО ПУПИН"</title>
+    <link rel="icon" href="mpp.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+function toggleMenu() {
+            var menu = document.getElementById("sideMenu");
+            menu.style.width = (menu.style.width === "300px") ? "0" : "300px";
+        }
+        
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('exam-preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => { preloader.style.display = 'none'; }, 600);
+            }, 1500);
+        });
+
+        // СКРИПТА ЗА ОТВОРАЊЕ НА ВЕСТИТЕ ВО ПОПАП (MODAL)
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const modal = document.getElementById("newsModal");
+            const spanClose = document.querySelector(".close-modal");
+
+            if(spanClose) {
+                spanClose.onclick = function() {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            }
+
+            document.querySelectorAll('.bn-read-more').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    const card = this.closest('.big-news-card');
+                    
+                    const title = card.querySelector('h4').innerText;
+                    const dateHTML = card.querySelector('.bn-date').innerHTML;
+                    const imgSrc = card.querySelector('.bn-img img').src;
+                    
+                    const fullTextDiv = card.querySelector('.bn-full-text');
+                    const fullText = fullTextDiv ? fullTextDiv.innerHTML : "<p>Текстот за оваа вест се подготвува...</p>";
+
+                    document.getElementById('modalTitle').innerText = title;
+                    document.getElementById('modalDate').innerHTML = dateHTML;
+                    document.getElementById('modalImg').src = imgSrc;
+                    document.getElementById('modalText').innerHTML = fullText;
+
+                    modal.style.display = "flex";
+                    document.body.style.overflow = "hidden"; 
+                });
+            });
+        });
+</script>
+</head>
+<body>
+    <header class="main-header" id="pocetok">
+    <div class="header-container">
+        <div class="logo">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
+            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="top-nav">
+                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
+                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
+            </div>
+
+            <ul class="main-nav">
+    <li><a href="index.html">ПОЧЕТНА</a></li>
+    
+   <li class="dropdown">
+        <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="zanas.html#info">Општи Информации</a></li>
+            <li><a href="zanas.html#istorija">Историја</a></li>
+            <li><a href="zanas.html#info">Мисија и Визија</a></li>
+            <li><a href="zanas.html#kadar">Наставен Колектив</a></li>
+            
+        </ul>
+    </li>
+ <li class="dropdown">
+        <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
+            <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
+            <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
+            <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
+            <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="informacii.html#oglasna">Огласна Табла</a></li>
+            <li><a href="informacii.html#upisi">Уписи</a></li>
+            <li><a href="informacii.html#natprevari">Натпревари</a></li>
+            <li><a href="informacii.html#denovi">Денови На Електротехника</a></li>
+            <li><a href="informacii.html#erasmus">ERASMUS+</a></li>
+            <li><a href="informacii.html#praksa">Практично Образование</a></li>
+            <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
+        </ul>
+    </li>
+
+    <li><a href="novosti.html">НОВОСТИ</a></li>
+    <li><a href="kontakt.html">КОНТАКТ</a></li>
+</ul>
+        </nav>
+    </div>
+</header>
+<section class="hero-video-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="GLAVNO.MOV" type="video/quicktime">
+        <source src="GLAVNO.MOV" type="video/mp4"> Вашиот прелистувач не поддржува видео.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">МЕЃУНАРОДНА СОРАБОТКА</h1>
+        <p class="hero-subtitle">Нашите партнерства и соработки со одредени институции
+        </p>
+        
+        <div class="hero-btns">
+            <a href="delodnas.html" class="btn-main">СТАНИ ДЕЛ ОД НАС</a>
+            <a href="struki.html" class="btn-outline">ИСТРАЖИ ГИ СТРУКИТЕ</a>
+        </div>
+    </div>
+</section>
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    
+    <div class="side-menu-wrapper">
+        <div class="menu-header">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
+        </div>
+
+        <nav class="side-menu-links">
+            <a href="index.html">ПОЧЕТНА</a>
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
+                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="zanas-sub" class="submenu">
+                    <a href="zanas.html">Општи Информации</a>
+                    <a href="zanas.html">Историја</a>
+                    <a href="zanas.html">Мисија и Визија</a>
+                    <a href="zanas.html">Наставен Колектив</a>
+                    <a href="zanas.html">Училиштен Одбор</a>
+                </div>
+            
+            
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
+                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="nastava-sub" class="submenu">
+                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
+                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
+                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
+                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
+                    <a href="nastava.html#peti-stepen">Петти Степен</a>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="info-sub" class="submenu">
+                    <a href="informacii.html">Огласна Табла</a>
+                    <a href="informacii.html">Уписи</a>
+                    <a href="informacii.html">Натпревари</a>
+                    <a href="informacii.html">Денови На Електротехника</a>
+                    <a href="informacii.html">ERASMUS+</a>
+                    <a href="informacii.html">Практично Образование</a>
+                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
+                </div>
+            </div>
+
+            <a href="novosti.html">НОВОСТИ</a>
+            <a href="kontakt.html">КОНТАКТ</a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+
+    <section class="coop-section">
+        <div class="coop-layout">
+            
+            <div class="coop-main-content">
+                
+                <div class="partners-box">
+                    <h3><i class="fas fa-handshake"></i> Наши Партнерски Училишта</h3>
+                    <p>СЕТУ Михајло Пупин има склучено меморандум за соработка со следните училишта од регионот:</p>
+                    <ul class="partners-list">
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Етш Михајло Пупин</strong> – Нови Сад, Република Србија</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Мешовита школа Младост</strong> – Зеница, Босна и Херцеговина</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>ЈУ техничка школа</strong> – Зеница, Босна и Херцеговина</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Техничка школа Руџер Бошкович</strong> – Винковци, Хрватска</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Школски Центар</strong> – Крањ, Словенија</li>
+                    </ul>
+                </div>
+
+                <div class="coop-articles">
+                    
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/09/IMG_20250822_140257_1-scaled.jpg" alt="Raspberry Pi"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Септември 4, 2025</span>
+                            <h4 style="font-family: montserrat;">Донирана опрема со RaspberryPi од проектот AI & Sustainability in VET Education</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>СЕТУГС „Михајло Пупин“ доби вредна донација од опрема базирана на RaspberryPi микрокомпјутери. Оваа опрема е дел од меѓународниот проект "AI & Sustainability in VET Education".</p>
+                                <p>Целта на опремата е да им овозможи на учениците практична работа во областа на вештачката интелигенција и програмирањето на паметни уреди. Нашите ученици ќе имаат можност да креираат реални еколошки решенија.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/07/IMG-20250626-WA0026.jpg" alt="Kaunas"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Јули 1, 2025</span>
+                            <h4 style="font-family: montserrat;">Состанок во Каунас, Литванија – the ProjectHub@AI-SAVES</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>Успешно заврши уште еден работен состанок во рамки на проектот ProjectHub@AI-SAVES во Каунас, Литванија.</p>
+                                <p>Професорите од нашето училиште разменија искуства со европските партнери околу имплементацијата на автоматизирани системи за визуелизација во еколошки цели.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/05/IMG_1840-scaled.jpg" alt="Green ICT"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Мај 21, 2025</span>
+                            <h4 style="font-family: montserrat;">Green ICT - мобилност во Македонија</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>СЕТУ „Михајло Пупин“ беше горд домаќин на интернационалната мобилност за проектот Green ICT.</p>
+                                <p>Ученици и професори од повеќе земји имаа можност да научат како информатичките технологии можат да придонесат кон почиста и позелена животна средина.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/04/IMG_20241016_004923.jpg" alt="AI Sustainability"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Април 3, 2025</span>
+                            <h4 style="color: #143058; font-family: montserrat; font-size: 1.3rem; margin-bottom: 15px;">AI & Sustainability in VET education – Вештачка интелигенција и одржлив развој во стручното образование</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>Започна реализацијата на новиот проект каде фокусот е ставен на вештачката интелигенција.</p>
+                                <p>Преку овој проект, учениците ќе ги совладаат основите на машинското учење и како истото се применува во системите за одржлив развој.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more" style="color: #fca311; font-weight: bold; text-decoration: none;">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/mihajlopupinslikistrana_00005-e1692367348515.jpg" alt="Zemun"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Ноември 6, 2023</span>
+                            <h4 style="color: #143058; font-family: montserrat; font-size: 1.3rem; margin-bottom: 15px;">СЕТУ „Михајло Пупин“ потпиша меморандум за соработка со ЕЛЕКТРОТЕХНИЧКОТО УЧИЛИШТЕ ЗЕМУН</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>Официјализирана е соработката со Електротехничкото училиште од Земун, Република Србија.</p>
+                                <p>Меморандумот предвидува размена на искуства, ученици и реализација на заеднички регионални проекти во ИТ секторот.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more" style="color: #fca311; font-weight: bold; text-decoration: none;">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/482030153_1154244866488405_5608904635826943530_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=ejFybPKCMWYQ7kNvwG_dSSB&_nc_oc=AdmWPNhrPYsy9IkgihkFCs9ZK9-birWlSxZkHLFd-BSlXQGy0GwlM8F9ZzEz53rIuLc&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=n_dp7mhCT7xcYxufWm18tw&oh=00_AfvTPdj7JbBFD2HSXD0DYcnh1_Pim9UZZ-zoSKXtvIpBcw&oe=69A62DC7" alt="Zenica"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Октомври 30, 2023</span>
+                            <h4 style="color: #143058; font-family: montserrat; font-size: 1.3rem; margin-bottom: 15px;">Посета и размена на ученици и професори со Техничката школа Зеница и Младост</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>Нашите ученици престојуваа во Зеница, Босна и Херцеговина, во рамки на планираната мобилност.</p>
+                                <p>За време на посетата беа разменети позитивни практики во делот на електротехниката и автоматиката.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more" style="color: #fca311; font-weight: bold; text-decoration: none;">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/481282039_1154411339805091_507064139885521975_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=_BifH6ob8k4Q7kNvwHGAzmm&_nc_oc=AdlLnSpoRZ1uwTmUca-3LtSTQpgPdcsR0Wu63Gq_5XR386cYRYHqgrmcivfVWsa2QJU&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=NGuUfwvWNXyWvUSzuh6eMQ&oh=00_AfuRny3YIGlv2jS2b1IrLAbOD6TvYA3NF5B7MsMC7A_p8Q&oe=69A62FD5" alt="Turcija"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Ноември 4, 2022</span>
+                            <h4 style="color: #143058; font-family: montserrat; font-size: 1.3rem; margin-bottom: 15px;">Еднонеделна посета на ученици и професори од Турција</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>СЕТУ „Михајло Пупин“ им посака добредојде на делегацијата од Република Турција.</p>
+                                <p>Гостите имаа можност да ги видат нашите лаборатории и начинот на кој се изведува практичната настава во стручните предмети.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more" style="color: #fca311; font-weight: bold; text-decoration: none;">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="big-news-card">
+                        <div class="bn-img"><img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/481625498_1157980632781495_2592522819515252213_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=JtkDktdSq1gQ7kNvwHnFln3&_nc_oc=Adn49Bj20kBS-Ge3k82T9jOeSbbn7Jqe4Lo9t8GXKVaO-9oueLc5i4yCB-C4nNHM2do&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=WlVO5rD396pBY0T1UiXCEQ&oh=00_AfujE0_nSEIwR7gLEzrIQi0opwm1VWzs2QskyIqqyqQAzw&oe=69A611C1" alt="Novi Sad"></div>
+                        <div class="bn-content">
+                            <span class="bn-date"><i class="far fa-calendar-alt"></i> Октомври 17, 2022</span>
+                            <h4 style="color: #143058; font-family: montserrat; font-size: 1.3rem; margin-bottom: 15px;">Наши ученици и професори во „Михајло Пупин“ во Нови Сад</h4>
+                            <div class="bn-full-text" style="display:none;">
+                                <p>Традиционалната соработка со нашето збратимено училиште во Нови Сад продолжува.</p>
+                                <p>Учениците работеа на заеднички проекти и се запознаа со знаменитости во регионот.</p>
+                            </div>
+                            <a href="javascript:void(0)" class="bn-read-more" style="color: #fca311; font-weight: bold; text-decoration: none;">Прочитај повеќе <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <aside class="coop-sidebar">
+                
+                <div class="coop-cta-widget">
+                    <div class="cta-icon-wrapper">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h4 style="font-family: montserrat;">Отворени сме за соработка!</h4>
+                    <p>Заинтересирани сте за заеднички проекти, Еразмус+ мобилности или ново партнерство?</p>
+                    <a href="kontakt.html" class="btn-coop-contact">Контактирајте нè</a>
+                </div>
+
+                <div class="latest-news-widget">
+                    <h3>Последни новости</h3>
+                    
+                    <a  class="mini-news-item">
+                        <img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/637763140_1443157954263760_440260494134003231_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=e_hS0RhsM5QQ7kNvwFbQYNI&_nc_oc=Adl-Z5nbscn93Ua9c-jg1WizJWSK5ZfFy-kH5zhOxueJOBmZv1Sz4DSm517E-qCL2Z0&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=wG98qlWWI4mQi_j9qSTAjA&oh=00_AfutVYazyDrTSur38QdLlpRqNPXxKTPomGIuHkhMeM4E5Q&oe=69A60F2E" alt="News">
+                        <div class="mn-text">
+                            <h5>Во присуство на Министерката за образование, претседателот на стопанската комора“</h5>
+                            <span><i class="far fa-clock"></i> Пред 2 дена</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="mini-news-item">
+                        <img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/639472369_1438823878030501_6128557020101746738_n.jpg?stp=cp6_dst-jpg_s720x720_tt6&_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=cjh3bBNyWXAQ7kNvwGoxAMX&_nc_oc=AdnCpOxQGIids4yZwTkdSOgrvSTXxfVmxJ_swicXwXluRQcBxaQSEdncxx02CHcXlCk&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=y_BTzXASE65Unq20a3TJuA&oh=00_AfsAycMahrtv6UJh-9t99oBg0DnK5iot6y8MxMESkLQ1GA&oe=69A634EB" alt="News">
+                        <div class="mn-text">
+                            <h5>Поткаст</h5>
+                            <span><i class="far fa-clock"></i> Пред 1 недела</span>
+                        </div>
+                    </a>
+
+                    <a   class="mini-news-item">
+                        <img src="https://skopjeinfo.mk/sites/default/files/styles/large/public/article/teaser-images/2026/fevruari/image-246621.jpg?itok=cos40pCk" alt="News">
+                        <div class="mn-text">
+                            <h5>ЕВН Македонија донираше модерно опремена просторија за учениците од дуално електротехничко образование во СЕТУ „Михајло Пупин“</h5>
+                            <span><i class="far fa-clock"></i> Пред 1 недела</span>
+                        </div>
+                    </a>
+
+                    <a  class="mini-news-item">
+                        <img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/636765334_1437286391517583_3989271712093379048_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=FIpgyYxx0roQ7kNvwFhskMj&_nc_oc=Adms6NLJ0VZ2Z3V4NpOtPKSQtFJSwefcTESCDfIzTKUP13Bs5h6uAiGQWamdgMF5WOI&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=Y2GnZzyLawP5DpkX_59ryg&oh=00_Afs3Rk9uhhyydNOBL48m3Vr8MQNH7c0c0xqUiETxqOw6XQ&oe=69A636E2" alt="News">
+                        <div class="mn-text">
+                            <h5>Реконструкција на запустена училница</h5>
+                            <span><i class="far fa-clock"></i> Пред 1 недела</span>
+                        </div>
+                    </a>
+
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <div id="newsModal" class="news-modal">
+        <div class="news-modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImg" src="" alt="Слика за веста">
+            <div class="modal-text-wrap">
+                <span id="modalDate" class="bn-date"></span>
+                <h2 id="modalTitle"></h2>
+                <div id="modalText"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<footer class="complex-footer">
+    <div class="footer-grid-container">
+        
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Михајло Пупин</h4>
+            <p class="f-about-text">Традиција, иновација и квалитетно образование. Создаваме лидери во електротехниката и ИТ секторот повеќе од 6 децении.</p>
+            
+            <div class="f-social-modern">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/explore/locations/744265755952687/setugs-mihajlo-pupin--skopje/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://mk.linkedin.com/in/angelka-andreski-61632848" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Брза Навигација</h4>
+            <ul class="f-links">
+                <li><a href="novosti.html"><i class="fas fa-angle-right f-arrow"></i> Сите новости</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Огласна табла</a></li>
+                <li><a href="maturski.html"><i class="fas fa-angle-right f-arrow"></i> Државна матура</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Уписи 2026/27</a></li>
+                <li><a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-angle-right f-arrow"></i> Е-Дневник</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Е-Билтен</h4>
+            <p class="f-about-text">Добивајте ги најновите вести, известувања за натпревари и уписи директно на вашиот е-маил.</p>
+            
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Успешно се пријавивте за Е-Билтенот!');">
+                <input type="email" placeholder="Вашиот е-маил..." required>
+                <button type="submit" title="Пријави се"><i class="fas fa-envelope"></i></button>
+            </form>
+        </div>
+
+        <div class="f-col f-contact-info">
+            <h4><span class="diamond-bullet">◆</span> Контакт</h4>
+            <div class="f-contact-row">
+                <i class="fas fa-map-marker-alt"></i> 
+                <span>ул. Благоја Стефковски бр. 6<br>1000 Скопје</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-phone-alt"></i> 
+                <span>+389 2 609 0307<br>+389 2 609 0308</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-envelope"></i> 
+                <span><a href="mailto:mpskontakt@yahoo.com">mpskontakt@yahoo.com</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line">
+        <div class="fb-container">
+            <div class="fb-left">
+                &copy; 2026 СЕТУ <b>Михајло Пупин</b>. Сите права се заштитени.
+            </div>
+            <div class="fb-center">
+                <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo">
+            </div>
+            <div class="fb-right">
+                Изработено од Мартин Дамкоски <i class="fas fa-heart" style="color:#ff00c3;"></i> за МАССУМ
+            </div>
+        </div>
+        
+        <a href="#pocetok" class="back-to-top-btn" title="Оди најгоре"><i class="fas fa-arrow-up"></i></a>
+    </div>
+</footer>
+</body>
+
+</html>

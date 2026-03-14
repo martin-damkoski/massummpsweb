@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТРУКИ | СЕТУГС"МИХАЈЛО ПУПИН"</title>
+    <link rel="icon" href="mpp.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    if (menu.style.width === "300px") {
+        menu.style.width = "0";
+    } else {
+        menu.style.width = "300px";
+    }
+}
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+    
+    // Ротација на стрелката (опционално)
+    var arrow = submenu.previousElementSibling.querySelector('.arrow');
+    if(arrow) arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+// Скрипта за чистиот прелоадер
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('clean-struki-preloader');
+        
+        // Чекаме 4 секунди за да заврши редоследот на палење на струките
+        setTimeout(function() {
+             preloader.style.opacity = '0';
+             preloader.style.visibility = 'hidden';
+             
+             // Целосно го тргаме од екранот по гасењето
+             setTimeout(function() {
+                preloader.style.display = 'none';
+             }, 800); 
+        }, 4000); 
+    });
+
+</script>
+</head>
+<body>
+  <div id="clean-struki-preloader">
+    <div class="csp-content">
+        <h2 class="csp-title" style="font-family: montserrat;">СТРУКИ ВО ПУПИН</h2>
+        
+        <div class="csp-sequence">
+            
+            <div class="csp-step" id="step-kta">
+                <div class="csp-icon"><i class="fas fa-laptop-code"></i></div>
+                <span class="csp-label">КТА</span>
+            </div>
+
+            <div class="csp-line line-1"></div>
+
+            <div class="csp-step" id="step-et">
+                <div class="csp-icon"><i class="fas fa-microchip"></i></div>
+                <span class="csp-label">ЕТК</span>
+            </div>
+
+            <div class="csp-line line-2"></div>
+
+            <div class="csp-step" id="step-ee">
+                <div class="csp-icon"><i class="fas fa-bolt"></i></div>
+                <span class="csp-label">ЕЕ</span>
+            </div>
+
+            <div class="csp-line line-3"></div>
+
+            <div class="csp-step" id="step-zan">
+                <div class="csp-icon"><i class="fas fa-tools"></i></div>
+                <span class="csp-label">ЗАНАЕТИ</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <header class="main-header" id="pocetok">
+    <div class="header-container">
+        <div class="logo">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
+            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="top-nav">
+                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
+                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
+            </div>
+
+            <ul class="main-nav">
+    <li><a href="index.html">ПОЧЕТНА</a></li>
+    
+    <li class="dropdown">
+        <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="zanas.html#info">Општи Информации</a></li>
+            <li><a href="zanas.html#istorija">Историја</a></li>
+            <li><a href="zanas.html#info">Мисија и Визија</a></li>
+            <li><a href="zanas.html#kadar">Наставен Колектив</a></li>
+            
+        </ul>
+    </li>
+ <li class="dropdown">
+        <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
+            <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
+            <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
+            <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
+            <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="informacii.html#oglasna">Огласна Табла</a></li>
+            <li><a href="informacii.html#upisi">Уписи</a></li>
+            <li><a href="informacii.html#natprevari">Натпревари</a></li>
+            <li><a href="informacii.html#denovi">Денови На Електротехника</a></li>
+            <li><a href="informacii.html#erasmus">ERASMUS+</a></li>
+            <li><a href="informacii.html#praksa">Практично Образование</a></li>
+            <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
+        </ul>
+    </li>
+
+    <li><a href="novosti.html">НОВОСТИ</a></li>
+    <li><a href="kontakt.html">КОНТАКТ</a></li>
+</ul>
+        </nav>
+    </div>
+</header>
+<section class="hero-video-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="GLAVNO.MOV" type="video/quicktime">
+        <source src="GLAVNO.MOV" type="video/mp4"> Вашиот прелистувач не поддржува видео.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">МИХАЈЛО ПУПИН</h1>
+        <p class="hero-subtitle">Твоето патување во светот на технологијата започнува тука.</p>
+        
+        <div class="hero-btns">
+            <a href="delodnas.html" class="btn-main">СТАНИ ДЕЛ ОД НАС</a>
+            <a href="struki.html" class="btn-outline">ИСТРАЖИ ГИ СТРУКИТЕ</a>
+        </div>
+    </div>
+</section>
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    
+    <div class="side-menu-wrapper">
+        <div class="menu-header">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
+        </div>
+
+        <nav class="side-menu-links">
+            <a href="index.html">ПОЧЕТНА</a>
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
+                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="zanas-sub" class="submenu">
+                    <a href="zanas.html">Општи Информации</a>
+                    <a href="zanas.html">Историја</a>
+                    <a href="zanas.html">Мисија и Визија</a>
+                    <a href="zanas.html">Наставен Колектив</a>
+                    <a href="zanas.html">Училиштен Одбор</a>
+                </div>
+            
+            
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
+                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="nastava-sub" class="submenu">
+                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
+                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
+                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
+                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
+                    <a href="nastava.html#peti-stepen">Петти Степен</a>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="info-sub" class="submenu">
+                    <a href="informacii.html">Огласна Табла</a>
+                    <a href="informacii.html">Уписи</a>
+                    <a href="informacii.html">Натпревари</a>
+                    <a href="informacii.html">Денови На Електротехника</a>
+                    <a href="informacii.html">ERASMUS+</a>
+                    <a href="informacii.html">Практично Образование</a>
+                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
+                </div>
+            </div>
+
+            <a href="novosti.html">НОВОСТИ</a>
+            <a href="kontakt.html">КОНТАКТ</a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="subpage-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1 style="font-family: montserrat;">Образовни Профили</h1>
+        <p>Одбери ја твојата иднина. Струки прилагодени на најновите технолошки трендови.</p>
+    </div>
+</section>
+
+<section class="profiles-section bg-light">
+    <div class="container">
+        <div class="section-header-center">
+            <h2  style="font-family: montserrat;">Четиригодишно Образование</h2>
+            <div class="yellow-divider-center"></div>
+            <p>Стекнете се со диплома за електротехнички техничар и отворете ги вратите кон техничките факултети и модерната ИТ индустрија.</p>
+        </div>
+
+        <div class="tech-cards-grid">
+            
+            <div class="tech-card">
+                <div class="tc-icon-wrapper">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="tc-content">
+                    <span class="tc-badge">Најбарано</span>
+                    <h3  style="font-family: montserrat;">Компјутерска Техника и Автоматика (КТА)</h3>
+                    <p class="tc-desc">Учење на програмски јазици, веб дизајн, бази на податоци, микроконтролери и роботика.Електротехничар за компјутерска техника и автоматика е насока која образува техничари за работа со хардвер и софтвер, односно техничари кои се занимаваат со одржување на електрониката на самиот компјутер.</p>
+                    <ul class="tc-features">
+                        <li><i class="fas fa-check"></i>Уредување на веб страни (HTML и CSS) </li>
+                        <li><i class="fas fa-check"></i> 3Д моделирање, Мултимедија (OCR, PDF, Adobe Photoshop, 3D Studio Max…)</li>
+                        <li><i class="fas fa-check"></i> Основи на дигитални системи, микропроцесори и микроконтролери</li>
+                        <li><i class="fas fa-check"></i> Објектно ориентирано програмирање </li>
+                        <li><i class="fas fa-check"></i>Процесно управување (PLC) </li>
+                        <li><i class="fas fa-check"></i>Веб програмирање (JavaScript и PHP) </li>
+                        <li><i class="fas fa-check"></i>Автоматизирани системи </li>
+                        <li><i class="fas fa-check"></i>Програмски јазици (Java, C#) </li>
+                        <li><i class="fas fa-check"></i>Бази на податоци </li>
+                        <li><i class="fas fa-check"></i>Роботика </li>
+                        <li><i class="fas fa-check"></i>Компјутерски системи и мрежи </li>
+                        <li><a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/KTA.pdf" style="color:rgb(189, 183, 13);">Листа на предмети од овој образовен профил</a> </li> 
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tech-card">
+                <div class="tc-icon-wrapper">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="tc-content">
+                    <span class="tc-badge blue-badge">Иновативно</span>
+                    <h3  style="font-family: montserrat;">Електроника и Телекомуникации (ЕТК)</h3>
+                    <p class="tc-desc">Дизајнирање на електронски кола, паметни уреди, оптички мрежи и модерни телекомуникациски системи. Електротехничар за електроника и телекомуникации е насока која образува техничари за работа со дигитална електроника и комуникациски мрежи, односно техничари кои се занимаваат со инсталирање, дијагностика и одржување на телекомуникациски системи, аудио/видео техника и автомобилска електроника.</p>
+                    <ul class="tc-features">
+                        <li><i class="fas fa-check"></i> Технички софтверски алатки</li>
+                        <li><i class="fas fa-check"></i>  Дигитална електроника</li>
+                        <li><i class="fas fa-check"></i> Дигитални телекомуникации</li>
+                         <li><i class="fas fa-check"></i>  Телекомуникациски системи и мрежи</li>
+                          <li><i class="fas fa-check"></i> Програмабилни компоненти и системи </li>
+                           <li><i class="fas fa-check"></i> Автоматско управување и регулација</li>
+                            <li><i class="fas fa-check"></i> Аудио и видео техника</li>
+                             <li><i class="fas fa-check"></i> Автомобилска електроника</li>
+                              <li><i class="fas fa-check"></i> Компјутерски системи</li>
+                               <li><i class="fas fa-check"></i>  Мерно-испитни техники и дијагностика</li>
+                                <li><i class="fas fa-check"></i> Снимање и монтажа на аудио и видео материјали</li>
+                                <li><i class="fas fa-check"></i>  Учење преку работа кај работодавач</li>
+                                <li><a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%95%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0-%D0%B8-%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%BE%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8.pdf">Листа на предмети од овој образновен профил</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tech-card">
+                <div class="tc-icon-wrapper">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="tc-content">
+                    <span class="tc-badge green-badge">Перспективно</span>
+                    <h3  style="font-family: montserrat;">Електроенергетика (ЕЕ)</h3>
+                    <p class="tc-desc">Управување со електрични централи, обновливи извори на енергија (соларни панели, ветерници) и смарт-грид системи.</p>
+                    <ul class="tc-features">
+                        <li><i class="fas fa-check"></i> Електрични инсталации и осветлување</li>
+                        <li><i class="fas fa-check"></i> Производство, преобразување и пренос на електрична енергија</li>
+                        <li><i class="fas fa-check"></i> Информатички технологии во електроенергетиката</li>
+                        <li><i class="fas fa-check"></i> Заштита на електрични инсталации и постројки </li>
+                        <li><i class="fas fa-check"></i>  Обновливи извори на енергија</li>
+                        <li><i class="fas fa-check"></i>  Електрични возила</li>
+                        <li><i class="fas fa-check"></i>  Индустриска електроенергетика</li>
+                        <li><i class="fas fa-check"></i>  Автоматизација</li>
+                        <li><i class="fas fa-check"></i> Учење преку работа кај работодавач </li>
+                        <li><a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/energetika.pdf" style="color:green;">Листа на предмети од овој образовен профил</a> </li>
+                      
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="profiles-section dark-mode-profiles">
+    <div class="container">
+        <div class="section-header-center">
+            <h2 class="text-white"  style="font-family: montserrat;">Тригодишно Образование (Занаети)</h2>
+            <div class="yellow-divider-center"></div>
+            <p style="color: #a1aab8;">Брз влез на пазарот на трудот со практични вештини и одлично платени занаети.</p>
+        </div>
+
+        <div class="tech-cards-grid">
+            
+            <div class="tech-card dark-card">
+                <div class="tc-icon-wrapper">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <div class="tc-content">
+                    <h3 class="text-white"  style="font-family: montserrat;">Електромонтер за мрежи и постројки</h3>
+                    <p class="tc-desc">Инсталација и одржување на електрични мрежи, трафостаници и инсталации во објекти. Профил со огромна побарувачка.</p>
+                    <ul class="tc-features text-light-gray">
+                        <li><i class="fas fa-tools"></i> Одлично опремени кабинети со инструменти и нагледни средства</li>
+                        <li><i class="fas fa-tools"></i>Електрични мрежи и водови </li>
+                        <li><i class="fas fa-tools"></i>Изведба на електрични инсталации и осветление на производствени, административни, спортски, станбени и други објекти</li>
+                        <li><i class="fas fa-tools"></i>Монтажа на електронски уреди и постројки </li>
+                        <li><i class="fas fa-tools"></i>Практична настава </li>
+                        <li><i class="fas fa-tools"></i>Над 600 часа практична настава </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tech-card dark-card">
+                <div class="tc-icon-wrapper">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="tc-content">
+                    <h3 class="text-white"  style="font-family: montserrat;">Електромеханичар</h3>
+                    <p class="tc-desc">Сервисирање на електрични машини, апарати за домаќинство и индустриски мотори. Практична настава и обука.</p>
+                    <ul class="tc-features text-light-gray">
+                        <li><i class="fas fa-tools"></i> Електрични машини со електромоторни погони</li>
+                        <li><i class="fas fa-tools"></i> Сервисирање на електрични апарати, клима уреди, трансформатори, кујнски апарати</li>
+                        <li><i class="fas fa-tools"></i> Автоматика</li>
+                        <li><i class="fas fa-tools"></i> Електрични инсталации</li>
+                        <li><i class="fas fa-tools"></i> Практична настава</li>
+                        <li><a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%95%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B0%D1%80.pdf" style="color:aqua;">Листа на предмети од овој профил</a></li>
+                      
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="enrollment-cta">
+            <h3>Не си сигурен кој смер е за тебе?</h3>
+            <p>Контактирај ја нашата стручна служба за насочување.</p>
+            <a href="kontakt.html" class="btn-main">Побарај Совет</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<footer class="complex-footer">
+    <div class="footer-grid-container">
+        
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Михајло Пупин</h4>
+            <p class="f-about-text">Традиција, иновација и квалитетно образование. Создаваме лидери во електротехниката и ИТ секторот повеќе од 6 децении.</p>
+            
+            <div class="f-social-modern">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+               <a href="https://www.instagram.com/explore/locations/744265755952687/setugs-mihajlo-pupin--skopje/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://mk.linkedin.com/in/angelka-andreski-61632848" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Брза Навигација</h4>
+            <ul class="f-links">
+                <li><a href="novosti.html"><i class="fas fa-angle-right f-arrow"></i> Сите новости</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Огласна табла</a></li>
+                <li><a href="maturski.html"><i class="fas fa-angle-right f-arrow"></i> Државна матура</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Уписи 2026/27</a></li>
+                <li><a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-angle-right f-arrow"></i> Е-Дневник</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Е-Билтен</h4>
+            <p class="f-about-text">Добивајте ги најновите вести, известувања за натпревари и уписи директно на вашиот е-маил.</p>
+            
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Успешно се пријавивте за Е-Билтенот!');">
+                <input type="email" placeholder="Вашиот е-маил..." required>
+                <button type="submit" title="Пријави се"><i class="fas fa-envelope"></i></button>
+            </form>
+        </div>
+
+        <div class="f-col f-contact-info">
+            <h4><span class="diamond-bullet">◆</span> Контакт</h4>
+            <div class="f-contact-row">
+                <i class="fas fa-map-marker-alt"></i> 
+                <span>ул. Благоја Стефковски бр. 6<br>1000 Скопје</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-phone-alt"></i> 
+                <span>+389 2 609 0307<br>+389 2 609 0308</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-envelope"></i> 
+                <span><a href="mailto:mpskontakt@yahoo.com">mpskontakt@yahoo.com</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line">
+        <div class="fb-container">
+            <div class="fb-left">
+                &copy; 2026 СЕТУ <b>Михајло Пупин</b>. Сите права се заштитени.
+            </div>
+            <div class="fb-center">
+                <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo">
+            </div>
+            <div class="fb-right">
+                Изработено од Мартин Дамкоски <i class="fas fa-heart" style="color:#ff00c3;"></i> за МАССУМ
+            </div>
+        </div>
+        
+        <a href="#pocetok" class="back-to-top-btn" title="Оди најгоре"><i class="fas fa-arrow-up"></i></a>
+    </div>
+</footer>
+</body>
+
+</html>

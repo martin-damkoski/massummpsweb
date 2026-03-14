@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЗА НАС | СЕТУГС"МИХАЈЛО ПУПИН"</title>
+    <link rel="icon" href="mpp.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    if (menu.style.width === "300px") {
+        menu.style.width = "0";
+    } else {
+        menu.style.width = "300px";
+    }
+}
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+    
+    // Ротација на стрелката (опционално)
+    var arrow = submenu.previousElementSibling.querySelector('.arrow');
+    if(arrow) arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+// --- СКРИВАЊЕ НА ПРЕЛОАДЕРОТ ЗА 'ЗА НАС' ---
+window.addEventListener('load', function() {
+    const loader = document.getElementById('zanas-preloader-overlay');
+    if (loader) {
+        // Чека 2.5 секунди за да заврши 'Aha!' моментот со светилката
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 600);
+        }, 2500); 
+    }
+});
+</script>
+</head>
+<div id="zanas-preloader-overlay">
+  <div class="zanas-scene">
+    
+    <div class="bulb-container">
+      <div class="bulb-glow"></div>
+      
+      <svg class="bulb-svg" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg">
+        <g class="bulb-rays" transform="translate(0, -4)">
+          <path d="M12 2v3" />
+          <path d="M4.22 5.22l2.12 2.12" />
+          <path d="M19.78 5.22l-2.12 2.12" />
+          <path d="M2 12h3" />
+          <path d="M19 12h3" />
+        </g>
+        <path class="bulb-outline" d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A6 6 0 1 0 7.5 11.5c.76.76 1.23 1.52 1.41 2.5z" />
+      </svg>
+    </div>
+
+    <div class="zanas-text">Традиција. Знаење. Иднина.</div>
+
+  </div>
+</div>
+<body id="pocetok"> <header class="main-header" >
+    <div class="header-container">
+        <div class="logo">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
+            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="top-nav">
+                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
+                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
+            </div>
+
+            <ul class="main-nav">
+    <li><a href="index.html">ПОЧЕТНА</a></li>
+    
+     <li class="dropdown">
+        <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="zanas.html#info">Општи Информации</a></li>
+            <li><a href="zanas.html#istorija">Историја</a></li>
+            <li><a href="zanas.html#info">Мисија и Визија</a></li>
+            <li><a href="zanas.html#kadar">Наставен Колектив</a></li>
+            
+        </ul>
+    </li>
+
+  <li class="dropdown">
+        <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
+            <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
+            <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
+            <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
+            <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="informacii.html#oglasna">Огласна Табла</a></li>
+            <li><a href="informacii.html#upisi">Уписи</a></li>
+            <li><a href="informacii.html#natprevari">Натпревари</a></li>
+            <li><a href="informacii.html#denovi">Денови На Електротехника</a></li>
+            <li><a href="informacii.html#erasmus">ERASMUS+</a></li>
+            <li><a href="informacii.html#praksa">Практично Образование</a></li>
+            <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
+        </ul>
+    </li>
+
+    <li><a href="novosti.html">НОВОСТИ</a></li>
+    <li><a href="kontakt.html">КОНТАКТ</a></li>
+</ul>
+        </nav>
+    </div>
+</header>
+<section class="hero-video-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="GLAVNO.MOV" type="video/quicktime">
+        <source src="GLAVNO.MOV" type="video/mp4"> Вашиот прелистувач не поддржува видео.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">МИХАЈЛО ПУПИН</h1>
+        <p class="hero-subtitle">Твоето патување во светот на технологијата започнува тука.</p>
+        
+        <div class="hero-btns">
+            <a href="delodnas.html" class="btn-main">СТАНИ ДЕЛ ОД НАС</a>
+            <a href="struki.html" class="btn-outline">ИСТРАЖИ ГИ СТРУКИТЕ</a>
+        </div>
+    </div>
+</section>
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    
+    <div class="side-menu-wrapper">
+        <div class="menu-header">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
+        </div>
+
+        <nav class="side-menu-links">
+            <a href="index.html">ПОЧЕТНА</a>
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
+                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="zanas-sub" class="submenu">
+                    <a href="#info">Општи Информации</a>
+                    <a href="#istorija">Историја</a>
+                    <a href="#info">Мисија и Визија</a>
+                    <a href="#kadar">Наставен Колектив</a>
+                    <a href="#kadar">Училиштен Одбор</a>
+                </div>
+            </div>
+            
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
+                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="nastava-sub" class="submenu">
+                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
+                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
+                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
+                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
+                    <a href="nastava.html#peti-stepen">Петти Степен</a>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="info-sub" class="submenu">
+                    <a href="informacii.html">Огласна Табла</a>
+                    <a href="informacii.html">Уписи</a>
+                    <a href="informacii.html">Натпревари</a>
+                    <a href="informacii.html">Денови На Електротехника</a>
+                    <a href="informacii.html">ERASMUS+</a>
+                    <a href="informacii.html">Практично Образование</a>
+                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
+                </div>
+            </div>
+
+            <a href="novosti.html">НОВОСТИ</a>
+            <a href="kontakt.html">КОНТАКТ</a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="compact-info-section" id="info">
+    <div class="container">
+        <div class="compact-grid">
+            
+            <div class="info-text-box">
+                <h2 class="compact-title">СЕТУГС „Михајло Пупин“</h2>
+                <div class="yellow-line-short"></div>
+                <p>Ние сме водечки регионален центар за стручно образование. Со спој на <b>60+ години традиција</b> и <b>17 најсовремени лаборатории</b>, создаваме квалификуван кадар од над <b>1000 ученици</b> во електротехниката и ИТ секторот, подготвен за предизвиците на модерната индустрија.</p>
+            </div>
+
+            <div class="mv-mini-card">
+                <div class="mini-icon"><i class="fas fa-bullseye"></i></div>
+                <h4>Нашата Мисија</h4>
+                <p>Врвно стручно образование преку иновативни методи и практични вештини за успешен влез на пазарот на трудот.</p>
+            </div>
+
+            <div class="mv-mini-card">
+                <div class="mini-icon"><i class="fas fa-eye"></i></div>
+                <h4>Нашата Визија</h4>
+                <p>Лидерство во дигиталната трансформација и создавање професионалци кои ќе ја обликуваат технолошката иднина.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="branch-history-section dark-mode" id="istorija">
+    <div class="container">
+        <div class="section-header-center">
+            <h2 class="text-white" align="center" style="font-family: montserrat;">Историјата на училиштето</h2>
+            <div class="yellow-divider-center"></div>
+        </div>
+
+        <div class="branch-timeline">
+            
+            <div class="branch-item left">
+                <div class="branch-dot">
+                    <div class="hover-image-popup">
+                        <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Picture4-1.jpg" alt="1954">
+                    </div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1954</span>
+                    <h4 class="branch-title">Основање</h4>
+                    <p>Формирано е УЗУС “Коце Металец”</p>
+                </div>
+            </div>
+
+            <div class="branch-item right">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpO0jdGRsPyHsZC6bvfu-dQETYrtQp1xofDw&s" alt="1959"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1959</span>
+                    <h4 class="branch-title">Ново Име</h4>
+                    <p>Училиштето е преименувано во МУЗУС “Коце Металец”</p>
+                </div>
+            </div>
+
+            <div class="branch-item left">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://epe.brightspotcdn.com/dims4/default/cbf8c84/2147483647/strip/true/crop/556x377+22+0/resize/840x570!/quality/90/?url=https%3A%2F%2Fepe-brightspot.s3.us-east-1.amazonaws.com%2F57%2Ff8%2F4e6916832711422b2caa024aa807%2F2-maine-one-to-one-laptop-recent-600.jpg" alt="1962"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1962</span>
+                    <h4 class="branch-title">Раст на училиштето</h4>
+                    <p>Училиштето ја надминува бројката од 1000 ученици</p>
+                </div>
+            </div>
+
+            <div class="branch-item right">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="emuzus.png" alt="1963"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1963</span>
+                    <h4 class="branch-title">Преименување</h4>
+                    <p>Училиштето е преименувано во ЕМУЗУС “Коце Металец”</p>
+                </div>
+            </div>
+
+            <div class="branch-item left">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://scontent.fskp2-1.fna.fbcdn.net/v/t1.6435-9/60410228_2267753319951131_3354549533269819392_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=rKyJzYOErB4Q7kNvwGbKZ05&_nc_oc=AdljoP2cdwVZyStKYGBPT-DRnIY1Sa-oZtID6XUOms3RokGIsyMoDsmtm_yQitv1u-w&_nc_zt=23&_nc_ht=scontent.fskp2-1.fna&_nc_gid=sJoZU-Vw6K5TxjQ2T0Ac-Q&oh=00_AfsjCH6BIC_-vsQlEtpEvR5ut6tFHZy3eItR71yCO4SctA&oe=69C55FB0" alt="1970"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1970</span>
+                    <h4 class="branch-title">Нова Зграда</h4>
+                    <p>Предадена на користење новата училишна зграда</p>
+                </div>
+            </div>
+
+            <div class="branch-item right">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Picture7.jpg" alt="1976"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1976</span>
+                    <h4 class="branch-title">Кабинетска Настава</h4>
+                    <p>Воведена кабинетска настава</p>
+                </div>
+            </div>
+
+            <div class="branch-item left">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Processing_gold.jpg/1280px-Processing_gold.jpg" alt="1983"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1983</span>
+                    <h4 class="branch-title">Трансформација</h4>
+                    <p>Училиштето се трансформира во ЕТУЦ “Коце Металец”</p>
+                </div>
+            </div>
+
+            <div class="branch-item right">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="detu.png" alt="1998"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">1998</span>
+                    <h4 class="branch-title">Великан Михајло Пупин</h4>
+                    <p>Училиштето е преименувано во ДЕТУ “Михајло Пупин”</p>
+                </div>
+            </div>
+
+            <div class="branch-item left">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/%D0%A1%D0%95%D0%A2%D0%A3_%D0%9C%D0%B8%D1%85%D0%B0%D1%98%D0%BB%D0%BE_%D0%9F%D1%83%D0%BF%D0%B8%D0%BD_%D0%A1%D0%BA%D0%BE%D0%BF%D1%98%D0%B5_%D0%B2%D0%BB%D0%B5%D0%B7.jpg" alt="2006"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">2006</span>
+                    <h4 class="branch-title">СЕТУГС</h4>
+                    <p>Училиштето се преименува во СЕТУГС “Михајло Пупин”</p>
+                </div>
+            </div>
+
+            <div class="branch-item right">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_-SqCDosM6gHuxZ-GtWo7EZoZfagkULs2130zjD8myA&s=10" alt="2008"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">2008</span>
+                    <h4 class="branch-title">Партнерство</h4>
+                    <p>Започна соработката со ЕВН</p>
+                </div>
+            </div>
+
+            <div class="branch-item left">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/mihajlopupinslikistrana_00005-e1692367348515.jpg" alt="2011"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">2011</span>
+                    <h4 class="branch-title">Лабораторија</h4>
+                    <p>Отворена е лабораторијата за роботика и автоматика</p>
+                </div>
+            </div>
+
+            <div class="branch-item right">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/344807851_152389571120073_3708008559010941689_n.jpg" alt="2012"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">2012</span>
+                    <h4 class="branch-title">Манифестација</h4>
+                    <p>Одржана е манифестацијата “Денови на електротехниката”</p>
+                </div>
+            </div>
+
+            <div class="branch-item left">
+                <div class="branch-dot">
+                    <div class="hover-image-popup"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/345196076_156898617315884_5768639569649363926_n.jpg" alt="2026"></div>
+                </div>
+                <div class="branch-card">
+                    <span class="branch-year">2026</span>
+                    <h4 class="branch-title">Лидери Денес</h4>
+                    <p>Повеќе од 60 години создаваме врвни стручни кадри и лидери во дигиталната ера.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="premium-staff" id="kadar">
+    <div class="container">
+        <div class="section-header-center">
+            <h2 style = "font-family: montserrat;">Запознајте го кадарот на Михајло Пупин</h2>
+            <div class="yellow-divider-center"></div>
+        </div>
+
+        <h3 class="staff-category-title" style = "font-family: montserrat;">Раководство</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Dimitar-GJorgjiev_pp-1-scaled.jpg" alt="Димитар Ѓорѓиев"></div>
+                <h4>м-р Димитар Ѓорѓиев</h4>
+                <p class="staff-role">Директор<br>Дипл. професор по физичка култура</p>
+                <a href="mailto:dg702188@schools.mk" class="staff-email">dg702188@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/IMG_8431.jpg" alt="Сенад Сејфиќ"></div>
+                <h4>Сенад Сејфиќ</h4>
+                <p class="staff-role">Помошник директор<br>Дипл. инженер по електротехника</p>
+                <a href="mailto:ss282049@schools.mk" class="staff-email">ss282049@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Angjelka-Andreski_pp-scaled.jpg" alt="Анѓелка Андрески"></div>
+                <h4>Анѓелка Андрески</h4>
+                <p class="staff-role">Координатор по пракса<br>Дипл. инженер по електротехника</p>
+                <a href="mailto:dg702188@schools.mk" class="staff-email">aa557699@schools.mk</a>
+            </div>
+        </div>
+
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Администрација</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Марија Јакимовска"></div>
+                <h4>м-р Марија Јакимовска</h4>
+                <p class="staff-role">Секретар-правник<br>Магистер специјалист по правни науки</p>
+                <a href="mailto:mj491832@schools.mk" class="staff-email">mj491832@schools.mk</a>
+            </div>
+        </div>
+
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Стручна Служба</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Lenche-Spasovska-scaled.jpg" alt="Ленче Спасовска"></div>
+                <h4>м-р Ленче Спасовска</h4>
+                <p class="staff-role">Педагог<br>Дипл. педагог, м-р по педагошки науки</p>
+                <a href="mailto:ls153843@schools.mk" class="staff-email">ls153843@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/01/viber_image_2025-01-21_10-50-58-103.jpg" alt="Фросина Спасевска"></div>
+                <h4>Фросина Спасевска Микулчиќ</h4>
+                <p class="staff-role">Педагог<br>Дипл. педагог</p>
+                <a href="mailto:fs361822@schools.mk" class="staff-email">fs361822@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Ana-Bimbiloska-Kokolanska-scaled.jpg" alt="Ана Бимбилоска"></div>
+                <h4>Ана Бимбилоска Коколанска</h4>
+                <p class="staff-role">Психолог<br>Дипл. психолог</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/074/402/161/small/professor-with-glasses-minimal-outline-head-icon-education-teacher-academic-learning-university-monochrome-vector.jpg" alt="Зоран Мицевски"></div>
+                <h4>Зоран Мицевски</h4>
+                <p class="staff-role">Библиотекар<br>Дипл. проф. по македонски јазик</p>
+                <a href="mailto:mn729233@schools.mk" class="staff-email">mn729233@schools.mk</a>
+            </div>
+        </div>
+
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Општо образовни предмети</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8515-scaled.jpeg" alt="Маја Миневска"></div>
+                <h4>Маја Миневска</h4>
+                <p class="staff-role">Проф. по историја на книжевност на народите на СФРЈ</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8524-scaled.jpeg" alt="Елица Лазаревска"></div>
+                <h4>Елица Лазаревска</h4>
+                <p class="staff-role">Проф. по историја на книжевност</p>
+                <a href="mailto:el998399@schools.mk" class="staff-email">el998399@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/viber_image_2023-08-30_08-22-34-362.jpg" alt="Гордана Лазоска"></div>
+                <h4>Гордана Лазоска</h4>
+                <p class="staff-role">Проф. по македонска книжевност</p>
+                <a href="mailto:gl303739@schools.mk" class="staff-email">gl303739@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/IMG_20230829_082037.jpg" alt="Ивана Јосифовска"></div>
+                <h4>Ивана Јосифовска</h4>
+                <p class="staff-role">Дипл. филолог по англиски јазик</p>
+                <a href="mailto:ij770414@schools.mk" class="staff-email">ij770414@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8531-scaled.jpeg" alt="Моника Талеска"></div>
+                <h4>Моника Талеска</h4>
+                <p class="staff-role">Проф. по англиски јазик</p>
+                <a href="mailto:mt676271@schools.mk" class="staff-email">mt676271@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/4-3-Vaska-Amgelkovska-Saveska_pp-scaled.jpg" alt="Васка Анѓелковска Савеска"></div>
+                <h4>Васка Анѓелковска Савеска</h4>
+                <p class="staff-role">Дипл. професор по англиски јазик</p>
+                <a href="mailto:va422328@schools.mk" class="staff-email">va422328@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Маја-Златанова.jpg" alt="Маја Златанова"></div>
+                <h4>Маја Златанова</h4>
+                <p class="staff-role">Дипл. професор по англиски јазик</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Билјана Ристевска"></div>
+                <h4>Билјана Ристевска</h4>
+                <p class="staff-role">Дипл. професор по историја</p>
+                <a href="mailto:br208010@schools.mk" class="staff-email">br208010@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/м-р-Светлана-Стамевска-професор-по-историја.jpg" alt="Светлана Стамевска"></div>
+                <h4>м-р Светлана Стамевска</h4>
+                <p class="staff-role">Дипл. професор по историја</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/viber_image_2023-08-21_22-05-21-677.jpg" alt="Владимир Спасовски"></div>
+                <h4>м-р Владимир Спасовски</h4>
+                <p class="staff-role">Магистер по филозофски науки</p>
+                <a href="mailto:vs379108@schools.mk" class="staff-email">vs379108@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8548.jpg" alt="Јосипа Стефановска"></div>
+                <h4>Јосипа Стефановска</h4>
+                <p class="staff-role">Дипл. музичар теоретичар, педагог</p>
+                <a href="mailto:jn326081@schools.mk" class="staff-email">jn326081@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Ilija-Ristovski_pp-scaled.jpg" alt="Илија Ристовски"></div>
+                <h4>Илија Ристовски</h4>
+                <p class="staff-role">Дипл. професор по физичко</p>
+                <a href="mailto:ir769447@schools.mk" class="staff-email">ir769447@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/074/402/161/small/professor-with-glasses-minimal-outline-head-icon-education-teacher-academic-learning-university-monochrome-vector.jpg" alt="Марко Арсовски"></div>
+                <h4>Марко Арсовски</h4>
+                <p class="staff-role">Дипл. професор по физичко</p>
+                <a href="mailto:ma782177@schools.mk" class="staff-email">ma782177@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8528-scaled.jpeg" alt="Тошо Павлов"></div>
+                <h4>Тошо Павлов</h4>
+                <p class="staff-role">Дипл. професор по физичко</p>
+                <a href="mailto:tp235932@schools.mk" class="staff-email">tp235932@schools.mk</a>
+            </div>
+        </div>
+ 
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Природни науки</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8516-scaled.jpeg" alt="Александар Бујуковски"></div>
+                <h4>Александар Бујуковски</h4>
+                <p class="staff-role">Дипл. инженер по математичка економија</p>
+                <a href="mailto:ab336070@schools.mk" class="staff-email">ab336070@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/4-1.Gordana-Damjanoska_pp-scaled.jpg" alt="Гордана Дамјаноска"></div>
+                <h4>Гордана Дамјаноска</h4>
+                <p class="staff-role">Дипл. професор по математика</p>
+                <a href="mailto:gd576297@schools.mk" class="staff-email">gd576297@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Билјана-Божиновска.jpg" alt="Билјана Божиновска"></div>
+                <h4>Билјана Божиновска</h4>
+                <p class="staff-role">Дипл. професор по математика</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/01/irena-karataseva.jpg" alt="Ирена Караташева"></div>
+                <h4>Ирена Караташева</h4>
+                <p class="staff-role">Дипл. професор по математика</p>
+                <a href="mailto:irena_karataseva@hotmail.com" class="staff-email">irena_karataseva@hotmail.com</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Трајче-Димитровски-наставник-математика.jpg" alt="Трајче Димитровски"></div>
+                <h4>Трајче Димитровски</h4>
+                <p class="staff-role">Дипл. професор по математика</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Силвија Николовска"></div>
+                <h4>Силвија Николовска</h4>
+                <p class="staff-role">Дипл. инженер по информатика</p>
+                <a href="mailto:sn174826@schools.mk" class="staff-email">sn174826@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/12/mi-2-3-1.jpg" alt="Миланчо Иванов"></div>
+                <h4>м-р Миланчо Иванов</h4>
+                <p class="staff-role">Дипл. професор по физичар</p>
+                <a href="mailto:mi602476@schools.mk" class="staff-email">mi602476@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2024/05/IMG-80161722215cb529fd31356527987de8-V.jpg" alt="Татјана Сакалиева"></div>
+                <h4>Татјана Сакалиева-Јанкоска</h4>
+                <p class="staff-role">Дипл. инженер по физика</p>
+                <a href="mailto:ts627325@schools.mk" class="staff-email">ts627325@schools.mk</a>
+            </div>
+        </div>
+
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Електроника и телекомуникации</h3>
+        <div class="staff-grid-5">
+             <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/image0-1.jpeg" alt="Тамара Боровска"></div>
+                <h4>Тамара Боровска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/dipl.el_.inz_.Natasha-Bozinovska_pp-scaled.jpg" alt="Наташа Божиновска"></div>
+                <h4>Наташа Божиновска</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:nb296413@schools.mk" class="staff-email">nb296413@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/074/402/161/small/professor-with-glasses-minimal-outline-head-icon-education-teacher-academic-learning-university-monochrome-vector.jpg" alt="Кирил Крстевски"></div>
+                <h4>Кирил Крстевски</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:kk266160@schools.mk" class="staff-email">kk266160@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Јелена Стојановиќ"></div>
+                <h4>Јелена Стојановиќ Јосифовска</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:js769656@schools.mk" class="staff-email">js769656@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Sofija-Temkova_pp-scaled.jpg" alt="Софија Темкова"></div>
+                <h4>Софија Темкова</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:st390657@schools.mk" class="staff-email">st390657@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Тома-Манески-електро-група-предмети.jpg" alt="Тома Манески"></div>
+                <h4>Тома Манески</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Маја Наумовска"></div>
+                <h4>Маја Наумовска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:mn333979@schools.mk" class="staff-email">mn333979@schools.mk</a>
+            </div>
+          
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2024/05/Messenger_creation_254c705c-5032-467a-a687-701b753e5173.jpeg" alt="Иван Илијев"></div>
+                <h4>Иван Илијев</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+            </div>
+        </div>
+
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Компјутерска техника и автоматика</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8525-scaled.jpeg" alt="Поликсена Митева"></div>
+                <h4>Поликсена Митева</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:pm232868@schools.mk" class="staff-email">pm232868@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Angjelka-Andreski_pp-scaled.jpg" alt="Анѓелка Андрески"></div>
+                <h4>Анѓелка Андрески</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:aa557699@schools.mk" class="staff-email">aa557699@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/IMG_8431.jpg" alt="Сенад Сејфиќ"></div>
+                <h4>Сенад Сејфиќ</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:ss282049@schools.mk" class="staff-email">ss282049@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Dijana-Trajkoska_pp-scaled.jpg" alt="Дијана Трајковска"></div>
+                <h4>Дијана Трајковска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:dt137014@schools.mk" class="staff-email">dt137014@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Стефана-Христовска-електро-група-предмети.jpg" alt="Стефана Христовска"></div>
+                <h4>Стефана Христовска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:sk454226@schools.mk" class="staff-email">sk454226@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Јасминка Димовска"></div>
+                <h4>Јасминка Димовска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:jd827109@schools.mk" class="staff-email">jd827109@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/image0-1-1.jpeg" alt="Гордана Наумовска"></div>
+                <h4>Гордана Наумовска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:gn828231@schools.mk" class="staff-email">gn828231@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/074/402/161/small/professor-with-glasses-minimal-outline-head-icon-education-teacher-academic-learning-university-monochrome-vector.jpg" alt="Владимир Магдески"></div>
+                <h4>Владимир Магдески</h4>
+                <p class="staff-role">Дипл. инженер по информатика</p>
+                <a href="mailto:vlatko@fox.com.mk" class="staff-email">vlatko@fox.com.mk</a>
+            </div>
+        </div>
+
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Енергетика</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Lidija-Burovska-1_pp-scaled.jpg" alt="Лидија Буровска"></div>
+                <h4>Лидија Буровска</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:lb110967@schools.mk" class="staff-email">lb110967@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Anita-Mijovska_pp-scaled.jpg" alt="Анита Кокочева"></div>
+                <h4>Анита Кокочева Мијовска</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:am365822@schools.mk" class="staff-email">am365822@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Andigoni-Milenkovska_pp-scaled.jpg" alt="Андигони Миленковска"></div>
+                <h4>Андигони Миленковска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:am391605@schools.mk" class="staff-email">am391605@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Kristina-Cicoska_pp-scaled.jpg" alt="Кристина Цицоска"></div>
+                <h4>Кристина Цицоска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:kt888490@schools.mk" class="staff-email">kt888490@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8534-scaled.jpeg" alt="Слободанка Димковска"></div>
+                <h4>Слободанка Димковска</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:sd941633@schools.mk" class="staff-email">sd941633@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/074/402/161/small/professor-with-glasses-minimal-outline-head-icon-education-teacher-academic-learning-university-monochrome-vector.jpg" alt="Бранислав Остоиќ"></div>
+                <h4>Бранислав Остоиќ</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:bo731611@schools.mk" class="staff-email">bo731611@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/4-7.Anja-Manchevska_pp-scaled.jpg" alt="Ања Манчевска"></div>
+                <h4>Ања Манчевска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:am145750@schools.mk" class="staff-email">am145750@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/IMG_8449.jpg" alt="Снежана Алексовска"></div>
+                <h4>Снежана Алексовска</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:sa162496@schools.mk" class="staff-email">sa162496@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Марија Барутовска"></div>
+                <h4>Марија Барутовска Цветановска</h4>
+                <p class="staff-role">Дипл. инженер по електротехника</p>
+                <a href="mailto:mc928231@schools.mk" class="staff-email">mc928231@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/sonja3.jpg" alt="Соња Дмитровиќ"></div>
+                <h4>Соња Дмитровиќ</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:sd927821@schools.mk" class="staff-email">sd927821@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8522-scaled.jpeg" alt="Горан Младеновски"></div>
+                <h4>Горан Младеновски</h4>
+                <p class="staff-role">Дипл. електротехнички инженер</p>
+                <a href="mailto:gm825326@schools.mk" class="staff-email">gm825326@schools.mk</a>
+            </div>
+        </div>
+
+        <h3 class="staff-category-title mt-50" style = "font-family: montserrat;">Стручни соработници</h3>
+        <div class="staff-grid-5">
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Елена-Стојановска-Дипломиран-универзитетски-инженер-по-машинство-scaled.jpg" alt="Елена Стојановска"></div>
+                <h4>Елена Стојановска</h4>
+                <p class="staff-role">Дипл. универзитетски инженер по машинство</p>
+                <a href="mailto:es322360@schools.mk" class="staff-email">es322360@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/01/irena-trpenova.jpg" alt="Ирена Трпинова"></div>
+                <h4>Ирена Трпинова</h4>
+                <p class="staff-role">Дипл. економист</p>
+                <a href="mailto:irena.trpinova25@gmail.com" class="staff-email">irena.trpinova25@gmail.com</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Dejan-Trajanovski-Бизнис.jpg" alt="Дејан Трајановски"></div>
+                <h4>Дејан Трајановски</h4>
+                <p class="staff-role">Дипл. економист</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Јасмина Колчаковска"></div>
+                <h4>Јасмина Колчаковска</h4>
+                <p class="staff-role">Проф. по македонска книжевност</p>
+                <a href="mailto:jasmina.kolcakoska@gmail.com" class="staff-email">jasmina.kolcakoska@gmail.com</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://cdn-icons-png.flaticon.com/512/734/734651.png" alt="Мирјана Лазороски"></div>
+                <h4>Мирјана Лазороски</h4>
+                <p class="staff-role">Дипл. инженер по информатика</p>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/IMG_8441.jpg" alt="Сашка Андреевска"></div>
+                <h4>Сашка Андреевска</h4>
+                <p class="staff-role">Дипл. графичар со графички дизајн</p>
+                <a href="mailto:sd283463@schools.mk" class="staff-email">sd283463@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/09/IMG_8532.jpeg" alt="Тина Гошева"></div>
+                <h4>Тина Гошева</h4>
+                <p class="staff-role">Дипл. професор по македонски јазик</p>
+                <a href="mailto:tg428023@schools.mk" class="staff-email">tg428023@schools.mk</a>
+            </div>
+            <div class="staff-member">
+                <div class="staff-img-box"><img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/IMG_8453.jpg" alt="Анче Митровска"></div>
+                <h4>Анче Митровска</h4>
+                <p class="staff-role">Дипл. професор по македонски јазик</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="footer-cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+        <div class="cta-text-group">
+            
+            <h2 class="cta-heading">
+                <span class="cta-serif">Подготвени за иднината?</span> 
+                <span class="cta-italic">станете дел од нашето семејство</span>
+            </h2>
+        </div>
+        <a href="kontakt.html" class="btn-cta-contact"> КОНТАКТ СО НАС</a>
+    </div>
+</div>
+
+<footer class="complex-footer">
+    <div class="footer-grid-container">
+        
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Михајло Пупин</h4>
+            <p class="f-about-text">Традиција, иновација и квалитетно образование. Создаваме лидери во електротехниката и ИТ секторот повеќе од 6 децении.</p>
+            
+            <div class="f-social-modern">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/explore/locations/744265755952687/setugs-mihajlo-pupin--skopje/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://mk.linkedin.com/in/angelka-andreski-61632848" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Брза Навигација</h4>
+            <ul class="f-links">
+                <li><a href="novosti.html"><i class="fas fa-angle-right f-arrow"></i> Сите новости</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Огласна табла</a></li>
+                <li><a href="maturski.html"><i class="fas fa-angle-right f-arrow"></i> Државна матура</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Уписи 2026/27</a></li>
+                <li><a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-angle-right f-arrow"></i> Е-Дневник</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Е-Билтен</h4>
+            <p class="f-about-text">Добивајте ги најновите вести, известувања за натпревари и уписи директно на вашиот е-маил.</p>
+            
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Успешно се пријавивте за Е-Билтенот!');">
+                <input type="email" placeholder="Вашиот е-маил..." required>
+                <button type="submit" title="Пријави се"><i class="fas fa-envelope"></i></button>
+            </form>
+        </div>
+
+        <div class="f-col f-contact-info">
+            <h4><span class="diamond-bullet">◆</span> Контакт</h4>
+            <div class="f-contact-row">
+                <i class="fas fa-map-marker-alt"></i> 
+                <span>ул. Благоја Стефковски бр. 6<br>1000 Скопје</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-phone-alt"></i> 
+                <span>+389 2 609 0307<br>+389 2 609 0308</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-envelope"></i> 
+                <span><a href="mailto:mpskontakt@yahoo.com">mpskontakt@yahoo.com</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line">
+        <div class="fb-container">
+            <div class="fb-left">
+                &copy; 2026 СЕТУ <b>Михајло Пупин</b>. Сите права се заштитени.
+            </div>
+            <div class="fb-center">
+                <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo">
+            </div>
+            <div class="fb-right">
+                Изработено од Мартин Дамкоски <i class="fas fa-heart" style="color:#ff00c3;"></i> за МАССУМ
+            </div>
+        </div>
+        
+        <a href="#pocetok" class="back-to-top-btn" title="Оди најгоре"><i class="fas fa-arrow-up"></i></a>
+    </div>
+</footer>
+</body>
+
+</html>

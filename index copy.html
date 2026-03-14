@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СЕТУГС"МИХАЈЛО ПУПИН"</title>
+    <link rel="icon" href="mpp.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    if (menu.style.width === "300px") {
+        menu.style.width = "0";
+    } else {
+        menu.style.width = "300px";
+    }
+}
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+    
+    // Ротација на стрелката (опционално)
+    var arrow = submenu.previousElementSibling.querySelector('.arrow');
+    if(arrow) arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+function toggleAccordion(menuId, btnElement) {
+    var content = document.getElementById(menuId);
+    var icon = btnElement.querySelector('i');
+
+    if (content.style.display === "flex") {
+        content.style.display = "none";
+        icon.className = "fas fa-chevron-right";
+    } else {
+        content.style.display = "flex";
+        icon.className = "fas fa-chevron-down";
+    }
+}
+
+function showProfile(evt, profileId) {
+    // 1. Скриј ги сите картички со слики
+    var cards = document.getElementsByClassName("profile-card");
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.remove("active");
+    }
+
+    // 2. Тргни го "active-sub" од сите линкови
+    var links = document.getElementsByClassName("sub-link");
+    for (var i = 0; i < links.length; i++) {
+        links[i].classList.remove("active-sub");
+    }
+
+    // 3. Прикажи ја бараната картичка и селектирај го линкот
+    document.getElementById(profileId).classList.add("active");
+    evt.currentTarget.classList.add("active-sub");
+}
+function showNews(evt, newsId) {
+    // 1. Скриј ги сите големи вести десно
+    var newsContents = document.getElementsByClassName("news-content");
+    for (var i = 0; i < newsContents.length; i++) {
+        newsContents[i].classList.remove("active");
+    }
+
+    // 2. Тргни ја класата active од сите мали вести лево
+    var newsItems = document.getElementsByClassName("news-list-item");
+    for (var i = 0; i < newsItems.length; i++) {
+        newsItems[i].classList.remove("active");
+    }
+
+    // 3. Прикажи ја бараната вест и селектирај ја во листата
+    document.getElementById(newsId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+// Чекаме целата страна да се вчита
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const counters = document.querySelectorAll('.counter');
+    const speed = 100; // Помала бројка = побрзо броење
+
+    function startCounters() {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                
+                // Пресметуваме колку брзо да расте бројката
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 30); // Брзина на освежување (милисекунди)
+                } else {
+                    counter.innerText = target; // Застанува точно на таргетот
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // Го бараме контејнерот каде што се бројките
+    const statsSection = document.getElementById('stats-trigger');
+    
+    // Ако постои контејнерот, го следиме кога ќе се појави на екран
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Кога секцијата ќе биде видлива на екранот
+                if (entry.isIntersecting) {
+                    startCounters(); // Пушти ја анимацијата
+                    observer.unobserve(entry.target); // Престани да следиш (за да не се повторува кога ќе скролаш нагоре-надолу)
+                }
+            });
+        }, { 
+            threshold: 0.3 // Се активира кога барем 30% од секцијата ќе се види на екран
+        });
+
+        observer.observe(statsSection);
+    }
+});
+// Чекаме целата страна да се вчита
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const counters = document.querySelectorAll('.counter');
+    const speed = 100; // Помала бројка = побрзо броење
+
+    function startCounters() {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                
+                // Пресметуваме колку брзо да расте бројката
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 30); // Брзина на освежување (милисекунди)
+                } else {
+                    counter.innerText = target; // Застанува точно на таргетот
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // Го бараме контејнерот каде што се бројките
+    const statsSection = document.getElementById('stats-trigger');
+    
+    // Ако постои контејнерот, го следиме кога ќе се појави на екран
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Кога секцијата ќе биде видлива на екранот
+                if (entry.isIntersecting) {
+                    startCounters(); // Пушти ја анимацијата
+                    observer.unobserve(entry.target); // Престани да следиш (за да не се повторува кога ќе скролаш нагоре-надолу)
+                }
+            });
+        }, { 
+            threshold: 0.3 // Се активира кога барем 30% од секцијата ќе се види на екран
+        });
+
+        observer.observe(statsSection);
+    }
+});
+    // --- СКРИПТА ЗА МИСИЈА И ВИЗИЈА СЛАЈДЕР ---
+let currentMvSlide = 1;
+const totalMvSlides = 2; // Имаме 2 дела (Мото/Слоган и Мисија/Визија)
+
+function changeMvSlide(direction) {
+    // 1. Скриј го моменталниот слајд
+    document.getElementById(`mv-slide-${currentMvSlide}`).classList.remove('active');
+    
+    // 2. Пресметај кој е следниот
+    currentMvSlide += direction;
+    if (currentMvSlide > totalMvSlides) currentMvSlide = 1;
+    if (currentMvSlide < 1) currentMvSlide = totalMvSlides;
+    
+    // 3. Прикажи го новиот слајд
+    document.getElementById(`mv-slide-${currentMvSlide}`).classList.add('active');
+    
+    // 4. Анимирај ја прогрес лентата
+    const progress = (currentMvSlide / totalMvSlides) * 100;
+    document.getElementById('mv-progress').style.width = `${progress}%`;
+}
+// --- SCROLL SPY (Странична навигација) ---
+window.addEventListener('scroll', () => {
+    const sideNav = document.getElementById('sideNav');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.side-dot');
+    
+    if (window.scrollY > 300) {
+        if(sideNav) sideNav.classList.add('visible');
+    } else {
+        if(sideNav) sideNav.classList.remove('visible');
+    }
+
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});// --- СКРИПТА ЗА НЕОНСКИ И РАСКОШЕН ПРИЛОУДЕР ---
+// --- СКРИПТА ЗА ЕНЕРГЕТСКА КОНВЕРГЕНЦИЈА ---
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    const neonText = document.getElementById('neon-text');
+
+    // Тајминг 1: Точно кога линиите удираат во центарот (по 2.5с)
+    setTimeout(function() {
+        if (neonText) {
+            neonText.classList.add('fully-charged'); // БУМ ефект!
+        }
+    }, 2500);
+
+    // Тајминг 2: Кратко потоа се трга екранот (по 3.3с)
+    setTimeout(function() {
+        if (preloader) {
+            preloader.classList.add('hidden');
+        }
+    }, 3300); 
+});
+</script>
+</head>
+<body>
+    <div class="pupin-preloader" id="preloader">
+    <div class="preloader-stage">
+        
+        <div class="energy-stream stream-top-right">
+            <div class="e-line l1"></div>
+            <div class="e-line l2"></div>
+            <div class="e-line l3"></div>
+            <div class="e-line l4"></div>
+            <div class="e-line l5"></div>
+        </div>
+
+        <div class="center-core">
+            <div class="signal-vibe vibe-top-left">
+                <div class="wave w1"></div><div class="wave w2"></div><div class="wave w3"></div>
+            </div>
+
+            <h1 class="core-title" id="neon-text">
+                <span>С</span><span class="flicker-1">Е</span><span>Т</span><span>У</span><span>Г</span><span>С</span><br>
+                <span class="flicker-2">М</span><span>И</span><span>Х</span><span class="flicker-3">А</span><span>Ј</span><span>Л</span><span class="flicker-1">О</span><br>
+                <span>П</span><span class="flicker-2">У</span><span>П</span><span class="flicker-3">И</span><span>Н</span>
+            </h1>
+
+            <div class="signal-vibe vibe-bottom-right">
+                <div class="wave w1"></div><div class="wave w2"></div><div class="wave w3"></div>
+            </div>
+        </div>
+
+        <div class="energy-stream stream-bottom-left">
+             <div class="e-line l1"></div>
+             <div class="e-line l2"></div>
+             <div class="e-line l3"></div>
+             <div class="e-line l4"></div>
+             <div class="e-line l5"></div>
+        </div>
+
+    </div>
+</div>
+    <header class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
+            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="top-nav">
+                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
+                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
+            </div>
+
+            <ul class="main-nav">
+    <li><a href="index.html">ПОЧЕТНА</a></li>
+    
+    <li class="dropdown">
+        <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="zanas.html">Општи Информации</a></li>
+            <li><a href="zanas.html">Историја</a></li>
+            <li><a href="zanas.html">Мисија и Визија</a></li>
+            <li><a href="zanas.html">Наставен Колектив</a></li>
+            <li><a href="zanas.html">Училиштен Одбор</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
+            <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
+            <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
+            <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
+            <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="informacii.html">Огласна Табла</a></li>
+            <li><a href="informacii.html">Уписи</a></li>
+            <li><a href="informacii.html">Натпревари</a></li>
+            <li><a href="informacii.html">Денови На Електротехника</a></li>
+            <li><a href="informacii.html">ERASMUS+</a></li>
+            <li><a href="informacii.html">Практично Образование</a></li>
+            <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
+        </ul>
+    </li>
+
+    <li><a href="novosti.html">НОВОСТИ</a></li>
+    <li><a href="kontakt.html">КОНТАКТ</a></li>
+</ul>
+        </nav>
+    </div>
+</header>
+
+<nav class="side-scroll-nav" id="sideNav">
+    <div class="nav-line"></div>
+    <a href="#pocetok" class="side-dot" data-title="Почеток"><span></span></a>
+    <a href="#biografija" class="side-dot" data-title="Биографија"><span></span></a>
+    <a href="#struki" class="side-dot" data-title="Струки"><span></span></a>
+    <a href="#novosti" class="side-dot" data-title="Новости"><span></span></a>
+    <a href="#zosto-pupin" class="side-dot" data-title="Зошто Пупин"><span></span></a>
+    <a href="#misija-vizija" class="side-dot" data-title="Мисија и Визија"><span></span></a>
+</nav>
+
+<section class="hero-video-section" id="pocetok">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="GLAVNO.MOV" type="video/quicktime">
+        <source src="GLAVNO.MOV" type="video/mp4"> Вашиот прелистувач не поддржува видео.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">МИХАЈЛО ПУПИН</h1>
+        <p class="hero-subtitle">Твоето патување во светот на технологијата започнува тука.</p>
+        
+        <div class="hero-btns">
+            <a href="delodnas.html" class="btn-main">СТАНИ ДЕЛ ОД НАС</a>
+            <a href="struki.html" class="btn-outline">ИСТРАЖИ ГИ СТРУКИТЕ</a>
+        </div>
+  
+
+
+    </div>
+</section>
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    
+    <div class="side-menu-wrapper">
+        <div class="menu-header">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
+        </div>
+
+        <nav class="side-menu-links">
+            <a href="index.html">ПОЧЕТНА</a>
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
+                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="zanas-sub" class="submenu">
+                    <a href="zanas.html">Општи Информации</a>
+                    <a href="zanas.html">Историја</a>
+                    <a href="zanas.html">Мисија и Визија</a>
+                    <a href="zanas.html">Наставен Колектив</a>
+                    <a href="zanas.html">Училиштен Одбор</a>
+                </div>
+            
+            
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
+                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="nastava-sub" class="submenu">
+                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
+                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
+                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
+                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
+                    <a href="nastava.html#peti-stepen">Петти Степен</a>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="info-sub" class="submenu">
+                    <a href="informacii.html">Огласна Табла</a>
+                    <a href="informacii.html">Уписи</a>
+                    <a href="informacii.html">Натпревари</a>
+                    <a href="informacii.html">Денови На Електротехника</a>
+                    <a href="informacii.html">ERASMUS+</a>
+                    <a href="informacii.html">Практично Образование</a>
+                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
+                </div>
+            </div>
+
+            <a href="novosti.html">НОВОСТИ</a>
+            <a href="kontakt.html">КОНТАКТ</a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- -------------------------------------------------------------------------- -->
+ <section class="values-section">
+    <div class="container">
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="kadar.png" alt="Наставен кадар">
+                </div>
+                <h3>Наставен Кадар</h3>
+                <p>Професионален и посветен тим од стручни лица.</p>
+                <a href="zanas.html" class="btn-more">Дознај повеќе</a>
+            </div>
+
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="ucilnici.png" alt="Современи училници">
+                </div>
+                <h3>Современи Училници</h3>
+                <p>Лаборатории опремени со најнова технологија.</p>
+                <a href="nastava.html" class="btn-more">Дознај повеќе</a>
+            </div>
+
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="sorabotka.png" alt="Соработка">
+                </div>
+                <h3>Соработка</h3>
+                <p>Партнерства со водечки ИТ компании.</p>
+                <a href="sorabotka.html" class="btn-more">Дознај повеќе</a>
+            </div>
+
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="aktivnosti.png" alt="Настани">
+                </div>
+                <h3>Настани</h3>
+                <p>Бидете во тек со сите натпревари и активности.</p>
+                <a href="novosti.html" class="btn-more">Дознај повеќе</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pupin-bio-section" id="biografija">
+    <div class="bio-container">
+        <div class="bio-text">
+            <h2 class="section-title">БИОГРАФИЈА НА МИХАЈЛО ПУПИН</h2>
+            <hr color = yellow >
+            <div class="title-line"></div>
+            
+            <div class="bio-content">
+                <p>Михајло Идворски Пупин бил светски познат научник, пронаоѓач и еден од основачите на НАСА. Неговиот пат од родното село Идвор до врвните универзитети во Америка е инспирација за секој млад техничар и инженер.</p>
+                <p>Неговите патенти во телекомуникациите и рентген-зраците го променија светот засекогаш, оставајќи наследство кое ние, како училиште што го носи неговото име, гордо го чуваме и продолжуваме.</p>
+            </div>
+
+            <a href="zanas.html" class="btn-bio">ДОЗНАЈ ПОВЕЌЕ ЗА НЕГО</a>
+        </div>
+
+        <div class="bio-image">
+            <img src="pupin.jpg.png" alt="Портрет на Михајло Пупин">
+        </div>
+    </div>
+</section>
+
+<section class="partners-slider">
+    <div class="slider-title">
+        <h3>НАШИ ПАРТНЕРИ И СОРАБОТКИ</h3>
+    </div>
+    <div class="logos-container">
+        <div class="logos-track">
+            <img src="telekom.png" alt="Partner 1">
+            <img src="elem.png" alt="Partner 2">
+            <img src="liberty.png" alt="Partner 3">
+            <img src="a1.png" alt="Partner 4">
+            <img src="mepso.png" alt="Partner 5">
+            <img src="evn.png" alt="Partner 6">
+            <img src="esm.png" alt="Partner 7">
+            <img src="rade.png" alt="Partner 8">
+            
+            <img src="makstil.png" alt="Partner 1">
+            <img src="koncar.png" alt="Partner 2">
+            <img src="titan.png" alt="Partner 3">
+            <img src="vanhool.png" alt="Partner 4">
+            <img src="vitalia.png" alt="Partner 5">
+            <img src="simtech.png" alt="Partner 6">
+            <img src="masac.png" alt="Partner 7">
+            <img src="seavus.png" alt="Partner 8">
+        </div>
+    </div>
+</section>
+ <section class="classic-edu-section" id="struki">
+    <div class="container edu-layout">
+        
+        <div class="edu-sidebar">
+            <div class="section-header-left">
+                <h2>Образовни профили</h2>
+                <div class="yellow-divider-left"></div>
+                <p>Изберете ниво на образование за да ги видите достапните струки.</p>
+            </div>
+
+            <div class="accordion-menu">
+                <div class="acc-group">
+                    <button class="acc-btn active" onclick="toggleAccordion('menu-4', this)">
+                        Четиригодишно образование <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="acc-content" id="menu-4" style="display: flex;">
+                        <a href="javascript:void(0)" class="sub-link active-sub" onclick="showProfile(event, 'prof-komp')">Компјутерска техника и автоматика</a>
+                        <a href="javascript:void(0)" class="sub-link" onclick="showProfile(event, 'prof-elektronika')">Електроника и телекомуникации</a>
+                        <a href="javascript:void(0)" class="sub-link" onclick="showProfile(event, 'prof-energetika')">Енергетика (Дуално)</a>
+                        <a href="javascript:void(0)" class="sub-link" onclick="showProfile(event, 'prof-multimedia')">Мултимедиски технологии</a>
+                    </div>
+                </div>
+
+                <div class="acc-group">
+                    <button class="acc-btn" onclick="toggleAccordion('menu-3', this)">
+                        Тригодишно образование <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="acc-content" id="menu-3">
+                        <a href="javascript:void(0)" class="sub-link" onclick="showProfile(event, 'prof-mehanicar')">Електромеханичар</a>
+                        <a href="javascript:void(0)" class="sub-link" onclick="showProfile(event, 'prof-monter')">Електроинсталатер и монтер</a>
+                    </div>
+                </div>
+
+                <div class="acc-group">
+                    <button class="acc-btn" onclick="toggleAccordion('menu-v', this)">
+                        Вонредни ученици <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="acc-content" id="menu-v">
+                        <a href="javascript:void(0)" class="sub-link" onclick="showProfile(event, 'prof-vonredni')">Општи информации</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="edu-display-area">
+            
+            <div id="prof-komp" class="profile-card active">
+                <div class="profile-img-wrap">
+                    <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/mihajlopupinslikistrana_00005-e1692367348515.jpg" alt="Компјутерска техника">
+                </div>
+                <div class="profile-info">
+                    <span class="badge-blue">4 Години</span>
+                    <h3>Компјутерска техника и автоматика</h3>
+                    <p>Овој профил ги подготвува учениците за работа со хардвер, софтвер, програмирање на микроконтролери и одржување на компјутерски системи и мрежи. Идеален избор за идни ИТ инженери.</p>
+                </div>
+            </div>
+
+            <div id="prof-elektronika" class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="https://mihajlopupin.edu.mk/wp-content/uploads/elementor/thumbs/83513301_10157614032225642_4020586299592278016_n-qblgsi54fo6i8u0klxt3z26at0lvocq1s2dq7hjr2q.jpg" alt="Електроника">
+                </div>
+                <div class="profile-info">
+                    <span class="badge-blue">4 Години</span>
+                    <h3>Електроника и телекомуникации</h3>
+                    <p>Изучување на електронски компоненти, печатени плочки, телекомуникациски мрежи и системи за пренос на податоци.</p>
+                </div>
+            </div>
+
+            <div id="prof-energetika" class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="https://politika.com.mk/wp-content/uploads/2026/01/IMG_6536.jpeg" alt="Енергетика">
+                </div>
+                <div class="profile-info">
+                    <span class="badge-blue">4 Години</span>
+                    <h3>Електротехничар - Енергетичар</h3>
+                    <p>Дуално образование кое нуди учење преку работа во реални компании за производство и дистрибуција на електрична енергија.</p>
+                </div>
+            </div>
+
+            <div id="prof-multimedia" class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="https://media.istockphoto.com/id/1032516536/photo/video-archives-concept.jpg?s=612x612&w=0&k=20&c=hrnMg9RBhNr7PeqnY44E-3x8CSO50q5IT--k7s1QpF8=" alt="Мултимедиски технологии">
+                </div>
+                <div class="profile-info">
+                    <span class="badge-blue">НОВА СТРУКА</span>
+                    <h3>Техничар за мултимедиски технологии</h3>
+                    <p>Најновиот профил во нашето училиште! Ги подготвува учениците за креирање дигитални содржини, аудио и видео продукција, графички дизајн, анимација и веб дизајн. Совршен избор за креативци кои сакаат да ја спојат уметноста со најновата технологија.</p>
+                </div>
+            </div>
+
+            <div id="prof-mehanicar" class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/image10.jpg" alt="Електромеханичар">
+                </div>
+                <div class="profile-info">
+                    <span class="badge-yellow">3 Години</span>
+                    <h3>Електромеханичар</h3>
+                    <p>Стручно оспособување за поправка и одржување на електрични машини, апарати за домаќинство и индустриска опрема со многу практична настава.</p>
+                </div>
+            </div>
+
+            <div id="prof-monter" class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/image31.jpg" alt="Монтер">
+                </div>
+                <div class="profile-info">
+                    <span class="badge-yellow">3 Години</span>
+                    <h3>Електроинсталатер и монтер</h3>
+                    <p>Профил фокусиран на поставување, одржување и поправка на електрични инсталации во станбени и индустриски објекти.</p>
+                </div>
+            </div>
+
+            <div id="prof-vonredni" class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/%D0%A1%D0%95%D0%A2%D0%A3_%D0%9C%D0%B8%D1%85%D0%B0%D1%98%D0%BB%D0%BE_%D0%9F%D1%83%D0%BF%D0%B8%D0%BD_%D0%A1%D0%BA%D0%BE%D0%BF%D1%98%D0%B5_%D0%B2%D0%BB%D0%B5%D0%B7.jpg" alt="Вонредни ученици">
+                </div>
+                <div class="profile-info">
+                    <span class="badge-blue">Дооформување</span>
+                    <h3>Вонредни ученици</h3>
+                    <p>СЕТУГС „Михајло Пупин“ нуди одлична можност за вонредно образование, дооформување на веќе започнатото образование, како и преквалификација на кандидати во барани струки.</p>
+                    <p>Процесот е целосно прилагоден за лица кои се веќе во работен однос, со флексибилни термини за консултации и полагање на испитите.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+ <section class="news-section" id="novosti">
+    <div class="container">
+        <div class="section-header-left">
+            <h2 style="font-family: montserrat;">Најнови новости</h2>
+            <div class="yellow-divider-left"></div>
+        </div>
+
+        <div class="news-layout">
+            
+            <div class="news-sidebar">
+                     <div class="news-list-item" onclick="showNews(event, 'news-2')">
+                    <img src="https://as2.ftcdn.net/v2/jpg/03/71/15/87/500_F_371158728_x5idOSlIWHQKRUL09SQc4YKEON6kKGc7.jpg" alt="Млади физичари">
+                    <div class="news-item-text">
+                        <span class="news-date">Јануари 31, 2026</span>
+                        <h4>УСПЕШНО ОДРЖАН ОПШТИНСКИОТ НАТПРЕВАР МАТЕМАТИКА</h4>
+                    </div>
+                </div>
+                
+  <div class="news-list-item" onclick="showNews(event, 'news-3')">
+                    <img src="zimski.png" alt="Донирана опрема">
+                    <div class="news-item-text">
+                        <span class="news-date">декември 30, 2025</span>
+                        <h4>ОДРЖАН ЗИМСКИОТ КОНЦЕРТ </h4>
+                    </div>
+                </div>
+
+                <div class="news-list-item active" onclick="showNews(event, 'news-1')">
+                    <img src="feit.png" alt="Макинова">
+                    <div class="news-item-text">
+                        <span class="news-date">декември 23, 2025</span>
+                        <h4>ПОСЕТА НА ФЕИТ ФАКУЛТЕТОТ (КОНСУЛТАЦИИ)</h4>
+                    </div>
+                </div>
+
+        
+
+                <a href="novosti.html" class="btn-all-news">Види ги сите новости <i class="fas fa-arrow-right"></i></a>
+
+            </div>
+
+            <div class="news-display-area">
+                
+                <div id="news-1" class="news-content active">
+                    <div class="news-main-img">
+                        <img src="c:\Users\Martin4oNensi\OneDrive\Desktop\МАССУМ ВЕБ СТРАНА\feit.png" alt="Успешно учество на Макинова">
+                    </div>
+                    <div class="news-main-info">
+                        <span class="news-date-large">ДЕКЕМВРИ 26, 2025</span>
+                        <h3>ПОСЕТА НА ФАКУЛТЕТ ЗА ЕЛЕКТРОТЕХНИКА И ИНФОРМАЦИСКИ ТЕХНОЛОГИИ(ФЕИТ) ЗА КОНСУЛТАЦИИ</h3>
+                        <p>Група ученици од трета и четврта година го посети факултетот за електротехника и информатички технологии во Скопје, со цел да добијат консултации за нивните проекти и да се запознаат со новите технологии.</p>
+                    </div>
+                </div>
+
+                <div id="news-2" class="news-content">
+                    <div class="news-main-img">
+                        <img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/638171929_1321436106684500_3341202547229760751_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=BqO68588dBoQ7kNvwHRnB1V&_nc_oc=AdmWuAtm_31dafpvk6fj5kXrAUpWAcSPzAxNky2wP8i9vksMM8HGGOeUpqIeXKeOopw&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=mzqjKS5YqhspBrzRDVCPVQ&oh=00_AfuNscpZ_YvvAJZQ6IqylIpkxd-BCuSTu29R_WILPH_MAQ&oe=69A01A74" alt="мат натпревар">
+                    </div>
+                    <div class="news-main-info">
+                        <span class="news-date-large">ЈАНУАРИ 31, 2026</span>
+                        <h3>УСПЕШНО ПОМИНАТ ОПШТИНСКИОТ НАТПРЕВАР ПО МАТЕМАТИКА</h3>
+                        <p>49-тиот општински натпревар по математика се одржа успешно во нашето училиште. Учениците активно учествуваа и покажаа висок ниво на знаење и вештини.</p>
+                    </div>
+                </div>
+
+                <div id="news-3" class="news-content">
+                    <div class="news-main-img">
+                        <img src="zimski.png" alt="Донирана опрема">
+                    </div>
+                    <div class="news-main-info">
+                        <span class="news-date-large">ДЕКЕМВРИ 30, 2025</span>
+                        <h3>ЗИМСКИОТ КОНЦЕРТ НА УЧЕНИЦИТЕ (ИЗВЕДУВАЊЕ ВЕШТИНИ ВО МУЗИЧКИ ОБЛАСТИ)</h3>
+                        <p>Со организација од професорот Јосипа Наумовска,денеска се одржа културно уметнички настан во нашето училиште со прекрасни изведби!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="stats-horizontal-banner" id="stats-trigger">
+    <div class="stats-row-wrapper">
+        
+        <div class="stat-box-inline">
+            <div class="stat-vid-mini">
+                <video src="kecot.mov" autoplay loop muted playsinline></video>
+            </div>
+            <div class="stat-info-right">
+                <span class="stat-number counter" data-target="885">0</span>
+                <span class="stat-label">Активни ученици</span>
+            </div>
+        </div>
+
+        <div class="stat-box-inline">
+            <div class="stat-vid-mini">
+                <video src="dvojka.mov" autoplay loop muted playsinline></video>
+            </div>
+            <div class="stat-info-right">
+                <span class="stat-number counter" data-target="54">0</span>
+                <span class="stat-label">Стручен кадар</span>
+            </div>
+        </div>
+
+        <div class="stat-box-inline">
+            <div class="stat-vid-mini">
+                <video src="trojka.mov" autoplay loop muted playsinline></video>
+            </div>
+            <div class="stat-info-right">
+                <span class="stat-number counter" data-target="62">0</span>
+                <span class="stat-label">Години традиција</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="parallax-section" id="zosto-pupin" >
+    <div class="parallax-content">
+        <h2>Зошто да го изберам „Михајло Пупин“?</h2>
+    </div>
+</section>
+<section class="why-choose-us-content">
+    <div class="container">
+        <div class="why-intro-text">
+            <p>СЕТУГС „Михајло Пупин“ не е само образовна институција – тоа е центар каде теоријата се претвора во пракса, а идеите стануваат реалност. Ние создаваме генерации на иноватори, инженери и техничари кои се подготвени за предизвиците на модерното време, нудејќи образование директно поврзано со потребите на ИТ и електро-индустријата.</p>
+        </div>
+
+        <div class="why-reasons-grid">
+            
+            <div class="reason-box">
+                <div class="reason-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h4>Современи технологии</h4>
+                <p>Учење во модерно опремени лаборатории со најнова опрема за електроника, роботика и компјутерски мрежи.</p>
+            </div>
+
+            <div class="reason-box">
+                <div class="reason-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h4>Дуално образование</h4>
+                <p>Директна соработка со водечките компании преку практична настава која нуди реално работно искуство уште во средно.</p>
+            </div>
+
+            <div class="reason-box">
+                <div class="reason-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h4>Сигурно вработување</h4>
+                <p>Нашите профили се најбарани на пазарот на трудот. Дипломата од нашето училиште е гаранција за успешна кариера.</p>
+            </div>
+
+            <div class="reason-box">
+                <div class="reason-icon">
+                    <i class="fas fa-globe-europe"></i>
+                </div>
+                <h4>Еразмус+ проекти</h4>
+                <p>Можности за патување, размена на искуства и пракса во европски земји преку бројни меѓународни проекти.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="mission-vision-section" id="misija-vizija">
+    <div class="mv-container">
+        
+        <div class="mv-image-col">
+            <img src="https://scontent.fskp2-1.fna.fbcdn.net/v/t39.30808-6/480505493_1144761080770117_3809160218161736149_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=FHNTVyLmcFEQ7kNvwGpeiL7&_nc_oc=Adn0kZE-eMrejNprXU1jNr6J0WTD4yremrzex4y3hS-A9hgGtfM73iAK0K844MfpPeE&_nc_zt=23&_nc_ht=scontent.fskp2-1.fna&_nc_gid=pfnWf130pAss7EjajafDYg&oh=00_AftPveqQaaKcIxCnvCUbHq1qNP3hnrtzCJvkEKDj0vhmZw&oe=69A266D8" alt="Ученици на пракса во Михајло Пупин">
+        </div>
+        
+        <div class="mv-content-col">
+            
+            <div class="mv-slider-container">
+                
+                <div class="mv-slide active" id="mv-slide-1">
+                    <div class="mv-step-badge"><span>01</span> / 02</div>
+                    <h2 class="mv-title">Нашиот Идентитет</h2>
+                    
+                    <div class="mv-item">
+                        <h4 class="mv-item-title"><i class="fas fa-star"></i> Мото</h4>
+                        <p>Ученикот е центар на сите наши заложби.</p>
+                    </div>
+                    
+                    <div class="mv-item">
+                        <h4 class="mv-item-title"><i class="fas fa-quote-left"></i> Слоган</h4>
+                        <p>Нашата цел не е со помнење да складираме, туку со мислење да креираме.</p>
+                    </div>
+                </div>
+
+                <div class="mv-slide" id="mv-slide-2">
+                    <div class="mv-step-badge"><span>02</span> / 02</div>
+                    <h2 class="mv-title">Патот кон Иднината</h2>
+                    
+                    <div class="mv-item">
+                        <h4 class="mv-item-title"><i class="fas fa-bullseye"></i> Мисија</h4>
+                        <p>Ние сме средина секогаш отворена за креирање и создавање. Користејќи современа образовна технологија вршиме оспособување на кадри способни да одговорат на современите професионални предизвици.</p>
+                    </div>
+                    
+                    <div class="mv-item">
+                        <h4 class="mv-item-title"><i class="fas fa-eye"></i> Визија</h4>
+                        <p>Да станеме моќно електротехничко училиште во Република Македонија, познато и признато во регионот и во Европа со високо квалитетен воспитно-образовен процес.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mv-controls">
+                <button class="mv-btn" onclick="changeMvSlide(-1)"><i class="fas fa-arrow-left"></i></button>
+                <div class="mv-progress-bar">
+                    <div class="mv-progress-fill" id="mv-progress"></div>
+                </div>
+                <button class="mv-btn" onclick="changeMvSlide(1)"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<div class="footer-cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+        <h2 class="cta-heading">
+            <span class="cta-serif">Имате прашања?</span> 
+            <span class="cta-italic">слободно контактирајте не</span>
+        </h2>
+        <a href="kontakt.html" class="btn-cta-contact">КОНТАКТ</a>
+    </div>
+</div>
+
+<div class="footer-cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+        <div class="cta-text-group">
+            
+            <h2 class="cta-heading">
+                <span class="cta-serif">Подготвени за иднината?</span> 
+                <span class="cta-italic">станете дел од нашето семејство</span>
+            </h2>
+        </div>
+        <a href="struki.html" class="btn-cta-contact"> КОНТАКТ СО НАС</a>
+    </div>
+</div>
+
+<div class="corner-hub-wrapper">
+    <div class="corner-triangle">
+        <i class="fas fa-bolt"></i>
+    </div>
+    
+    <div class="corner-menu">
+        <div class="corner-menu-title">БРЗИ ЛИНКОВИ</div>
+        <a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-book"></i> Е-Дневник</a>
+        <a href="delodnas.html"><i class="fas fa-user-graduate"></i> Уписи 26/27</a>
+        <a href="kontakt.html"><i class="fas fa-envelope"></i> Контакт</a>
+    </div>
+</div>
+
+
+
+
+
+
+<footer class="complex-footer">
+    <div class="footer-grid-container">
+        
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Михајло Пупин</h4>
+            <p class="f-about-text">Традиција, иновација и квалитетно образование. Создаваме лидери во електротехниката и ИТ секторот повеќе од 6 децении.</p>
+            
+            <div class="f-social-modern">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Брза Навигација</h4>
+            <ul class="f-links">
+                <li><a href="novosti.html"><i class="fas fa-angle-right f-arrow"></i> Сите новости</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Огласна табла</a></li>
+                <li><a href="maturski.html"><i class="fas fa-angle-right f-arrow"></i> Државна матура</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Уписи 2026/27</a></li>
+                <li><a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-angle-right f-arrow"></i> Е-Дневник</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Е-Билтен</h4>
+            <p class="f-about-text">Добивајте ги најновите вести, известувања за натпревари и уписи директно на вашиот е-маил.</p>
+            
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Успешно се пријавивте за Е-Билтенот!');">
+                <input type="email" placeholder="Вашиот е-маил..." required>
+                <button type="submit" title="Пријави се"><i class="fas fa-envelope"></i></button>
+            </form>
+        </div>
+
+        <div class="f-col f-contact-info">
+            <h4><span class="diamond-bullet">◆</span> Контакт</h4>
+            <div class="f-contact-row">
+                <i class="fas fa-map-marker-alt"></i> 
+                <span>ул. Благоја Стефковски бр. 6<br>1000 Скопје</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-phone-alt"></i> 
+                <span>+389 2 609 0307<br>+389 2 609 0308</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-envelope"></i> 
+                <span><a href="mailto:mpskontakt@yahoo.com">mpskontakt@yahoo.com</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line">
+        <div class="fb-container">
+            <div class="fb-left">
+                &copy; 2026 СЕТУ <b>Михајло Пупин</b>. Сите права се заштитени.
+            </div>
+            <div class="fb-center">
+                <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo">
+            </div>
+            <div class="fb-right">
+                Изработено од Мартин Дамкоски <i class="fas fa-heart" style="color:#ff00c3;"></i> за МАССУМ
+            </div>
+        </div>
+        
+        <a href="#pocetok" class="back-to-top-btn" title="Оди најгоре"><i class="fas fa-arrow-up"></i></a>
+    </div>
+</footer>
+
+</body>
+
+</html>

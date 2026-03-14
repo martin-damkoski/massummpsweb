@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПРИСТАП | СЕТУГС"МИХАЈЛО ПУПИН"</title>
+    <link rel="icon" href="mpp.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    if (menu.style.width === "300px") {
+        menu.style.width = "0";
+    } else {
+        menu.style.width = "300px";
+    }
+}
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+    
+    // Ротација на стрелката (опционално)
+    var arrow = submenu.previousElementSibling.querySelector('.arrow');
+    if(arrow) arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('info-preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 600);
+        }, 1800); // Време на задържане (1.8 секунди)
+    }
+});
+</script>
+</head>
+<body>
+    <div id="info-preloader">
+        <div class="preloader-content">
+            <div class="info-icon">
+                <i class="fas fa-folder-open"></i>
+            </div>
+            <div class="loading-text">
+                <span class="letter">П</span>
+                <span class="letter">Р</span>
+                <span class="letter">И</span>
+                <span class="letter">С</span>
+                <span class="letter">Т</span>
+                <span class="letter">А</span>
+                <span class="letter">П</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="status-msg">Вчитување на базата на податоци...</p>
+        </div>
+    </div>
+    <header class="main-header" id="pocetok">
+    <div class="header-container">
+        <div class="logo">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
+            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="top-nav">
+                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
+                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
+            </div>
+
+            <ul class="main-nav">
+    <li><a href="index.html">ПОЧЕТНА</a></li>
+    
+     <li class="dropdown">
+        <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="zanas.html#info">Општи Информации</a></li>
+            <li><a href="zanas.html#istorija">Историја</a></li>
+            <li><a href="zanas.html#info">Мисија и Визија</a></li>
+            <li><a href="zanas.html#kadar">Наставен Колектив</a></li>
+            
+        </ul>
+    </li>
+
+   <li class="dropdown">
+        <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
+            <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
+            <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
+            <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
+            <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="informacii.html#oglasna">Огласна Табла</a></li>
+            <li><a href="informacii.html#upisi">Уписи</a></li>
+            <li><a href="informacii.html#natprevari">Натпревари</a></li>
+            <li><a href="informacii.html#denovi">Денови На Електротехника</a></li>
+            <li><a href="informacii.html#erasmus">ERASMUS+</a></li>
+            <li><a href="informacii.html#praksa">Практично Образование</a></li>
+            <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
+        </ul>
+    </li>
+
+    <li><a href="novosti.html">НОВОСТИ</a></li>
+    <li><a href="kontakt.html">КОНТАКТ</a></li>
+</ul>
+        </nav>
+    </div>
+</header>
+<section class="hero-video-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="GLAVNO.MOV" type="video/quicktime">
+        <source src="GLAVNO.MOV" type="video/mp4"> Вашиот прелистувач не поддржува видео.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">ПРИСТАП ДО ИНФОРМАЦИИ</h1>
+        <p class="hero-subtitle">Секој ученик има право на пристап до информациите во училиштето.</p>
+        
+        <div class="hero-btns">
+            <a href="delodnas.html" class="btn-main">СТАНИ ДЕЛ ОД НАС</a>
+            <a href="struki.html" class="btn-outline">ИСТРАЖИ ГИ СТРУКИТЕ</a>
+        </div>
+    </div>
+</section>
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    
+    <div class="side-menu-wrapper">
+        <div class="menu-header">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
+        </div>
+
+        <nav class="side-menu-links">
+            <a href="index.html">ПОЧЕТНА</a>
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
+                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="zanas-sub" class="submenu">
+                    <a href="zanas.html">Општи Информации</a>
+                    <a href="zanas.html">Историја</a>
+                    <a href="zanas.html">Мисија и Визија</a>
+                    <a href="zanas.html">Наставен Колектив</a>
+                    <a href="zanas.html">Училиштен Одбор</a>
+                </div>
+            
+            
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
+                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="nastava-sub" class="submenu">
+                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
+                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
+                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
+                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
+                    <a href="nastava.html#peti-stepen">Петти Степен</a>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="info-sub" class="submenu">
+                    <a href="informacii.html">Огласна Табла</a>
+                    <a href="informacii.html">Уписи</a>
+                    <a href="informacii.html">Натпревари</a>
+                    <a href="informacii.html">Денови На Електротехника</a>
+                    <a href="informacii.html">ERASMUS+</a>
+                    <a href="informacii.html">Практично Образование</a>
+                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
+                </div>
+            </div>
+
+            <a href="novosti.html">НОВОСТИ</a>
+            <a href="kontakt.html">КОНТАКТ</a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="access-info-section" style="padding: 60px 5%; background-color: #ffffff; color: #333;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto;">
+        
+        <h2 style="color: #143058; font-family: montserrat; font-size: 2.2rem; margin-bottom: 20px;">Постапка за барање информации</h2>
+        <div style="width: 80px; height: 4px; background: #fca311; margin-bottom: 30px;"></div>
+
+        <div class="access-text-content" style="line-height: 1.8; font-size: 1.1rem; color: #555;">
+            <p>Барателот пристапот до информацијата може да го бара усно, писмено или во електронски запис, при што барањето поднесено во електронска форма се смета за писмено поднесено барање.</p>
+            <p>Писменото Барање може да се поднесе до училиштето непосредно во архивата или преку пошта на адреса: <strong>ул. Благоја Стефковски бр.6, 1000 Скопје.</strong></p>
+            <p>Барањето за пристап до информација од јавен карактер може да се поднесе на утврдениот Образец на Барање (даден подолу) или на обичен лист хартија, но на истото барателот е должен да наведе дека станува збор за Барање по основ на Законот за слободен пристап до информации од јавен карактер. Барателот не е должен да го образложи барањето.</p>
+            <p>Во случај кога барањето е поднесено од страна на овластен полномошник, кон барањето треба да биде приложено уредно полномошно. Кога барателот бара пристап до информација со усно барање, службеното лице составува записник за тоа.</p>
+        </div>
+
+        <div class="contact-highlight-box" style="background: #f4f7fa; border-left: 5px solid #fca311; padding: 25px 30px; border-radius: 0 10px 10px 0; margin-top: 40px; display: flex; align-items: center; gap: 20px;">
+            <i class="fas fa-user-tie" style="font-size: 2.5rem; color: #143058;"></i>
+            <div>
+                <h4 style="margin: 0 0 5px 0; color: #143058; font-family: montserrat;">Контакт лице за информации од јавен карактер</h4>
+                <p style="margin: 0; color: #555;"><strong>м-р. Јакимовска Марија</strong>, дипл. правник, секретар <br>
+                <i class="fas fa-phone-alt" style="color: #fca311; margin-right: 5px;"></i> +389(0)2 60 90 308</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="general-docs-section" style="padding: 60px 5%; background-color: #f9fbfd;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto;">
+        
+        <h3 style="color: #143058; font-family: montserrat; font-size: 1.8rem; margin-bottom: 30px;">Обрасци, Закони и Упатства</h3>
+        
+        <div class="clean-doc-list">
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/1.zakon_za_sloboden_pristap_do_informacii_od_javen_karakter.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-gavel"></i> Закон за слободен пристап до информации од јавен карактер</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/2.upatstvo_za_sproveduvanje_na_zakonot_za_sloboden_pristap_do_informacii_od_javen_karakter.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-book"></i> Упатство за спроведување на Законот</a>
+            <a href="dokumenti/sloboden.pdf.doc" download class="doc-list-item"  target="_blank">
+    <i class="fas fa-file-word"></i> Образец на Барање за слободен пристап до информации (Word)
+</a>
+            <a href="dokumenti/zalba.pdf.docx" download class="doc-list-item"><i class="fas fa-file-word"></i> Образец на Жалба (Word)</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/5.odluka_za_utvrduvanje_na_nadomestok_na_materijalnite_troshoci_za_dadenata_informacija-2006.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-file-pdf"></i> Одлука за утврдување на надоместок на материјалните трошоци - 2006</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/6.dopolnuvanje_na_odlukata_za_utvrduvanje_na_nadmestok_na_materijalnite_troshoci-2017.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-file-pdf"></i> Дополнување на Одлуката за утврдување на надоместок - 2017</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%9F%D1%80%D0%B8%D1%80%D0%B0%D1%87%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B0-%D1%81%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D0%B4%D1%83%D0%B2%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%A2%D0%B5%D1%81%D1%82-%D0%BD%D0%B0-%D1%88%D1%82%D0%B5%D1%82%D0%BD%D0%BE%D1%81%D1%82-1.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-book-open"></i> Прирачник за спроведување на Тест на штетност</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%92%D0%BE%D0%B4%D0%B8%D1%87-%D0%B7%D0%B0-%D0%B4%D0%B5%D0%BB%D0%B5%D0%B3%D0%B8%D1%80%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%BD%D0%B0%D0%B4%D0%BB%D0%B5%D0%B6%D0%BD%D0%BE%D1%81%D1%82-2.pdf" class="doc-list-item"><i class="fas fa-sitemap"  target="_blank"></i> Водич за делегирање на надлежност</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%9F%D1%80%D0%BE%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE-%D0%BE%D0%B1%D1%98%D0%B0%D0%B2%D1%83%D0%B2%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8-%D0%9F%D1%80%D0%B8%D1%80%D0%B0%D1%87%D0%BD%D0%B8%D0%BA-1.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-book-open"></i> Прирачник за Проактивно објавување на информации</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%9D%D0%B0%D1%81%D0%BE%D0%BA%D0%B8-%D0%B7%D0%B0-%D0%BF%D1%80%D0%BE%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%B0-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%B0%D1%80%D0%B5%D0%BD%D1%82%D0%BD%D0%BE%D1%81%D1%82-%D0%9F%D1%80%D0%B8%D1%80%D0%B0%D1%87%D0%BD%D0%B8%D0%BA.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-compass"></i> Насоки за проактивна транспарентност</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%9D%D0%B0%D1%81%D0%BE%D0%BA%D0%B8-%D0%B7%D0%B0-%D0%BF%D1%80%D0%BE%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE-%D0%BE%D0%B1%D1%98%D0%B0%D0%B2%D1%83%D0%B2%D0%B0%D1%9A%D0%B5-%D0%BD%D0%B0-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8-%D0%BE%D0%B4-%D1%98%D0%B0%D0%B2%D0%B5%D0%BD-%D0%BA%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80-%D0%B7%D0%B0-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B8-%D0%B8%D0%BB%D0%B8-%D1%80%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D0%B8-%D0%BB%D0%B8%D1%86%D0%B0-1.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-compass"></i> Насоки за проактивно објавување на информации за функционери</a>
+            <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%9B%D0%B5%D1%82%D0%BE%D0%BA-%D0%B7%D0%B0-%D0%B1%D0%B0%D1%80%D0%B0%D1%82%D0%B5%D0%BB%D0%B8.pdf" class="doc-list-item"  target="_blank"><i class="fas fa-file-alt"></i> Леток за баратели</a>
+            <a href="https://aspi.mk/" class="doc-list-item"><i class="fas fa-external-link-alt"  target="_blank"></i> Агенција за заштита на правото за слободен пристап на информации</a>
+            <a href="https://www.youtube.com/watch?v=itFkXeonK5s" class="doc-list-item"><i class="fas fa-video"  target="_blank"></i> Баратели на информации – едукативно видео</a>
+            <a href="https://www.youtube.com/watch?v=DgRv8tYxuTo" class="doc-list-item"><i class="fas fa-video"  target="_blank"></i> Едукативно видео наменето за службените лица</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="data-grid-section" style="padding: 80px 5%; background-color: #ffffff;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        
+        <h2 style="color: #143058; font-family: montserrat; font-size: 2rem; margin-bottom: 10px; text-align: center;">Информации од јавен карактер на СЕТУГС „Михајло Пупин“</h2>
+        <p style="text-align: center; color: #777; margin-bottom: 40px;">Детален преглед на јавни информации и нивните локации (линкови за преземање).</p>
+
+        <div class="modern-data-grid">
+            
+            <div class="grid-header">
+                <div class="grid-col-info" style="color:#f4f7fa">Информација</div>
+                <div class="grid-col-loc">Локација (Документи)</div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">1. Податоци од надлежности кои ги извршува институцијата, односно кои се утврдени со закон</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%A1-%D0%A2-%D0%90-%D0%A2-%D0%A3-%D0%A2-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A8%D0%A2%D0%95%D0%A2%D0%9E.pdf"  target="_blank"><i class="fas fa-file-pdf"></i> Статут на училиштето</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/%D0%9A%D0%9E%D0%94%D0%95%D0%9A%D0%A1-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A8%D0%A2%D0%95%D0%A2%D0%9E.pdf"  target="_blank"><i class="fas fa-file-pdf"></i> Кодекс на училиштето</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">2. Податоци за контакт на институцијата</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-address-book" ></i> Податоци за контакт на институцијата</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">3. Податоци за функционерот, односно одговорното лице на институцијата</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-user-tie"></i> Податоци за функционерот</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">4. Основни податоци за контакт со службеното лице за посредување со информации</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-id-badge"></i> Основни податоци за контакт</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">5. Список на лица вработени во институцијата со позиција, службен е-маил и телефон</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-users"></i> Список на вработени</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">6. Закони</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-gavel"></i> Закон за средно образование</a>
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-gavel"></i> Закон за наставници и стручни соработници</a>
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-file-contract"></i> Колективен договор</a>
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-gavel"></i> Закон за работни односи</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">7. Прописи што во рамките на својата надлежност ги донесува институцијата</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-file-contract"></i> Колективен договор</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">8. Годишни планови и програми за работа на институцијата</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/2020-2022-%D0%A1%D0%B0%D0%BC%D0%BE%D0%B5%D0%B2%D0%B0%D0%BB%D1%83%D0%B0%D1%86%D0%B8%D1%98%D0%B0.pdf" target="_blank"><i class="fas fa-chart-bar"></i> 2020-2022 Самоевалуација на училиштето</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/%D0%93%D0%9E%D0%94%D0%98%D0%A8%D0%95%D0%9D-%D0%98%D0%97%D0%92%D0%95%D0%A8%D0%A2%D0%90%D0%88-%D0%97%D0%90-%D0%A3%D0%A7%D0%95%D0%91%D0%9D%D0%90-2024-2025.pdf" target="_blank"><i class="fas fa-file-pdf"></i> ГОДИШЕН ИЗВЕШТАЈ 2024/2025</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/Programa-za-razvoj-2022-2026.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Програма за развој 2022-2026</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/%D0%93%D0%9E%D0%94%D0%98%D0%A8%D0%9D%D0%90-%D0%9F%D0%A0%D0%9E%D0%93%D0%A0%D0%90%D0%9C%D0%90-2025-2026.pdf" target="_blank"><i class="fas fa-file-pdf"></i> ГОДИШНА ПРОГРАМА 2025/2026</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">9. Годишен Буџет и завршна сметка на институцијата</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-903-15-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 903 15 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-787-10-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 787 10 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-785-C8-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 785 C8 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-785-B3-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 785 B3 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-785-A9-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 785 A9 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-785-70-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 785 70 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-785-66-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 785 66 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-785-09-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 785 09 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/03/BSBU-603-13-2024.pdf" target="_blank"><i class="fas fa-file-invoice-dollar"></i> BSBU 603 13 2024</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">10. Ревизорски извештаи</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-external-link-alt"></i> Линк</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">11. Целокупна документација за јавните набавки</div>
+                <div class="grid-col-loc">
+                    <a href="https://www.bjn.gov.mk/" target="_blank"><i class="fas fa-external-link-alt"></i> Биро за јавни набавки</a>
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-folder-open"></i> Склучени договори</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">12. Предлог на програми, ставови, мислења, студии</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/%d1%81%d0%bb%d0%be%d0%b1%d0%be%d0%b4%d0%b5%d0%bd-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bf-%d0%b4%d0%be-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d0%b8/" target="_blank"><i class="fas fa-external-link-alt"></i> Линк</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">13. Годишни извештаи за информации од јавен карактер</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/02/%D0%98%D0%97%D0%92%D0%95%D0%A8%D0%A2%D0%90%D0%88-%D0%90%D0%A1%D0%9F%D0%98.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Годишен извештај за 2024</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2024/01/%D0%B3%D0%BE%D0%B4%D0%B8%D1%88%D0%B5%D0%BD-%D0%B8%D0%B7%D0%B2%D0%B5%D1%88%D1%82%D0%B0%D1%98-2023.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Годишен извештај за 2023</a>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col-info">14. Ученичка заедница 2025/ 2026 година</div>
+                <div class="grid-col-loc">
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Folder2025-10-80002.pdf" target="_blank"><i class="fas fa-users"></i> Годишна програма за работа на училишна заедница</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Folder2025-10-80004.pdf" target="_blank"><i class="fas fa-user-graduate"></i> Претседатели на класови 2025/ 2026</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Folder2025-10-80003.pdf" target="_blank"><i class="fas fa-sitemap"></i> Координативно тело на ученички парламент</a>
+                    <a href="https://mihajlopupin.edu.mk/wp-content/uploads/2025/10/Folder2025-10-80001.pdf" target="_blank"><i class="fas fa-file-alt"></i> Состанок на училишната заедница (29.09.2025)</a>
+                </div>
+            </div>
+
+        </div> </div>
+</section>
+
+
+
+<div class="footer-cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+        <h2 class="cta-heading">
+            <span class="cta-serif">Имате прашања?</span> 
+            <span class="cta-italic">слободно контактирајте не</span>
+        </h2>
+        <a href="kontakt.html" class="btn-cta-contact">КОНТАКТ</a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<footer class="complex-footer">
+    <div class="footer-grid-container">
+        
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Михајло Пупин</h4>
+            <p class="f-about-text">Традиција, иновација и квалитетно образование. Создаваме лидери во електротехниката и ИТ секторот повеќе од 6 децении.</p>
+            
+            <div class="f-social-modern">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/explore/locations/744265755952687/setugs-mihajlo-pupin--skopje/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://mk.linkedin.com/in/angelka-andreski-61632848" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Брза Навигација</h4>
+            <ul class="f-links">
+                <li><a href="novosti.html"><i class="fas fa-angle-right f-arrow"></i> Сите новости</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Огласна табла</a></li>
+                <li><a href="maturski.html"><i class="fas fa-angle-right f-arrow"></i> Државна матура</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Уписи 2026/27</a></li>
+                <li><a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-angle-right f-arrow"></i> Е-Дневник</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Е-Билтен</h4>
+            <p class="f-about-text">Добивајте ги најновите вести, известувања за натпревари и уписи директно на вашиот е-маил.</p>
+            
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Успешно се пријавивте за Е-Билтенот!');">
+                <input type="email" placeholder="Вашиот е-маил..." required>
+                <button type="submit" title="Пријави се"><i class="fas fa-envelope"></i></button>
+            </form>
+        </div>
+
+        <div class="f-col f-contact-info">
+            <h4><span class="diamond-bullet">◆</span> Контакт</h4>
+            <div class="f-contact-row">
+                <i class="fas fa-map-marker-alt"></i> 
+                <span>ул. Благоја Стефковски бр. 6<br>1000 Скопје</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-phone-alt"></i> 
+                <span>+389 2 609 0307<br>+389 2 609 0308</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-envelope"></i> 
+                <span><a href="mailto:mpskontakt@yahoo.com">mpskontakt@yahoo.com</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line">
+        <div class="fb-container">
+            <div class="fb-left">
+                &copy; 2026 СЕТУ <b>Михајло Пупин</b>. Сите права се заштитени.
+            </div>
+            <div class="fb-center">
+                <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo">
+            </div>
+            <div class="fb-right">
+                Изработено од Мартин Дамкоски <i class="fas fa-heart" style="color:#ff00c3;"></i> за МАССУМ
+            </div>
+        </div>
+        
+        <a href="#pocetok" class="back-to-top-btn" title="Оди најгоре" ><i class="fas fa-arrow-up"></i></a>
+    </div>
+</footer>
+</body>
+
+</html>

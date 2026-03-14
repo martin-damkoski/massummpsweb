@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БИОГРАФИЈА | СЕТУГС"МИХАЈЛО ПУПИН"</title>
+    <link rel="icon" href="mpp.png.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    if (menu.style.width === "300px") {
+        menu.style.width = "0";
+    } else {
+        menu.style.width = "300px";
+    }
+}
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    submenu.classList.toggle('open');
+    
+    // Ротација на стрелката (опционално)
+    var arrow = submenu.previousElementSibling.querySelector('.arrow');
+    if(arrow) arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+</script>
+</head>
+<body>
+    <header class="main-header" id="pocetok">
+    <div class="header-container">
+        <div class="logo">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
+            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="top-nav">
+                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
+                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
+            </div>
+
+            <ul class="main-nav">
+    <li><a href="index.html">ПОЧЕТНА</a></li>
+    
+    <li class="dropdown">
+        <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="zanas.html#info">Општи Информации</a></li>
+            <li><a href="zanas.html#istorija">Историја</a></li>
+            <li><a href="zanas.html#info">Мисија и Визија</a></li>
+            <li><a href="zanas.html#kadar">Наставен Колектив</a></li>
+            
+        </ul>
+    </li>
+
+     <li class="dropdown">
+        <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
+            <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
+            <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
+            <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
+            <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
+        <ul class="dropdown-content">
+            <li><a href="informacii.html#oglasna">Огласна Табла</a></li>
+            <li><a href="informacii.html#upisi">Уписи</a></li>
+            <li><a href="informacii.html#natprevari">Натпревари</a></li>
+            <li><a href="informacii.html#denovi">Денови На Електротехника</a></li>
+            <li><a href="informacii.html#erasmus">ERASMUS+</a></li>
+            <li><a href="informacii.html#praksa">Практично Образование</a></li>
+            <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
+        </ul>
+    </li>
+
+    <li><a href="novosti.html">НОВОСТИ</a></li>
+    <li><a href="kontakt.html">КОНТАКТ</a></li>
+</ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero-video-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="GLAVNO.MOV" type="video/quicktime">
+        <source src="GLAVNO.MOV" type="video/mp4"> Вашиот прелистувач не поддржува видео.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">БИОГРАФИЈА ЗА МИХАЈЛО ПУПИН</h1>
+        <p class="hero-subtitle">"Сакај го ближниот како што се сакаш себе си".</p>
+        
+        <div class="hero-btns">
+            <a href="delodnas.html" class="btn-main">СТАНИ ДЕЛ ОД НАС</a>
+            <a href="struki.html" class="btn-outline">ИСТРАЖИ ГИ СТРУКИТЕ</a>
+        </div>
+    </div>
+</section>
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    
+    <div class="side-menu-wrapper">
+        <div class="menu-header">
+            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
+        </div>
+
+        <nav class="side-menu-links">
+            <a href="index.html">ПОЧЕТНА</a>
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
+                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="zanas-sub" class="submenu">
+                    <a href="zanas.html">Општи Информации</a>
+                    <a href="zanas.html">Историја</a>
+                    <a href="zanas.html">Мисија и Визија</a>
+                    <a href="zanas.html">Наставен Колектив</a>
+                    <a href="zanas.html">Училиштен Одбор</a>
+                </div>
+            
+            
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
+                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="nastava-sub" class="submenu">
+                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
+                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
+                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
+                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
+                    <a href="nastava.html#peti-stepen">Петти Степен</a>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
+                <div id="info-sub" class="submenu">
+                    <a href="informacii.html">Огласна Табла</a>
+                    <a href="informacii.html">Уписи</a>
+                    <a href="informacii.html">Натпревари</a>
+                    <a href="informacii.html">Денови На Електротехника</a>
+                    <a href="informacii.html">ERASMUS+</a>
+                    <a href="informacii.html">Практично Образование</a>
+                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
+                </div>
+            </div>
+
+            <a href="novosti.html">НОВОСТИ</a>
+            <a href="kontakt.html">КОНТАКТ</a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<section class="pupin-editorial-section bg-white">
+    <div class="editorial-container flex-layout">
+        <div class="editorial-text pr-50">
+            <span class="gold-accent-text">1854 - 1874</span>
+            <h2 class="editorial-title" style="font-family: montserrat;">Од банатските пасишта до големиот сон</h2>
+            <p class="editorial-p">Михајло Идворски Пупин е роден во 1854 година во селото Идвор. Растејќи во сиромашно земјоделско семејство, неговата прва училница биле ѕвездените ноќи додека ги чувал говедата. Токму таму, слушајќи како звукот патува низ земјата, се родил неговиот научен ум.</p>
+            <p class="editorial-p">Неговата мајка Олимпијада, иако неписмена, била неговиот најголем мотиватор. Нејзините зборови <em>„Знаењето е златна скала преку која се оди во небото“</em> го испратиле на 20-годишна возраст на пат кон Америка. Без јазик и со само 5 центи во џебот.</p>
+        </div>
+        <div class="editorial-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Idvor_-_Rodna_ku%C4%87a_Mihaila_Pupina.jpg/1280px-Idvor_-_Rodna_ku%C4%87a_Mihaila_Pupina.jpg" alt="Родната куќа на Пупин">
+        </div>
+    </div>
+</section>
+
+<section class="pupin-editorial-section bg-dark-blue">
+    <div class="editorial-container text-center">
+        <h2 class="editorial-title text-white mb-50" style="font-family: montserrat;">Патот до врвот на науката</h2>
+        <div class="three-col-grid">
+            <div class="text-column">
+                <h3 class="gold-accent-text" style="font-family: montserrat;">Трудот во Њујорк</h3>
+                <p class="text-gray-light">Првите пет години во САД работел како физички работник, пренесувал јаглен и работел на фарми. Но, секоја слободна вечер ја минувал во библиотека, учејќи физика и англиски јазик.</p>
+            </div>
+            <div class="text-column">
+                <h3 class="gold-accent-text" style="font-family: montserrat;">Универзитетот Колумбија</h3>
+                <p class="text-gray-light">Неговиот брилијантен ум му носи целосна стипендија на Колумбија, каде што дипломира со највисоки почести во 1883 година. Подоцна го основа првиот Оддел за електротехника токму на овој универзитет.</p>
+            </div>
+            <div class="text-column">
+                <h3 class="gold-accent-text" style="font-family: montserrat;">Докторат во Европа</h3>
+                <p class="text-gray-light">Својата жед за знаење ја продолжува во Кембриџ и Берлин, каде што докторира под менторство на славниот Херман фон Хелмхолц, враќајќи се во САД како изграден врвен научник.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pupin-editorial-section bg-light-gray">
+    <div class="editorial-container">
+        
+        <div class="flex-layout align-center mb-80">
+            <div class="editorial-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Pupin_coil.png" alt="и КалемПупинови">
+            </div>
+            <div class="editorial-text pl-50">
+                <h2 class="editorial-title" style="font-family: montserrat;">Револуција во комуникацијата</h2>
+                <h4 class="editorial-subtitle">Пупинизација (1894 - 1901)</h4>
+                <p class="editorial-p">Најголемиот проблем на тогашната телефонија бил што звукот се губел на големи далечини. Пупин пресметал дека ако се постават индуктивни калеми на одредени растојанија, сигналот ќе биде чист.</p>
+                <p class="editorial-p">Патентот го откупила компанијата AT&T. Благодарение на ова, луѓето од Њујорк за прв пат можеле телефонски да разговараат со луѓето во Сан Франциско.</p>
+            </div>
+        </div>
+
+      <div class="flex-layout align-center">
+            <div class="editorial-image">
+                <img src="https://ohridpress.com.mk/wp-content/uploads/2024/10/mihajlo-pupin.jpg" alt="85 години од смртта на светски познатиот Михајло Пупин">
+            </div>
+            <div class="editorial-text pl-50">
+                <h2 class="editorial-title" style="font-family: montserrat;">Х-Зраци, Сонари и НАСА</h2>
+                <h4 class="editorial-subtitle">Надвор од телекомуникациите</h4>
+                <p class="editorial-p">Тој го скратил времето на снимање со Х-зраци од еден час на само неколку секунди, поставувајќи ги темелите на модерната рендгенска дијагностика.</p>
+                <p class="editorial-p">Пупин бил толку почитуван што за време на Првата светска војна развивал сонари за војската, а во 1915 година станал еден од главните основачи на НАЦА – агенцијата која денес ја знаеме како НАСА.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="pupin-editorial-section bg-white text-center">
+    <div class="editorial-container" style="max-width: 800px;">
+        <i class="fas fa-award" style="font-size: 4rem; color: #fca311; margin-bottom: 20px;"></i>
+        <h2 class="editorial-title" style="font-family: montserrat;">Пулицерова награда и Вечно Наследство</h2>
+        <p class="editorial-p" style="font-size: 1.2rem;">Неговата автобиографија „Од пасиштата до наученикот“ му ја носи Пулицеровата награда во 1924 година. Тој останува запаметен како врвен филантроп, помагајќи студенти, сиромашни и чувајќи ја историјата на својот народ сè до неговата смрт на 12 март 1935 година во Њујорк.</p>
+    </div>
+</section>
+
+
+<div class="footer-cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+        <h2 class="cta-heading">
+            <span class="cta-serif">Имате прашања?</span> 
+            <span class="cta-italic">слободно контактирајте не</span>
+        </h2>
+        <a href="kontakt.html" class="btn-cta-contact">КОНТАКТ</a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<footer class="complex-footer">
+    <div class="footer-grid-container">
+        
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Михајло Пупин</h4>
+            <p class="f-about-text">Традиција, иновација и квалитетно образование. Создаваме лидери во електротехниката и ИТ секторот повеќе од 6 децении.</p>
+            
+            <div class="f-social-modern">
+                <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Брза Навигација</h4>
+            <ul class="f-links">
+                <li><a href="novosti.html"><i class="fas fa-angle-right f-arrow"></i> Сите новости</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Огласна табла</a></li>
+                <li><a href="maturski.html"><i class="fas fa-angle-right f-arrow"></i> Државна матура</a></li>
+                <li><a href="informacii.html"><i class="fas fa-angle-right f-arrow"></i> Уписи 2026/27</a></li>
+                <li><a href="https://ednevnik.edu.mk" target="_blank"><i class="fas fa-angle-right f-arrow"></i> Е-Дневник</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4><span class="diamond-bullet">◆</span> Е-Билтен</h4>
+            <p class="f-about-text">Добивајте ги најновите вести, известувања за натпревари и уписи директно на вашиот е-маил.</p>
+            
+            <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Успешно се пријавивте за Е-Билтенот!');">
+                <input type="email" placeholder="Вашиот е-маил..." required>
+                <button type="submit" title="Пријави се"><i class="fas fa-envelope"></i></button>
+            </form>
+        </div>
+
+        <div class="f-col f-contact-info">
+            <h4><span class="diamond-bullet">◆</span> Контакт</h4>
+            <div class="f-contact-row">
+                <i class="fas fa-map-marker-alt"></i> 
+                <span>ул. Благоја Стефковски бр. 6<br>1000 Скопје</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-phone-alt"></i> 
+                <span>+389 2 609 0307<br>+389 2 609 0308</span>
+            </div>
+            <div class="f-contact-row">
+                <i class="fas fa-envelope"></i> 
+                <span><a href="mailto:mpskontakt@yahoo.com">mpskontakt@yahoo.com</a></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom-line">
+        <div class="fb-container">
+            <div class="fb-left">
+                &copy; 2026 СЕТУ <b>Михајло Пупин</b>. Сите права се заштитени.
+            </div>
+            <div class="fb-center">
+                <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo">
+            </div>
+            <div class="fb-right">
+                Изработено од Мартин Дамкоски <i class="fas fa-heart" style="color:#ff00c3;"></i> за МАССУМ
+            </div>
+        </div>
+        
+        <a href="#pocetok" class="back-to-top-btn" title="Оди најгоре"><i class="fas fa-arrow-up"></i></a>
+    </div>
+</footer>
+</body>
+
+</html>
