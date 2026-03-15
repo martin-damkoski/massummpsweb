@@ -6,6 +6,7 @@
     <title>БИОГРАФИЈА | СЕТУГС"МИХАЈЛО ПУПИН"</title>
     <link rel="icon" href="mpp.png.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://proekt-natprevar.mihajlopupin.edu.mk/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
@@ -26,9 +27,34 @@ function toggleSubmenu(id) {
     var arrow = submenu.previousElementSibling.querySelector('.arrow');
     if(arrow) arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
 }
+window.addEventListener('load', function() {
+        // Тајмер од точно 4 секунди (4000 милисекунди)
+        setTimeout(function() {
+            var preloader = document.getElementById('pupin-preloader');
+            if (preloader) {
+                // Го избледуваме
+                preloader.classList.add('hide-preloader');
+                
+                // Целосно го бришеме по 1 секунда (откако ќе заврши анимацијата)
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 1000);
+            }
+        }, 4000); 
+    });
 </script>
 </head>
 <body>
+    <div id="pupin-preloader">
+    <div class="preloader-content">
+        <div class="video-circle">
+            <video autoplay muted loop playsinline id="small-video">
+                <source src="mihajlopupinai.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="loading-text">БИОГРАФИЈА НА МИХАЈЛО ПУПИН...</div>
+    </div>
+</div>
     <header class="main-header" id="pocetok">
     <div class="header-container">
         <div class="logo">
@@ -105,7 +131,7 @@ function toggleSubmenu(id) {
     <div class="video-overlay"></div>
 
     <div class="hero-content">
-        <h1 class="hero-title">БИОГРАФИЈА ЗА МИХАЈЛО ПУПИН</h1>
+        <h1 class="hero-title">БИОГРАФИЈА НА МИХАЈЛО ПУПИН</h1>
         <p class="hero-subtitle">"Сакај го ближниот како што се сакаш себе си".</p>
         
         <div class="hero-btns">
@@ -187,7 +213,7 @@ function toggleSubmenu(id) {
             <span class="gold-accent-text">1854 - 1874</span>
             <h2 class="editorial-title" style="font-family: montserrat;">Од банатските пасишта до големиот сон</h2>
             <p class="editorial-p">Михајло Идворски Пупин е роден во 1854 година во селото Идвор. Растејќи во сиромашно земјоделско семејство, неговата прва училница биле ѕвездените ноќи додека ги чувал говедата. Токму таму, слушајќи како звукот патува низ земјата, се родил неговиот научен ум.</p>
-            <p class="editorial-p">Неговата мајка Олимпијада, иако неписмена, била неговиот најголем мотиватор. Нејзините зборови <em>„Знаењето е златна скала преку која се оди во небото“</em> го испратиле на 20-годишна возраст на пат кон Америка. Без јазик и со само 5 центи во џебот.</p>
+            <p class="editorial-p">Неговата мајка Олимпијада, иако не е едуцирана, била неговиот најголем мотиватор. Нејзините зборови <em>„Знаењето е златна скала преку која се оди во небото“</em> го испратиле на 20-годишна возраст на пат кон Америка. Без јазик и со само 5 центи во џебот.</p>
         </div>
         <div class="editorial-image">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Idvor_-_Rodna_ku%C4%87a_Mihaila_Pupina.jpg/1280px-Idvor_-_Rodna_ku%C4%87a_Mihaila_Pupina.jpg" alt="Родната куќа на Пупин">
@@ -283,8 +309,8 @@ function toggleSubmenu(id) {
             <div class="f-social-modern">
                 <a href="https://www.facebook.com/mihajlo.pupin.skopje/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.youtube.com/@setugsmihajlopupin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/explore/locations/744265755952687/setugs-mihajlo-pupin--skopje/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://mk.linkedin.com/in/angelka-andreski-61632848" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
 
