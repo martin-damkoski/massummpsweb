@@ -161,12 +161,12 @@ body {
 
 .bg-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center bottom; /*  */
     z-index: 1;
 }
 
@@ -419,13 +419,13 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* ОВА Е ПРОМЕНЕТО: Поставување на IMG таговите */
+/*  */
 img.news-image-placeholder {
     background-color: #eaeaea;
     transition: 0.3s;
     width: 100%;
-    object-fit: cover; /* Ова спречува сликите да се развлекуваат */
-    display: block; /* Спречува празен простор под сликата */
+    object-fit: cover; /* т */
+    display: block; /* */
 }
 
 .grid-item:hover img.news-image-placeholder {
