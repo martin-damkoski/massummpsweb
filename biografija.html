@@ -42,7 +42,101 @@ window.addEventListener('load', function() {
             }
         }, 4000); 
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    // Го бараме копчето дури откако ќе се вчита HTML-от
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    
+    if (toggleSwitch) {
+        // Проверка дали претходно е зачуван Dark Mode
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+        }
+
+        // Функција за кликање
+        toggleSwitch.addEventListener('change', function(e) {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }    
+        });
+    }
+});
+// --- 1. DARK MODE ЛОГИКА (За сите копчиња) ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Ги бараме СИТЕ копчиња (во главното мени и во мобилното мени)
+    const toggleSwitches = document.querySelectorAll('.theme-switch input[type="checkbox"]');
+    
+    if (toggleSwitches.length > 0) {
+        // Проверуваме дали претходно е зачуван Dark Mode
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            // Ги штиклираме сите копчиња
+            toggleSwitches.forEach(btn => btn.checked = true);
+        }
+
+        // Додаваме функција за кликање на секое копче
+        toggleSwitches.forEach(toggleSwitch => {
+            toggleSwitch.addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    // Синхронизирај ги сите копчиња да бидат уклучени
+                    toggleSwitches.forEach(btn => btn.checked = true);
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    // Синхронизирај ги сите копчиња да бидат исклучени
+                    toggleSwitches.forEach(btn => btn.checked = false);
+                }    
+            });
+        });
+    }
+});
+
+// --- 2. КОД ЗА ГАСЕЊЕ НА ПРЕЛОАДЕРОТ ---
+window.addEventListener('load', function() {
+    // Го наоѓаме прелоадерот (во твојот случај има id="preloader")
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        // Започнува анимацијата за избледување
+        preloader.classList.add('hidden');
+        
+        // По 800ms (колку што трае CSS транзицијата), целосно го тргаме
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 800);
+    }
+});
 </script>
+<script type="text/javascript">
+    // 1. Иницијализација
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'mk',
+            includedLanguages: 'mk,en,sq',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    // 2. Глобална функција достапна за сите копчиња (PC и Mobile)
+    window.changeLanguage = function(langCode) {
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        } else {
+            console.log("Системот за превод се вчитува...");
+        }
+    }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
     <div id="pupin-preloader">
@@ -117,6 +211,29 @@ window.addEventListener('load', function() {
 
     <li><a href="novosti.html">НОВОСТИ</a></li>
     <li><a href="kontakt.html">КОНТАКТ</a></li>
+    <li class="dark-mode-toggle-item" style="display: flex; align-items: center; margin-left: 15px;">
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</li>
+<li class="custom-lang-menu">
+    <div class="lang-globe">
+        <i class="fas fa-globe"></i>
+    </div>
+    <ul class="lang-options">
+        <li><a href="#" onclick="changeLanguage('mk'); return false;">Македонски</a></li>
+        <li><a href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+        <li><a href="#" onclick="changeLanguage('sq'); return false;">Shqip</a></li>
+    </ul>
+</li>
+
+<div id="google_translate_element" style="position: absolute; width: 0; height: 0; overflow: hidden;"></div>
 </ul>
         </nav>
     </div>
@@ -124,7 +241,7 @@ window.addEventListener('load', function() {
 
 <section class="hero-video-section">
    <video autoplay muted loop playsinline class="bg-video">
-        <source src="GLAVNO.mp4" type="video/mp4"> 
+        <source src="GLAVNOO.mp4" type="video/mp4"> 
         Вашиот прелистувач не поддржува видео.
     </video>
 
@@ -181,18 +298,53 @@ window.addEventListener('load', function() {
                     ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
                 </a>
                 <div id="info-sub" class="submenu">
-                    <a href="informacii.html">Огласна Табла</a>
-                    <a href="informacii.html">Уписи</a>
-                    <a href="informacii.html">Натпревари</a>
-                    <a href="informacii.html">Денови На Електротехника</a>
-                    <a href="informacii.html">ERASMUS+</a>
-                    <a href="informacii.html">Практично Образование</a>
+                   <a href="informacii.html#oglasna">Огласна Табла</a>
+<a href="informacii.html#upisi">Уписи</a>
+<a href="informacii.html#natprevari">Натпревари</a>
+<a href="informacii.html#denovi">Денови На Електротехника</a>
+<a href="informacii.html#erasmus">ERASMUS+</a>
+<a href="informacii.html#praksa">Практично Образование</a>
                     <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
                 </div>
             </div>
+            <div class="dropdown-item">
+    <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('documents-sub')">
+        ИСПИТИ И ДОКУМЕНТИ <i class="fas fa-chevron-down arrow"></i>
+    </a>
+    <div id="documents-sub" class="submenu">
+        <a href="zavrsen.html" onclick="toggleMenu()">Завршен Испит</a>
+        <a href="maturski.html" onclick="toggleMenu()">Матурски Испит</a>
+        <a href="pristap.html" onclick="toggleMenu()">Пристап до информации</a>
+        <a href="javni.html" onclick="toggleMenu()">Јавни Набавки</a>
+        <a href="dokumenti.html" onclick="toggleMenu()">Документи</a>
+    </div>
+</div>
 
             <a href="novosti.html">НОВОСТИ</a>
             <a href="kontakt.html">КОНТАКТ</a>
+            <div class="mobile-dark-toggle" style="padding: 15px 25px; border-bottom: 1px solid #111; display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: white; font-weight: bold; font-size: 1rem;">ТЕМНА ТЕМА</span>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox-mobile">
+            <input type="checkbox" id="checkbox-mobile" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</div>
+<div class="mobile-lang-section" style="padding: 15px 25px; border-bottom: 1px solid #111;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-globe" style="color: #f1b418;"></i>
+        <span style="color: white; font-weight: bold; font-size: 1rem;">ИЗБЕРИ ЈАЗИК</span>
+    </div>
+    <div class="mobile-lang-btns" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="changeLanguage('mk')" class="m-lang-btn">MK</button>
+        <button onclick="changeLanguage('en')" class="m-lang-btn">EN</button>
+        <button onclick="changeLanguage('sq')" class="m-lang-btn">SQ</button>
+    </div>
+</div>
         </nav>
 
         <div class="menu-footer">
@@ -258,7 +410,7 @@ window.addEventListener('load', function() {
 
       <div class="flex-layout align-center">
             <div class="editorial-image">
-                <img src="https://ohridpress.com.mk/wp-content/uploads/2024/10/mihajlo-pupin.jpg" alt="85 години од смртта на светски познатиот Михајло Пупин">
+                <img src="mihajlo.png" alt="85 години од смртта на светски познатиот Михајло Пупин">
             </div>
             <div class="editorial-text pl-50">
                 <h2 class="editorial-title" style="font-family: montserrat;">Х-Зраци, Сонари и НАСА</h2>

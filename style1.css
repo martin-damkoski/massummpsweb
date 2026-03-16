@@ -2965,3 +2965,330 @@ html {
         transform: translateY(150vh) rotate(360deg); /* Паѓа надвор од екранот надолу */
     }
 }
+/* --- СТИЛ ЗА КОПЧЕТО ВО ХЕДЕРОТ --- */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 28px; /* Малку го намаливме за убаво да собере во менито */
+    position: relative;
+    width: 54px;
+    margin: 0;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 3px;
+    content: "";
+    height: 22px;
+    left: 3px;
+    position: absolute;
+    transition: 0.4s;
+    width: 22px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+input:checked + .slider {
+    background-color: #1a2e5a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider i {
+    color: #fff;
+    font-size: 12px;
+    z-index: 1;
+}
+.fa-moon { color: #f1b418; }
+.fa-sun { color: #f1b418; }
+/* ===================================================================== */
+/* 🌙 DARK MODE 2 - ПРЕГАЗУВАЊА ЗА ВТОРИОТ CSS ФАЈЛ 🌙 */
+/* ===================================================================== */
+
+/* --- 1. ГЛАВНИ ПОЗАДИНИ НА СВЕТЛИТЕ СЕКЦИИ --- */
+body.dark-mode,
+body.dark-mode .news-portal-section,
+body.dark-mode .gallery-section,
+body.dark-mode .modern-scroll-section,
+body.dark-mode .extra-students-section,
+body.dark-mode .three-year-section,
+body.dark-mode .timeline-section,
+body.dark-mode .contact-section,
+body.dark-mode .javni-nabavki-section,
+body.dark-mode .matura-page-wrapper {
+    background-color: #121212 !important;
+    background-image: none !important; /* Ги гасиме сите светли текстури/слики во позадина */
+    color: #e0e0e0 !important;
+}
+
+/* Задржување на суптилната позадина кај секциите со `::before` (ако сакаш целосно црно, избриши го ова) */
+body.dark-mode .facilities-summary-section::before,
+body.dark-mode .three-year-section::before,
+body.dark-mode .extra-students-section::before {
+    opacity: 0.03 !important; /* Многу слабо видливо во Dark Mode */
+}
+
+/* --- 2. КАРТИЧКИ, МОДАЛИ И БЕЛИ БОКСОВИ --- */
+body.dark-mode .grid-item,
+body.dark-mode .modal-content,
+body.dark-mode .fs-text-box,
+body.dark-mode .scroll-card,
+body.dark-mode .degree-card,
+body.dark-mode .info-panel,
+body.dark-mode .payment-box,
+body.dark-mode .profiles-container,
+body.dark-mode .specialist-interactive-box,
+body.dark-mode .specialist-content,
+body.dark-mode .jn-container,
+body.dark-mode .matura-page-wrapper,
+body.dark-mode .quote-icon {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+    color: #e0e0e0 !important;
+}
+
+/* Специфични hover ефекти за картичките */
+body.dark-mode .grid-item:hover,
+body.dark-mode .scroll-card:hover {
+    background-color: #242424 !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.8) !important;
+}
+
+/* --- 3. НАСЛОВИ И ПОДНАСЛОВИ (Бела боја) --- */
+body.dark-mode .portal-heading,
+body.dark-mode .center-item h3,
+body.dark-mode .grid-item h4,
+body.dark-mode #modalTitle,
+body.dark-mode .fs-title,
+body.dark-mode .card-info h3,
+body.dark-mode .degree-content h3,
+body.dark-mode .degree-content h4,
+body.dark-mode .panel-title,
+body.dark-mode .profile-title,
+body.dark-mode .timeline-content h3,
+body.dark-mode .timeline-content .sub-heading,
+body.dark-mode .contact-info h2,
+body.dark-mode .contact-block h4,
+body.dark-mode .jn-container h2,
+body.dark-mode .matura-heading,
+body.dark-mode .matura-subheading,
+body.dark-mode .matura-small-heading,
+body.dark-mode .matura-bold-text {
+    color: #ffffff !important;
+}
+
+/* --- 4. ПАРАГРАФИ И ТЕКСТ (Светло сива за читање) --- */
+body.dark-mode .news-excerpt,
+body.dark-mode .fs-text-box p,
+body.dark-mode .card-info p,
+body.dark-mode .struka-text,
+body.dark-mode .profile-list li,
+body.dark-mode .panel-body p,
+body.dark-mode .profile-desc,
+body.dark-mode .profile-bullets li,
+body.dark-mode .job-opportunities p,
+body.dark-mode .timeline-content p,
+body.dark-mode .timeline-list li,
+body.dark-mode .contact-block p,
+body.dark-mode .document-list a,
+body.dark-mode .matura-text,
+body.dark-mode .italic-text,
+body.dark-mode .matura-yellow-list > li {
+    color: #bac4d1 !important;
+}
+
+/* --- 5. СПЕЦИФИЧНИ ЕЛЕМЕНТИ (Линкови, Маркери, Линии) --- */
+/* Маркерот на временската линија */
+body.dark-mode .timeline-marker {
+    background-color: #1e1e1e !important;
+    border-color: #fca311 !important;
+}
+
+/* Линкови за преземање и копчиња */
+body.dark-mode .read-more-pupin,
+body.dark-mode .pdf-download-link,
+body.dark-mode .subject-link,
+body.dark-mode .document-list a:hover,
+body.dark-mode .matura-doc-link a,
+body.dark-mode .matura-sub-links a {
+    color: #fca311 !important;
+}
+body.dark-mode .read-more-pupin:hover,
+body.dark-mode .pdf-download-link:hover,
+body.dark-mode .matura-doc-link a:hover,
+body.dark-mode .matura-sub-links a:hover {
+    color: #ffffff !important;
+}
+
+/* Обични копчиња во Вонредни ученици */
+body.dark-mode .doc-links a {
+    background-color: #2a2a2a !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .doc-links a:hover {
+    background-color: #fca311 !important;
+    color: #121212 !important;
+}
+
+/* Уплатници - да изгледаат подобро на темно */
+body.dark-mode .uplatnica-img {
+    border-color: #444 !important;
+    opacity: 0.9;
+}
+/* --- СТИЛ ЗА ГЛОБУСОТ И ПРЕВОДОТ --- */
+.lang-wrapper {
+    position: relative;
+    margin-left: 15px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease;
+    cursor: pointer;
+    overflow: hidden; /* Спречува Google да се излее надвор */
+}
+
+.lang-wrapper:hover {
+    background-color: #f1b418; /* Златна боја на ховер */
+}
+
+.lang-wrapper i {
+    color: #ffffff;
+    font-size: 1.1rem;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.lang-wrapper:hover i {
+    color: #143058; /* Темно сино на ховер */
+}
+
+/* Го правиме Google Translate НЕВИДЛИВ, но кликабилен врз глобусот */
+#google_translate_element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Целосно проѕирно */
+    z-index: 2;
+}
+
+#google_translate_element select {
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Гасење на горната лента на Google што го турка сајтот */
+.skiptranslate iframe {
+    display: none !important;
+    visibility: hidden !important;
+}
+body {
+    top: 0 !important;
+}
+/* Стил за јазичните копчиња на мобилен */
+.m-lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+
+.m-lang-btn:hover, .m-lang-btn:active {
+    background: #f1b418;
+    color: #143058;
+    border-color: #f1b418;
+}
+
+/* Скриј го глобусот од десктоп кога сме на многу мал екран ако пречи */
+@media (max-width: 480px) {
+    .custom-lang-menu {
+        margin-left: 10px;
+    }
+}
+/* ДЕСКТОП ГЛОБУС */
+.custom-lang-menu { position: relative; margin-left: 15px; }
+.lang-globe {
+    width: 32px; height: 32px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%; display: flex;
+    justify-content: center; align-items: center;
+    cursor: pointer; transition: 0.3s;
+}
+.lang-globe:hover { background-color: #f1b418; }
+.lang-globe i { color: #ffffff; font-size: 1.1rem; }
+.lang-globe:hover i { color: #143058; }
+
+.lang-options {
+    position: absolute; top: 100%; right: 0;
+    background-color: #143058; list-style: none;
+    padding: 10px 0; min-width: 140px;
+    border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    opacity: 0; visibility: hidden;
+    transform: translateY(15px); transition: 0.3s;
+    z-index: 1000; border-top: 2px solid #f1b418;
+}
+.custom-lang-menu:hover .lang-options { opacity: 1; visibility: visible; transform: translateY(5px); }
+.lang-options li a {
+    color: #ffffff; text-decoration: none; padding: 10px 20px;
+    display: block; font-size: 0.85rem; font-weight: 600;
+}
+.lang-options li a:hover { background-color: #f1b418; color: #143058; }
+
+/* МОБИЛНИ КОПЧИЊА */
+.m-lang-btn {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white; padding: 8px 15px; border-radius: 5px;
+    font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.m-lang-btn:hover, .m-lang-btn:active { background: #f1b418; color: #143058; }
+
+/* ТРГАЊЕ НА ГОРНАТА ЛЕНТА ОД GOOGLE */
+.skiptranslate iframe { display: none !important; }
+body { top: 0 !important; }
+/* Ова ќе ја скрие лентата на Google на сите страни, дури и ако немаат копче */
+.skiptranslate iframe {
+    display: none !important;
+    visibility: hidden !important;
+}
+body {
+    top: 0 !important;
+}

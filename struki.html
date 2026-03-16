@@ -42,8 +42,78 @@ function toggleSubmenu(id) {
              }, 800); 
         }, 4000); 
     });
+    // --- 1. DARK MODE ЛОГИКА (За сите копчиња) ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Ги бараме СИТЕ копчиња (во главното мени и во мобилното мени)
+    const toggleSwitches = document.querySelectorAll('.theme-switch input[type="checkbox"]');
+    
+    if (toggleSwitches.length > 0) {
+        // Проверуваме дали претходно е зачуван Dark Mode
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            // Ги штиклираме сите копчиња
+            toggleSwitches.forEach(btn => btn.checked = true);
+        }
+
+        // Додаваме функција за кликање на секое копче
+        toggleSwitches.forEach(toggleSwitch => {
+            toggleSwitch.addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    // Синхронизирај ги сите копчиња да бидат уклучени
+                    toggleSwitches.forEach(btn => btn.checked = true);
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    // Синхронизирај ги сите копчиња да бидат исклучени
+                    toggleSwitches.forEach(btn => btn.checked = false);
+                }    
+            });
+        });
+    }
+});
+
+// --- 2. КОД ЗА ГАСЕЊЕ НА ПРЕЛОАДЕРОТ ---
+window.addEventListener('load', function() {
+    // Го наоѓаме прелоадерот (во твојот случај има id="preloader")
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        // Започнува анимацијата за избледување
+        preloader.classList.add('hidden');
+        
+        // По 800ms (колку што трае CSS транзицијата), целосно го тргаме
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 800);
+    }
+});
 
 </script>
+<script type="text/javascript">
+    // 1. Иницијализација
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'mk',
+            includedLanguages: 'mk,en,sq',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    // 2. Глобална функција достапна за сите копчиња (PC и Mobile)
+    window.changeLanguage = function(langCode) {
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        } else {
+            console.log("Системот за превод се вчитува...");
+        }
+    }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
   <div id="clean-struki-preloader">
@@ -142,6 +212,17 @@ function toggleSubmenu(id) {
 
     <li><a href="novosti.html">НОВОСТИ</a></li>
     <li><a href="kontakt.html">КОНТАКТ</a></li>
+    <li class="dark-mode-toggle-item" style="display: flex; align-items: center; margin-left: 15px;">
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</li>
 </ul>
         </nav>
     </div>
@@ -200,23 +281,46 @@ function toggleSubmenu(id) {
                 </div>
             </div>
 
-            <div class="dropdown-item">
+           <div class="dropdown-item">
                 <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
                     ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
                 </a>
                 <div id="info-sub" class="submenu">
-                    <a href="informacii.html">Огласна Табла</a>
-                    <a href="informacii.html">Уписи</a>
-                    <a href="informacii.html">Натпревари</a>
-                    <a href="informacii.html">Денови На Електротехника</a>
-                    <a href="informacii.html">ERASMUS+</a>
-                    <a href="informacii.html">Практично Образование</a>
+                   <a href="informacii.html#oglasna">Огласна Табла</a>
+<a href="informacii.html#upisi">Уписи</a>
+<a href="informacii.html#natprevari">Натпревари</a>
+<a href="informacii.html#denovi">Денови На Електротехника</a>
+<a href="informacii.html#erasmus">ERASMUS+</a>
+<a href="informacii.html#praksa">Практично Образование</a>
                     <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
                 </div>
             </div>
-
+<div class="dropdown-item">
+    <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('documents-sub')">
+        ИСПИТИ И ДОКУМЕНТИ <i class="fas fa-chevron-down arrow"></i>
+    </a>
+    <div id="documents-sub" class="submenu">
+        <a href="zavrsen.html" onclick="toggleMenu()">Завршен Испит</a>
+        <a href="maturski.html" onclick="toggleMenu()">Матурски Испит</a>
+        <a href="pristap.html" onclick="toggleMenu()">Пристап до информации</a>
+        <a href="javni.html" onclick="toggleMenu()">Јавни Набавки</a>
+        <a href="dokumenti.html" onclick="toggleMenu()">Документи</a>
+    </div>
+</div>
             <a href="novosti.html">НОВОСТИ</a>
             <a href="kontakt.html">КОНТАКТ</a>
+            <div class="mobile-dark-toggle" style="padding: 15px 25px; border-bottom: 1px solid #111; display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: white; font-weight: bold; font-size: 1rem;">ТЕМНА ТЕМА</span>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox-mobile">
+            <input type="checkbox" id="checkbox-mobile" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</div>
         </nav>
 
         <div class="menu-footer">
@@ -238,12 +342,34 @@ function toggleSubmenu(id) {
     </div>
 </section>
 
+<section class="quiz-navigator">
+    <div class="container">
+        <a href="#quiz-section" class="quiz-box">
+            <div class="quiz-icon-wrapper">
+                <i class="fas fa-question-circle q-1"></i>
+                <i class="fas fa-question q-2"></i>
+                <div class="main-square">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <i class="fas fa-question-circle q-3"></i>
+                <i class="fas fa-question q-4"></i>
+            </div>
+            <div class="quiz-text">
+                <h3>Дали се двоумиш за одлука на твојот образовен профил?</h3>
+                <p>Кликни тука за да го направиш квизот за насочување <i class="fas fa-arrow-right"></i></p>
+            </div>
+        </a>
+    </div>
+</section>
+
+ 
+
 <section class="profiles-section bg-light">
     <div class="container">
         <div class="section-header-center">
             <h2  style="font-family: montserrat;">Четиригодишно Образование</h2>
             <div class="yellow-divider-center"></div>
-            <p>Стекнете се со диплома за електротехнички техничар и отворете ги вратите кон техничките факултети и модерната ИТ индустрија.</p>
+            <p>Стекнете се со диплома за електротехничар и отворете ги вратите кон техничките факултети и модерната ИТ индустрија.</p>
         </div>
 
         <div class="tech-cards-grid">
@@ -379,7 +505,7 @@ function toggleSubmenu(id) {
 
         </div>
 
-        <div class="enrollment-cta">
+        <div class="enrollment-cta" id="quiz-section">
             <h3>Не си сигурен кој смер е за тебе?</h3>
             <p>Контактирај ја нашата стручна служба за насочување.</p>
             <a href="https://massumbackendkviz.onrender.com/" class="btn-main">Побарај Совет</a>

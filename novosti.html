@@ -42,7 +42,77 @@
         }
     }, 2500); 
 });
+// --- 1. DARK MODE ЛОГИКА (За сите копчиња) ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Ги бараме СИТЕ копчиња (во главното мени и во мобилното мени)
+    const toggleSwitches = document.querySelectorAll('.theme-switch input[type="checkbox"]');
+    
+    if (toggleSwitches.length > 0) {
+        // Проверуваме дали претходно е зачуван Dark Mode
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            // Ги штиклираме сите копчиња
+            toggleSwitches.forEach(btn => btn.checked = true);
+        }
+
+        // Додаваме функција за кликање на секое копче
+        toggleSwitches.forEach(toggleSwitch => {
+            toggleSwitch.addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    // Синхронизирај ги сите копчиња да бидат уклучени
+                    toggleSwitches.forEach(btn => btn.checked = true);
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    // Синхронизирај ги сите копчиња да бидат исклучени
+                    toggleSwitches.forEach(btn => btn.checked = false);
+                }    
+            });
+        });
+    }
+});
+
+// --- 2. КОД ЗА ГАСЕЊЕ НА ПРЕЛОАДЕРОТ ---
+window.addEventListener('load', function() {
+    // Го наоѓаме прелоадерот (во твојот случај има id="preloader")
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        // Започнува анимацијата за избледување
+        preloader.classList.add('hidden');
+        
+        // По 800ms (колку што трае CSS транзицијата), целосно го тргаме
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 800);
+    }
+});
     </script>
+    <script type="text/javascript">
+    // 1. Иницијализација
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'mk',
+            includedLanguages: 'mk,en,sq',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    // 2. Глобална функција достапна за сите копчиња (PC и Mobile)
+    window.changeLanguage = function(langCode) {
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        } else {
+            console.log("Системот за превод се вчитува...");
+        }
+    }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
     
@@ -114,6 +184,17 @@
     </li>
                 <li><a href="novosti.html">НОВОСТИ</a></li>
                 <li><a href="kontakt.html">КОНТАКТ</a></li>
+                <li class="dark-mode-toggle-item" style="display: flex; align-items: center; margin-left: 15px;">
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</li>
             </ul>
         </nav>
     </div>
@@ -163,20 +244,46 @@
                     <a href="nastava.html#peti-stepen">Петти Степен</a>
                 </div>
             </div>
-            <div class="dropdown-item">
-                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i></a>
+          <div class="dropdown-item">
+                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
+                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
+                </a>
                 <div id="info-sub" class="submenu">
-                    <a href="informacii.html">Огласна Табла</a>
-                    <a href="informacii.html">Уписи</a>
-                    <a href="informacii.html">Натпревари</a>
-                    <a href="informacii.html">Денови На Електротехника</a>
-                    <a href="informacii.html">ERASMUS+</a>
-                    <a href="informacii.html">Практично Образование</a>
+                   <a href="informacii.html#oglasna">Огласна Табла</a>
+<a href="informacii.html#upisi">Уписи</a>
+<a href="informacii.html#natprevari">Натпревари</a>
+<a href="informacii.html#denovi">Денови На Електротехника</a>
+<a href="informacii.html#erasmus">ERASMUS+</a>
+<a href="informacii.html#praksa">Практично Образование</a>
                     <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
                 </div>
             </div>
+            <div class="dropdown-item">
+    <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('documents-sub')">
+        ИСПИТИ И ДОКУМЕНТИ <i class="fas fa-chevron-down arrow"></i>
+    </a>
+    <div id="documents-sub" class="submenu">
+        <a href="zavrsen.html" onclick="toggleMenu()">Завршен Испит</a>
+        <a href="maturski.html" onclick="toggleMenu()">Матурски Испит</a>
+        <a href="pristap.html" onclick="toggleMenu()">Пристап до информации</a>
+        <a href="javni.html" onclick="toggleMenu()">Јавни Набавки</a>
+        <a href="dokumenti.html" onclick="toggleMenu()">Документи</a>
+    </div>
+</div>
             <a href="novosti.html">НОВОСТИ</a>
             <a href="kontakt.html">КОНТАКТ</a>
+            <div class="mobile-dark-toggle" style="padding: 15px 25px; border-bottom: 1px solid #111; display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: white; font-weight: bold; font-size: 1rem;">ТЕМНА ТЕМА</span>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox-mobile">
+            <input type="checkbox" id="checkbox-mobile" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</div>
         </nav>
         <div class="menu-footer">
             <div class="social-icons">

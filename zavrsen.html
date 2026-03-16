@@ -37,6 +37,54 @@ window.addEventListener('load', function() {
         }, 600);
     }, 2800);
 });
+// --- 1. DARK MODE ЛОГИКА (За сите копчиња) ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Ги бараме СИТЕ копчиња (во главното мени и во мобилното мени)
+    const toggleSwitches = document.querySelectorAll('.theme-switch input[type="checkbox"]');
+    
+    if (toggleSwitches.length > 0) {
+        // Проверуваме дали претходно е зачуван Dark Mode
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            // Ги штиклираме сите копчиња
+            toggleSwitches.forEach(btn => btn.checked = true);
+        }
+
+        // Додаваме функција за кликање на секое копче
+        toggleSwitches.forEach(toggleSwitch => {
+            toggleSwitch.addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    // Синхронизирај ги сите копчиња да бидат уклучени
+                    toggleSwitches.forEach(btn => btn.checked = true);
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    // Синхронизирај ги сите копчиња да бидат исклучени
+                    toggleSwitches.forEach(btn => btn.checked = false);
+                }    
+            });
+        });
+    }
+});
+
+// --- 2. КОД ЗА ГАСЕЊЕ НА ПРЕЛОАДЕРОТ ---
+window.addEventListener('load', function() {
+    // Го наоѓаме прелоадерот (во твојот случај има id="preloader")
+    const preloader = document.getElementById('preloader');
+    
+    if (preloader) {
+        // Започнува анимацијата за избледување
+        preloader.classList.add('hidden');
+        
+        // По 800ms (колку што трае CSS транзицијата), целосно го тргаме
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 800);
+    }
+});
 </script>
 </head>
 <body id="pocetok">
@@ -129,6 +177,17 @@ window.addEventListener('load', function() {
 
     <li><a href="novosti.html">НОВОСТИ</a></li>
     <li><a href="kontakt.html">КОНТАКТ</a></li>
+    <li class="dark-mode-toggle-item" style="display: flex; align-items: center; margin-left: 15px;">
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</li>
 </ul>
         </nav>
     </div>
@@ -187,163 +246,46 @@ window.addEventListener('load', function() {
                 </div>
             </div>
 
-            <div class="dropdown-item">
+           <div class="dropdown-item">
                 <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
                     ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
                 </a>
                 <div id="info-sub" class="submenu">
-                    <a href="informacii.html">Огласна Табла</a>
-                    <a href="informacii.html">Уписи</a>
-                    <a href="informacii.html">Натпревари</a>
-                    <a href="informacii.html">Денови На Електротехника</a>
-                    <a href="informacii.html">ERASMUS+</a>
-                    <a href="informacii.html">Практично Образование</a>
+                   <a href="informacii.html#oglasna">Огласна Табла</a>
+<a href="informacii.html#upisi">Уписи</a>
+<a href="informacii.html#natprevari">Натпревари</a>
+<a href="informacii.html#denovi">Денови На Електротехника</a>
+<a href="informacii.html#erasmus">ERASMUS+</a>
+<a href="informacii.html#praksa">Практично Образование</a>
                     <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
                 </div>
             </div>
-
-            <a href="novosti.html">НОВОСТИ</a>
-            <a href="kontakt.html">КОНТАКТ</a>
-        </nav>
-
-        <div class="menu-footer">
-            <div class="social-icons">
-                <a href="https://www.facebook.com/mihajlo.pupin.skopje/"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.youtube.com/@setugsmihajlopupin"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
+<div class="dropdown-item">
+    <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('documents-sub')">
+        ИСПИТИ И ДОКУМЕНТИ <i class="fas fa-chevron-down arrow"></i>
+    </a>
+    <div id="documents-sub" class="submenu">
+        <a href="zavrsen.html" onclick="toggleMenu()">Завршен Испит</a>
+        <a href="maturski.html" onclick="toggleMenu()">Матурски Испит</a>
+        <a href="pristap.html" onclick="toggleMenu()">Пристап до информации</a>
+        <a href="javni.html" onclick="toggleMenu()">Јавни Набавки</a>
+        <a href="dokumenti.html" onclick="toggleMenu()">Документи</a>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-    
-<header class="main-header">
-    <div class="header-container">
-        <div class="logo">
-            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
-            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
-        </div>
-
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <nav class="nav-menu">
-            <div class="top-nav">
-                <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
-                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
-                <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
-                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
-                <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
-            </div>
-
-            <ul class="main-nav">
-                <li><a href="index.html">ПОЧЕТНА</a></li>
-                
-                <li class="dropdown">
-                    <a href="zanas.html">ЗА НАС <i class="fas fa-chevron-down arrow-small"></i></a>
-                    <ul class="dropdown-content">
-                        <li><a href="zanas.html#info">Општи Информации</a></li>
-                        <li><a href="zanas.html#istorija">Историја</a></li>
-                        <li><a href="zanas.html#info">Мисија и Визија</a></li>
-                        <li><a href="zanas.html#kadar">Наставен Колектив</a></li>
-                        <li><a href="zanas.html#kadar">Училиштен Одбор</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="nastava.html">НАСТАВА <i class="fas fa-chevron-down arrow-small"></i></a>
-                    <ul class="dropdown-content">
-                        <li><a href="nastava.html#v-onredni">Вонредни Ученици</a></li>
-                        <li><a href="nastava.html#trigodishno">Тригодишно Образование</a></li>
-                        <li><a href="nastava.html#verikalna">Вертикална Проодност</a></li>
-                        <li><a href="nastava.html#cetiri-godishno">Четиригодишно Образование</a></li>
-                        <li><a href="nastava.html#peti-stepen">Петти Степен</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="informacii.html">ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow-small"></i></a>
-                    <ul class="dropdown-content">
-                        <li><a href="informacii.html">Огласна Табла</a></li>
-                        <li><a href="informacii.html">Уписи</a></li>
-                        <li><a href="informacii.html">Натпревари</a></li>
-                        <li><a href="informacii.html">Денови На Електротехника</a></li>
-                        <li><a href="informacii.html">ERASMUS+</a></li>
-                        <li><a href="informacii.html">Практично Образование</a></li>
-                        <li><a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="novosti.html">НОВОСТИ</a></li>
-                <li><a href="kontakt.html">КОНТАКТ</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
-    <div class="side-menu-wrapper">
-        <div class="menu-header">
-            <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="Logo" class="small-menu-logo">
-        </div>
-
-        <nav class="side-menu-links">
-            <a href="index.html">ПОЧЕТНА</a>
-            <div class="dropdown-item">
-                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('zanas-sub')">
-                    ЗА НАС <i class="fas fa-chevron-down arrow"></i>
-                </a>
-                <div id="zanas-sub" class="submenu">
-                    <a href="zanas.html#info">Општи Информации</a>
-                    <a href="zanas.html#istorija">Историја</a>
-                    <a href="zanas.html#info">Мисија и Визија</a>
-                    <a href="zanas.html#kadar">Наставен Колектив</a>
-                    <a href="zanas.html#kadar">Училиштен Одбор</a>
-                </div>
-            </div>
-            
-            <div class="dropdown-item">
-                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('nastava-sub')">
-                    НАСТАВА <i class="fas fa-chevron-down arrow"></i>
-                </a>
-                <div id="nastava-sub" class="submenu">
-                    <a href="nastava.html#v-onredni-ucenici">Вонредни Ученици</a>
-                    <a href="nastava.html#trigodishno-obrazovanie">Тригодишно Образование</a>
-                    <a href="nastava.html#verikalna-proodnost">Вертикална Проодност</a>
-                    <a href="nastava.html#cetiri-godishno-obrazovanie">Четиригодишно Образование</a>
-                    <a href="nastava.html#peti-stepen">Петти Степен</a>
-                </div>
-            </div>
-
-            <div class="dropdown-item">
-                <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('info-sub')">
-                    ИНФОРМАЦИИ <i class="fas fa-chevron-down arrow"></i>
-                </a>
-                <div id="info-sub" class="submenu">
-                    <a href="informacii.html">Огласна Табла</a>
-                    <a href="informacii.html">Уписи</a>
-                    <a href="informacii.html">Натпревари</a>
-                    <a href="informacii.html">Денови На Електротехника</a>
-                    <a href="informacii.html">ERASMUS+</a>
-                    <a href="informacii.html">Практично Образование</a>
-                    <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
-                </div>
-            </div>
-
             <a href="novosti.html">НОВОСТИ</a>
             <a href="kontakt.html">КОНТАКТ</a>
+            <div class="mobile-dark-toggle" style="padding: 15px 25px; border-bottom: 1px solid #111; display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: white; font-weight: bold; font-size: 1rem;">ТЕМНА ТЕМА</span>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox-mobile">
+            <input type="checkbox" id="checkbox-mobile" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</div>
         </nav>
 
         <div class="menu-footer">

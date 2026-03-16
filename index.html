@@ -216,26 +216,80 @@ window.addEventListener('scroll', () => {
         }
     });
 });// --- СКРИПТА ЗА НЕОНСКИ И РАСКОШЕН ПРИЛОУДЕР ---
-// --- СКРИПТА ЗА ЕНЕРГЕТСКА КОНВЕРГЕНЦИЈА ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Ги бараме СИТЕ копчиња за Dark Mode (и за компјутер и за мобилен)
+    const toggleSwitches = document.querySelectorAll('.theme-switch input[type="checkbox"]');
+    
+    if (toggleSwitches.length > 0) {
+        // Проверуваме што е зачувано од претходно
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            // Ги штиклираме сите копчиња
+            toggleSwitches.forEach(btn => btn.checked = true);
+        }
+
+        // Додаваме функција за кликање на секое копче
+        toggleSwitches.forEach(toggleSwitch => {
+            toggleSwitch.addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    // Синхронизирај ги сите копчиња да бидат уклучени
+                    toggleSwitches.forEach(btn => btn.checked = true);
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    // Синхронизирај ги сите копчиња да бидат исклучени
+                    toggleSwitches.forEach(btn => btn.checked = false);
+                }    
+            });
+        });
+    }
+});
+// ==========================================
+// КОД ЗА ГАСЕЊЕ НА ПРЕЛОАДЕРОТ
+// ==========================================
 window.addEventListener('load', function() {
+    // Го наоѓаме прелоадерот преку неговото ID
     const preloader = document.getElementById('preloader');
-    const neonText = document.getElementById('neon-text');
-
-    // Тајминг 1: Точно кога линиите удираат во центарот (по 2.5с)
-    setTimeout(function() {
-        if (neonText) {
-            neonText.classList.add('fully-charged'); // БУМ ефект!
-        }
-    }, 2500);
-
-    // Тајминг 2: Кратко потоа се трга екранот (по 3.3с)
-    setTimeout(function() {
-        if (preloader) {
-            preloader.classList.add('hidden');
-        }
-    }, 3300); 
+    
+    // Ако постои на страната
+    if (preloader) {
+        // Додаваме класа за да ја изврши CSS транзицијата за исчезнување (opacity)
+        preloader.classList.add('hidden');
+        
+        // Откако ќе заврши CSS анимацијата, целосно го бришеме од екранот
+        // Твојот CSS вели 0.8s, па ќе чекаме 800 милисекунди
+        setTimeout(function() {
+            preloader.style.display = 'none';
+        }, 800);
+    }
 });
 </script>
+<script type="text/javascript">
+// 1. Иницијализација на Google Translate (Глобална)
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'mk',
+        includedLanguages: 'mk,en,sq',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+
+// 2. Глобална функција за менување јазик која копчињата МОЖАТ да ја видат
+window.changeLanguage = function(langCode) {
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+        select.value = langCode;
+        select.dispatchEvent(new Event('change'));
+    } else {
+        console.error("Системот за превод уште не е вчитан. Пробај пак за секунда.");
+    }
+}
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </head>
 <body>
     <div class="pupin-preloader" id="preloader">
@@ -337,6 +391,21 @@ window.addEventListener('load', function() {
 
     <li><a href="novosti.html">НОВОСТИ</a></li>
     <li><a href="kontakt.html">КОНТАКТ</a></li>
+    <li class="dark-mode-toggle-item" style="display: flex; align-items: center; margin-left: 15px;">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round">
+                                    <i class="fas fa-moon"></i>
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </li>
+                   <li class="lang-wrapper">
+    <i class="fas fa-globe"></i>
+    <div id="google_translate_element"></div>
+</li>
 </ul>
         </nav>
     </div>
@@ -345,11 +414,14 @@ window.addEventListener('load', function() {
 <nav class="side-scroll-nav" id="sideNav">
     <div class="nav-line"></div>
     <a href="#pocetok" class="side-dot" data-title="Почеток"><span></span></a>
-    <a href="#biografija" class="side-dot" data-title="Биографија"><span></span></a>
-    <a href="#struki" class="side-dot" data-title="Струки"><span></span></a>
     <a href="#novosti" class="side-dot" data-title="Новости"><span></span></a>
+    <a href="#biografija" class="side-dot" data-title="Биографија"><span></span></a>
+    <a href="#struki" class="side-dot" data-title="Образовни профили"><span></span></a>
+    <a href="#podatoci" class="side-dot" data-title="Интересни податоци"><span></span></a>
+    
     <a href="#zosto-pupin" class="side-dot" data-title="Зошто Пупин"><span></span></a>
     <a href="#misija-vizija" class="side-dot" data-title="Мисија и Визија"><span></span></a>
+
 </nav>
 
 <section class="hero-video-section" id="pocetok">
@@ -422,10 +494,45 @@ window.addEventListener('load', function() {
                     <a href="https://ednevnik.edu.mk" target="_blank">Е-Дневник</a>
                 </div>
             </div>
+            <div class="dropdown-item">
+    <a href="javascript:void(0)" class="has-dropdown" onclick="toggleSubmenu('documents-sub')">
+        ИСПИТИ И ДОКУМЕНТИ <i class="fas fa-chevron-down arrow"></i>
+    </a>
+    <div id="documents-sub" class="submenu">
+        <a href="zavrsen.html" onclick="toggleMenu()">Завршен Испит</a>
+        <a href="maturski.html" onclick="toggleMenu()">Матурски Испит</a>
+        <a href="pristap.html" onclick="toggleMenu()">Пристап до информации</a>
+        <a href="javni.html" onclick="toggleMenu()">Јавни Набавки</a>
+        <a href="dokumenti.html" onclick="toggleMenu()">Документи</a>
+    </div>
+</div>
 
             <a href="novosti.html">НОВОСТИ</a>
             <a href="kontakt.html">КОНТАКТ</a>
         </nav>
+        <div class="mobile-dark-toggle" style="padding: 15px 25px; border-bottom: 1px solid #111; display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: white; font-weight: bold; font-size: 1rem;">ТЕМНА ТЕМА</span>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox-mobile">
+            <input type="checkbox" id="checkbox-mobile" />
+            <div class="slider round">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
+</div>
+<div class="mobile-lang-section" style="padding: 15px 25px; border-bottom: 1px solid #111;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-globe" style="color: #f1b418;"></i>
+        <span style="color: white; font-weight: bold; font-size: 1rem;">ИЗБЕРИ ЈАЗИК</span>
+    </div>
+    <div class="mobile-lang-btns" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="changeLanguage('mk')" class="m-lang-btn">MK</button>
+        <button onclick="changeLanguage('en')" class="m-lang-btn">EN</button>
+        <button onclick="changeLanguage('sq')" class="m-lang-btn">SQ</button>
+    </div>
+</div>
 
         <div class="menu-footer">
             <div class="social-icons">
@@ -436,47 +543,91 @@ window.addEventListener('load', function() {
     </div>
 </div>
 <!-- -------------------------------------------------------------------------- -->
- <section class="values-section">
+  <section class="news-section" id="novosti">
     <div class="container">
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-image">
-                    <img src="kadar.png" alt="Наставен кадар">
+        <div class="section-header-left">
+            <h2 style="font-family: montserrat;">Најнови новости</h2>
+            <div class="yellow-divider-left"></div>
+        </div>
+
+        <div class="news-layout">
+            
+            <div class="news-sidebar">
+                
+                <div class="news-list-item" onclick="showNews(event, 'news-2')">
+                    <div class="img-wrapper">
+                        <img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/495307051_23943478098570725_5744571762805986400_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2a1932&_nc_ohc=Av3a1q2zOVUQ7kNvwG_xupZ&_nc_oc=AdkvZFswu9Y8YP4MVJfKYwiXEqnjGWjVoD_fHi531j8kcQz0D2mfDStyYGc0RT8eXK0&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=Z6tNOYol4YHxs0LrxEjw8A&_nc_ss=8&oh=00_AfxQD7FB832JbhHjEZYwrOI2IakzS3RcLyurbaJAEICglg&oe=69BA7DCB" alt="МАССУМ ИЗБОР">
+                    </div>
+                    <div class="news-item-text">
+                        <span class="news-date">МАРТ 14, 2026</span>
+                        <h4>МАССУМ МИХАЈЛО ПУПИН ИЗБОР</h4>
+                    </div>
                 </div>
-                <h3>Наставен Кадар</h3>
-                <p>Професионален и посветен тим од стручни лица.</p>
-                <a href="zanas.html#kadar" class="btn-more">Дознај повеќе</a>
+                
+                <div class="news-list-item" onclick="showNews(event, 'news-3')">
+                    <div class="img-wrapper">
+                        <img src="evropskaoprema.png" alt="Донирана опрема">
+                    </div>
+                    <div class="news-item-text">
+                        <span class="news-date">МАРТ 5, 2026</span>
+                        <h4>ЕВРОПСКА ОПРЕМА </h4>
+                    </div>
+                </div>
+
+                <div class="news-list-item active" onclick="showNews(event, 'news-1')">
+                    <div class="img-wrapper">
+                        <img src="stopanska.png" alt="КОМ">
+                    </div>
+                    <div class="news-item-text">
+                        <span class="news-date">ФЕВРУАРИ 24, 2026</span>
+                        <h4>СТОПАНСКА КОМОРА ВО МАКЕДОНИЈА</h4>
+                    </div>
+                </div>
+
+                <a href="novosti.html" class="btn-all-news">Види ги сите новости <i class="fas fa-arrow-right"></i></a>
+
             </div>
 
-            <div class="value-card">
-                <div class="value-image">
-                    <img src="ucilnici.png" alt="Современи училници">
+            <div class="news-display-area">
+                
+                <div id="news-1" class="news-content active">
+                    <div class="news-main-img">
+                        <img src="stopanska.png" alt="ОПРЕМА ЕУ">
+                    </div>
+                    <div class="news-main-info">
+                        <span class="news-date-large">ФЕВРУАРИ 24, 2026</span>
+                        <h3>СТОПАНСКА КОМОРА ВО МАКЕДОНИЈА</h3>
+                        <p>Во присуство на Министерката за образование, претседателот на стопанската комора , директори на компании и други гости нашето училиште доби признание и плакета за прво училиште во дуалното образование и училиште кое е пример за дуално образование во Македонија.</p>
+                    </div>
                 </div>
-                <h3>Современи Училници</h3>
-                <p>Лаборатории опремени со најнова технологија.</p>
-                <a href="nastava.html#kabineti" class="btn-more" id="tuka">Дознај повеќе</a>
-            </div>
 
-            <div class="value-card">
-                <div class="value-image">
-                    <img src="sorabotka.png" alt="Соработка">
+                <div id="news-2" class="news-content">
+                    <div class="news-main-img">
+                        <img src="massum.png" alt="маССУМ натпревар">
+                    </div>
+                    <div class="news-main-info">
+                        <span class="news-date-large">МАРТ 14, 2026</span>
+                        <h3>КРАЕН РОК ЗА ОДБИРАЊЕ КАНДИДАТИ ЗА МАССУМ</h3>
+                        <p>Краен рок за поднесување на пријави за кандидати за МАССУМ е 16 март 2026 година.</p>
+                    </div>
                 </div>
-                <h3>Соработка</h3>
-                <p>Партнерства со водечки ИТ компании.</p>
-                <a href="sorabotka.html" class="btn-more">Дознај повеќе</a>
-            </div>
 
-            <div class="value-card">
-                <div class="value-image">
-                    <img src="aktivnosti.png" alt="Настани">
+                <div id="news-3" class="news-content">
+                    <div class="news-main-img">
+                        <img src="evropskaoprema.png" alt="СТОПАНСКА КОМОРА">
+                    </div>
+                    <div class="news-main-info">
+                        <span class="news-date-large">МАРТ 5, 2026</span>
+                        <h3>ЕВРОПСКА ОПРЕМА ВО МАКЕДОНИЈА</h3>
+                        <p>Нашите ученици од денес ќе можат да учат практични вежби на новите две професионални тренинг табли наменети за електротехничка струка единствени во едно училиште во Македонија.</p>
+                    </div>
                 </div>
-                <h3>Настани</h3>
-                <p>Бидете во тек со сите натпревари и активности.</p>
-                <a href="novosti.html" class="btn-more">Дознај повеќе</a>
+
             </div>
         </div>
     </div>
 </section>
+ 
 <section class="pupin-bio-section" id="biografija">
     <div class="bio-container">
         <div class="bio-text">
@@ -531,7 +682,7 @@ window.addEventListener('load', function() {
             <div class="section-header-left">
                 <h2>Образовни профили</h2>
                 <div class="yellow-divider-left"></div>
-                <p>Изберете ниво на образование за да ги видите достапните струки.</p>
+                <p>Изберете ниво на образование за да ги видите достапните образовни профили.</p>
             </div>
 
             <div class="accordion-menu">
@@ -651,81 +802,43 @@ window.addEventListener('load', function() {
         </div>
     </div>
 </section>
- <section class="news-section" id="novosti">
+ <section class="values-section" id="podatoci">
     <div class="container">
-        <div class="section-header-left">
-            <h2 style="font-family: montserrat;">Најнови новости</h2>
-            <div class="yellow-divider-left"></div>
-        </div>
-
-        <div class="news-layout">
-            
-            <div class="news-sidebar">
-                     <div class="news-list-item" onclick="showNews(event, 'news-2')">
-                    <img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/495307051_23943478098570725_5744571762805986400_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2a1932&_nc_ohc=Av3a1q2zOVUQ7kNvwG_xupZ&_nc_oc=AdkvZFswu9Y8YP4MVJfKYwiXEqnjGWjVoD_fHi531j8kcQz0D2mfDStyYGc0RT8eXK0&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=Z6tNOYol4YHxs0LrxEjw8A&_nc_ss=8&oh=00_AfxQD7FB832JbhHjEZYwrOI2IakzS3RcLyurbaJAEICglg&oe=69BA7DCB" alt="МАССУМ ИЗБОР">
-                    <div class="news-item-text">
-                        <span class="news-date">МАРТ 14, 2026</span>
-                        <h4>МАССУМ МИХАЈЛО ПУПИН ИЗБОР</h4>
-                    </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="kadar.png" alt="Наставен кадар">
                 </div>
-                
-  <div class="news-list-item" onclick="showNews(event, 'news-3')">
-                    <img src="evropskaoprema.png" alt="Донирана опрема">
-                    <div class="news-item-text">
-                        <span class="news-date">МАРТ 5, 2026</span>
-                        <h4>ЕВРОПСКА ОПРЕМА </h4>
-                    </div>
-                </div>
-
-                <div class="news-list-item active" onclick="showNews(event, 'news-1')">
-                    <img src="stopanska.png" alt="КОМ">
-                    <div class="news-item-text">
-                        <span class="news-date">ФЕВРУАРИ 24, 2026</span>
-                        <h4>СТОПАНСКА КОМОРА ВО МАКЕДОНИЈА</h4>
-                    </div>
-                </div>
-
-        
-
-                <a href="novosti.html" class="btn-all-news">Види ги сите новости <i class="fas fa-arrow-right"></i></a>
-
+                <h3>Наставен Кадар</h3>
+                <p>Професионален и посветен тим од стручни лица.</p>
+                <a href="zanas.html#kadar" class="btn-more">Дознај повеќе</a>
             </div>
 
-            <div class="news-display-area">
-                
-                <div id="news-1" class="news-content active">
-                    <div class="news-main-img">
-                        <img src="stopanska.png" alt="ОПРЕМА ЕУ">
-                    </div>
-                    <div class="news-main-info">
-                        <span class="news-date-large">ФЕВРУАРИ 24, 2026</span>
-                        <h3>СТОПАНСКА КОМОРА ВО МАКЕДОНИЈА</h3>
-                        <p>Во присуство на Министерката за образование, претседателот на стопанската комора , директори на компании и други гости нашето училиште доби признание и плакета за прво училиште во дуалното образование и училиште кое е пример за дуално образование во Македонија. </p>
-                    </div>
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="ucilnici.png" alt="Современи училници">
                 </div>
+                <h3>Современи Училници</h3>
+                <p>Лаборатории опремени со најнова технологија.</p>
+                <a href="nastava.html#kabineti" class="btn-more" id="tuka">Дознај повеќе</a>
+            </div>
 
-                <div id="news-2" class="news-content">
-                    <div class="news-main-img">
-                        <img src="massum.png" alt="маССУМ натпревар">
-                    </div>
-                    <div class="news-main-info">
-                        <span class="news-date-large">МАРТ 14, 2026</span>
-                        <h3>КРАЕН РОК ЗА ОДБИРАЊЕ КАНДИДАТИ ЗА МАССУМ</h3>
-                        <p>Краен рок за поднесување на пријави за кандидати за МАССУМ е 16 март 2026 година.</p>
-                    </div>
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="sorabotka.png" alt="Соработка">
                 </div>
+                <h3>Соработка</h3>
+                <p>Партнерства со водечки ИТ компании.</p>
+                <a href="sorabotka.html" class="btn-more">Дознај повеќе</a>
+            </div>
 
-                <div id="news-3" class="news-content">
-                    <div class="news-main-img">
-                        <img src="evropskaoprema.png" alt="СТОПАНСКА КОМОРА">
-                    </div>
-                    <div class="news-main-info">
-                        <span class="news-date-large">МАРТ 5, 2026</span>
-                        <h3>ЕВРОПСКА ОПРЕМА ВО МАКЕДОНИЈА</h3>
-                        <p>Нашите ученици од денес ќе можат да учат практични вежби на новите две професионални тренинг табли наменети за електротехничка струка единствени во едно училиште во Македонија . </p>
-                    </div>
+            <div class="value-card">
+                <div class="value-image">
+                    <img src="aktivnosti.png" alt="Настани">
                 </div>
-
+                <h3>Настани</h3>
+                <p>Бидете во тек со сите натпревари и активности.</p>
+                <a href="novosti.html" class="btn-more">Дознај повеќе</a>
             </div>
         </div>
     </div>
