@@ -155,7 +155,7 @@ window.addEventListener('load', function() {
                 <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
                 <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
                 <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
-                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="javni.html" style="color:rgb(117, 130, 249);">ЈАВНИ НАБАВКИ</a>
                 <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
             </div>
 
@@ -209,6 +209,18 @@ window.addEventListener('load', function() {
         </label>
     </div>
 </li>
+<li class="custom-lang-menu">
+    <div class="lang-globe">
+        <i class="fas fa-globe"></i>
+    </div>
+    <ul class="lang-options">
+        <li><a href="#" onclick="changeLanguage('mk'); return false;">Македонски</a></li>
+        <li><a href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+        <li><a href="#" onclick="changeLanguage('sq'); return false;">Shqip</a></li>
+    </ul>
+</li>
+
+<div id="google_translate_element" style="position: absolute; width: 0; height: 0; overflow: hidden;"></div>
 </ul>
         </nav>
     </div>
@@ -306,6 +318,17 @@ window.addEventListener('load', function() {
                 <i class="fas fa-sun"></i>
             </div>
         </label>
+    </div>
+</div>
+<div class="mobile-lang-section" style="padding: 15px 25px; border-bottom: 1px solid #111;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-globe" style="color: #f1b418;"></i>
+        <span style="color: white; font-weight: bold; font-size: 1rem;">ИЗБЕРИ ЈАЗИК</span>
+    </div>
+    <div class="mobile-lang-btns" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="changeLanguage('mk')" class="m-lang-btn">MK</button>
+        <button onclick="changeLanguage('en')" class="m-lang-btn">EN</button>
+        <button onclick="changeLanguage('sq')" class="m-lang-btn">SQ</button>
     </div>
 </div>
         </nav>

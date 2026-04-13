@@ -129,7 +129,7 @@ window.addEventListener('load', function() {
     <div class="header-container">
         <div class="logo">
             <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
-            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+            <span class="school-name" style="font-family:montserrat;">СЕТУГС МИХАЈЛО ПУПИН</span>
         </div>
 
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -143,7 +143,7 @@ window.addEventListener('load', function() {
                 <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
                 <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
                 <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
-                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="javni.html" style="color:rgb(117, 130, 249);">ЈАВНИ НАБАВКИ</a>
                 <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
             </div>
 
@@ -195,6 +195,18 @@ window.addEventListener('load', function() {
         </label>
     </div>
 </li>
+<li class="custom-lang-menu">
+    <div class="lang-globe">
+        <i class="fas fa-globe"></i>
+    </div>
+    <ul class="lang-options">
+        <li><a href="#" onclick="changeLanguage('mk'); return false;">Македонски</a></li>
+        <li><a href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+        <li><a href="#" onclick="changeLanguage('sq'); return false;">Shqip</a></li>
+    </ul>
+</li>
+
+<div id="google_translate_element" style="position: absolute; width: 0; height: 0; overflow: hidden;"></div>
             </ul>
         </nav>
     </div>
@@ -202,7 +214,7 @@ window.addEventListener('load', function() {
 
 <section class="hero-video-section">
    <video autoplay muted loop playsinline class="bg-video">
-        <source src="GLAVNO.mp4" type="video/mp4"> 
+        <source src="za novosti part 2.mp4" type="video/mp4"> 
         Вашиот прелистувач не поддржува видео.
     </video>
     <div class="video-overlay"></div>
@@ -284,6 +296,17 @@ window.addEventListener('load', function() {
         </label>
     </div>
 </div>
+<div class="mobile-lang-section" style="padding: 15px 25px; border-bottom: 1px solid #111;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-globe" style="color: #f1b418;"></i>
+        <span style="color: white; font-weight: bold; font-size: 1rem;">ИЗБЕРИ ЈАЗИК</span>
+    </div>
+    <div class="mobile-lang-btns" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="changeLanguage('mk')" class="m-lang-btn">MK</button>
+        <button onclick="changeLanguage('en')" class="m-lang-btn">EN</button>
+        <button onclick="changeLanguage('sq')" class="m-lang-btn">SQ</button>
+    </div>
+</div>
         </nav>
         <div class="menu-footer">
             <div class="social-icons">
@@ -298,6 +321,109 @@ window.addEventListener('load', function() {
     <div class="news-container">
         <h2 class="portal-heading">Најнови Новости</h2>
         
+          <div class="pupin-news-grid">
+            <article class="grid-item tl-item">
+                <img src="darkodesnik.png" alt="Вест 1" class="news-image-placeholder sm-placeholder">
+                <div class="grid-text-content">
+                    <span class="news-date">април 4, 2026</span>
+                    <h4>Гостин Дарио Десниќ во поткастот</h4>
+                    <div class="full-text" style="display: none;"><p>Денешен гостин ни е поранешниот ученик Дарио Десниќ кој што моментално е фудбалер.<br>
+                    Погледни ја епизодата тука ➡️ https://youtu.be/2bJNyEn9Elw?si=dI_CI0AZnkBS7LhZ </p></div>
+                    <a href="#" class="read-more-pupin">Прочитај повеќе »</a>
+                </div>
+            </article>
+
+            <article class="grid-item tr-item">
+                <img src="gorastc.png" alt="Вест 2" class="news-image-placeholder sm-placeholder">
+                <div class="grid-text-content">
+                    <span class="news-date">март 28, 2026</span>
+                    <h4>Гостин Гораст Цветковски  </h4>
+                    <div class="full-text" style="display: none;"><p>Денешен гостин ни е поранешниот ученик Гораст Цветковски кој што моментално е македонски театарски, филмски и телевизиски глумец и водител.<br>
+                        Погледни ја епизодата тука ➡️ https://youtu.be/G0u0f_9p9jE?si=wOKT-A1SnGjWzJ2w </p></div>
+                   
+                    <a href="#" class="read-more-pupin">Прочитај повеќе »</a>
+                </div>
+            </article>
+
+            <article class="grid-item center-item">
+                <img src="AERISLUXMARTIN.jpg" alt="Главна Вест - MARTIN" class="news-image-placeholder lg-placeholder">
+                <div class="grid-text-content">
+                    <span class="news-date">април 7, 2026</span>
+                    <h3 class="news-title">ФИНАЛИСТИ ЗА ЏУНИОР АЧИВМЕНТ</h3>
+                    <p class="news-excerpt">Секоја чест, успеавме да се квалификуваме во финале за државен наптревар на Junior Achivement.Секоја чест на учениците зад овој проект...</p>
+                    <div class="full-text" style="display: none;">
+                        <p>Училиштето испрати 3 тима за натпреварот Џуниор Ачивмент кој што се одржа во Велес (хотел Гарденија) и тимот AerisLux под менторство на професорката Тамара Боровска усепа да се квалификува во финалето!<br>
+                            Секоја чест,ова е успех за училиштето!Промотивното видео на овој тим е објавено на почетната страна.Проектот го сочинуваат следниве ученици:<br>
+                        -Мартин Дамкоски од III-4 (Раководител и менаџер на овој проект)<br>
+                    -Немања Рајковиќ од IV-1 (Практичар)<br>
+                -Ива Јангеловска од IV-1 (Маркетинг)<br>
+                -Леонид Симоновски од III-1 (Помошник практичар и раководител на производство)<br>
+                -Василиса Курзакова од IV-5 (Човекови ресурси)<br>
+                Им посакуваме успех на државниот натпревар!
+            </p>
+                    </div>
+                    <a href="#" class="read-more-pupin">Прочитај повеќе »</a>
+                </div>
+            </article>
+
+            <article class="grid-item ml-item">
+                <img src="sah.png" alt="Вест 4" class="news-image-placeholder sm-placeholder">
+                <div class="grid-text-content">
+                    <span class="news-date">март 27, 2026</span>
+                    <h4>ШАХОВСКИ ПРОСТОР </h4>
+                    <div class="full-text" style="display: none;"><p>Од денес имаме посебно катче каде нашите ученици доколку губат час или  се слободни времето да го искористат за дружење  во посебна просторија  за друштвени игри , шах, табла, а наскоро и други друштвени игри.</p></div>
+                    <a href="#" class="read-more-pupin">Прочитај повеќе »</a>
+                </div>
+            </article>
+
+            <article class="grid-item mr-item">
+                <img src="vestini.png" alt="Вест 5" class="news-image-placeholder sm-placeholder">
+                <div class="grid-text-content">
+                    <span class="news-date">март 20, 2026</span>
+                    <h4>Регионален натпревар во вештини Skills Competition</h4>
+                    <div class="full-text" style="display: none;"><p>На регионалниот натпревар во вештини Skills Competition нашите ученици ги постигнаа следните резултати:
+ 
+Филип Величковски IV-6 освои 2 место за Електротехничар за компјутерска техника и автоматика, ментори Анѓелка Андрески , Поликсена Митева ,Стефана Христовска
+Ведран Стоилковски IV-7 освои 1 место за Електротехничар енергетичар, ментори Марија Барутовска и Лидија Буровска</p></div>
+                    <a href="#" class="read-more-pupin">Прочитај повеќе »</a>
+                </div>
+            </article>
+
+            <article class="grid-item bl-item">
+                <img src="endo.png" alt="Вест -6" class="news-image-placeholder md-placeholder">
+                <div class="grid-text-content">
+                    <span class="news-date">март 28, 2026</span>
+                    <h4>Државен натпревар по Програмирање </h4>
+                    <div class="full-text" style="display: none;"><p>На Државниот натпревар по Програмирање кој се одржа на 28.03.2026 , нашите ученици ги постигнаа следните резултати:
+ 
+Марко Бишкоски IV-3 освои II место и стипендија за студирање на ФИНКИ
+Филип Величковски IV-6 -пофалба за успешно учество 
+Василиса Курзакова IV-5 – пофалба за учество – ментор Јасминка Димовска
+Сердар Цветков IV-4 – пофалба за успешно учество – ментор Анѓелка Андрески</p></div>
+                    <a href="#" class="read-more-pupin">Прочитај повеќе »</a>
+                </div>
+            </article>
+
+            <article class="grid-item br-item">
+                <img src="elektrostrukanat.png" alt="Вест 7" class="news-image-placeholder sm-placeholder">
+                <div class="grid-text-content">
+                    <span class="news-date">март 24, 2026</span>
+                    <h4>Натпревар од електротехничка струка</h4>
+                    <div class="full-text" style="display: none;"><p>🥇Ива Бошеска I место на регионалниот натпревар од електротехничка струка за Електротехничар за компјутерска техика и автоматика 
+Ментори: Анѓелка Андрески, Софија Темкова, Јелена С.Јосифовска, Гордана Наумовска
+
+🥇Матеј Станимировиќ I место на регионалниот натпревар од електротехничка струка за Електротехничар енергетичар, ментори :Марија Барутовска, Снежана Алексовска, Лидија Буровска.
+ 
+Двајцата продолжуваат на Државен натпревар! Им посакуваме многу успех!</p></div>
+                    <a href="#" class="read-more-pupin">Прочитај повеќе »</a>
+                </div>
+            </article>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="pupin-news-grid">
             <article class="grid-item tl-item">
                 <img src="stopanska.png" alt="Вест 1" class="news-image-placeholder sm-placeholder">

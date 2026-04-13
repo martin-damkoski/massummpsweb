@@ -1,0 +1,67 @@
+    <!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <title>AERISLUX ТЕСТ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        body { background-color: #f0f0f0; padding: 50px; font-family: sans-serif; }
+        .promo { position: relative; background: #2e8b57; padding: 40px; border-radius: 10px; display: flex; align-items: center; overflow: hidden; color: white; gap: 20px;}
+        .leaf-box { position: absolute; top:0; left:0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+        .leaf { position: absolute; width: 40px; height: 40px; background: #7cfc00; border-radius: 0 50% 0 50%; right: 35%; top: 40%; opacity: 0; box-shadow: inset 2px 2px 5px rgba(255,255,255,0.6); }
+        .content { position: relative; z-index: 10; display: flex; width: 100%; align-items: center; }
+        .logo { flex: 1; text-align: center; }
+        .logo img { max-width: 100%; }
+        .text { flex: 2; padding: 0 20px; text-align: center; }
+        .text h2 { font-style: italic; font-size: 3rem; margin: 0; }
+        .video-box { flex: 1; }
+        .video-box video { width: 100%; border-radius: 10px; background: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body>
+
+    <div class="promo">
+        <div class="leaf-box"></div>
+        <div class="content">
+            <div class="logo">
+                <img src="BEZPOZADINA.png" alt="Лого">
+            </div>
+            <div class="text">
+                <h2>AERISLUX</h2>
+                <p>Твојата Идеја, Наша Мисија. Ние сме ученичка компанија посветена на иновации и квалитет.</p>
+            </div>
+            <div class="video-box">
+                <video controls poster="SLIKAPRED.jpg">
+                    <source src="ПРОМОТИВНО ВИДЕО - Copy.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            if(typeof anime !== 'undefined') {
+                for(let i=0; i<25; i++) {
+                    let l = document.createElement('div');
+                    l.className = 'leaf';
+                    document.querySelector('.leaf-box').appendChild(l);
+                }
+                anime({
+                    targets: '.leaf',
+                    translateX: () => anime.random(-800, 50),
+                    translateY: () => anime.random(-250, 250),
+                    rotate: () => anime.random(-360, 360),
+                    scale: () => anime.random(0.5, 1.2),
+                    opacity: [0, 0.9, 0],
+                    duration: () => anime.random(4000, 7000),
+                    easing: 'linear',
+                    delay: anime.stagger(200),
+                    loop: true
+                });
+            } else {
+                alert("Anime.js библиотеката не се вчита! Провери интернет конекција.");
+            }
+        }, 500);
+    </script>
+</body>
+</html>

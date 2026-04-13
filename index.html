@@ -268,27 +268,65 @@ window.addEventListener('load', function() {
 });
 </script>
 <script type="text/javascript">
-// 1. Иницијализација на Google Translate (Глобална)
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'mk',
-        includedLanguages: 'mk,en,sq',
-        autoDisplay: false
-    }, 'google_translate_element');
-}
-
-// 2. Глобална функција за менување јазик која копчињата МОЖАТ да ја видат
-window.changeLanguage = function(langCode) {
-    var select = document.querySelector('.goog-te-combo');
-    if (select) {
-        select.value = langCode;
-        select.dispatchEvent(new Event('change'));
-    } else {
-        console.error("Системот за превод уште не е вчитан. Пробај пак за секунда.");
+    // 1. Иницијализација на Google Translate
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'mk',
+            includedLanguages: 'mk,en,sq',
+            autoDisplay: false
+        }, 'google_translate_element');
     }
-}
+
+    // 2. Глобална функција достапна за сите копчиња (PC и Mobile)
+    window.changeLanguage = function(langCode) {
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        } else {
+            console.log("Системот за превод се вчитува...");
+        }
+    }
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const leafContainer = document.querySelector('.leaves-container');
+        
+        // Проверуваме дали контејнерот постои и дали anime.js е вчитан
+        if (leafContainer && typeof anime !== 'undefined') {
+            
+            // Создаваме 25 ливчиња
+            for (let i = 0; i < 25; i++) {
+                let leaf = document.createElement('div');
+                leaf.classList.add('aeris-leaf');
+                leafContainer.appendChild(leaf);
+            }
+
+            // Ја стартуваме магијата
+            anime({
+                targets: '.aeris-leaf',
+                // Летаат од десно кон лево (од видеото кон логото)
+                translateX: function() { return anime.random(-1000, 100); },
+                // Одат нагоре и надолу
+                translateY: function() { return anime.random(-300, 300); },
+                // Се вртат во воздух
+                rotate: function() { return anime.random(-360, 360); },
+                // Некои се помали, некои поголеми
+                scale: function() { return anime.random(0.5, 1.5); },
+                // Се појавуваат па избледуваат
+                opacity: [0, 1, 0],
+                // Времетраење на еден лет
+                duration: function() { return anime.random(3000, 7000); },
+                easing: 'linear',
+                delay: anime.stagger(250), // Тргнуваат едно по едно
+                loop: true
+            });
+        }
+    });
+</script>
 
 </head>
 <body>
@@ -345,9 +383,9 @@ window.changeLanguage = function(langCode) {
         <nav class="nav-menu">
             <div class="top-nav">
                 <a href="zavrsen.html" style="color:rgb(218, 186, 3);">ЗАВРШЕН ИСПИТ</a>
-                <a href="maturski.html" style="color:rgb(4, 98, 207);">МАТУРСКИ ИСПИТ</a>
+                <a href="maturski.html" style="color:rgb(80, 96, 238);">МАТУРСКИ ИСПИТ</a>
                 <a href="pristap.html" style="color:rgb(218, 186, 3);">ПРИСТАП ДО ИНФОРМАЦИИ</a>
-                <a href="javni.html" style="color:rgb(12, 34, 231);">ЈАВНИ НАБАВКИ</a>
+                <a href="javni.html" style="color:rgb(117, 130, 249);">ЈАВНИ НАБАВКИ</a>
                 <a href="dokumenti.html" style="color:rgb(218, 186, 3);">ДОКУМЕНТИ</a>
             </div>
 
@@ -402,10 +440,18 @@ window.changeLanguage = function(langCode) {
                             </label>
                         </div>
                     </li>
-                   <li class="lang-wrapper">
-    <i class="fas fa-globe"></i>
-    <div id="google_translate_element"></div>
+     <li class="custom-lang-menu">
+    <div class="lang-globe">
+        <i class="fas fa-globe"></i>
+    </div>
+    <ul class="lang-options">
+        <li><a href="#" onclick="changeLanguage('mk'); return false;">Македонски</a></li>
+        <li><a href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+        <li><a href="#" onclick="changeLanguage('sq'); return false;">Shqip</a></li>
+    </ul>
 </li>
+
+<div id="google_translate_element" style="position: absolute; width: 0; height: 0; overflow: hidden;"></div>
 </ul>
         </nav>
     </div>
@@ -415,11 +461,13 @@ window.changeLanguage = function(langCode) {
     <div class="nav-line"></div>
     <a href="#pocetok" class="side-dot" data-title="Почеток"><span></span></a>
     <a href="#novosti" class="side-dot" data-title="Новости"><span></span></a>
+    <a href="#arbis-promo" class="side-dot" data-title="AerisLUX"><span></span></a>
     <a href="#biografija" class="side-dot" data-title="Биографија"><span></span></a>
     <a href="#struki" class="side-dot" data-title="Образовни профили"><span></span></a>
     <a href="#podatoci" class="side-dot" data-title="Интересни податоци"><span></span></a>
     
     <a href="#zosto-pupin" class="side-dot" data-title="Зошто Пупин"><span></span></a>
+    <a href="#jsp" class="side-dot" data-title="Превоз"><span></span></a>
     <a href="#misija-vizija" class="side-dot" data-title="Мисија и Визија"><span></span></a>
 
 </nav>
@@ -556,31 +604,31 @@ window.changeLanguage = function(langCode) {
                 
                 <div class="news-list-item" onclick="showNews(event, 'news-2')">
                     <div class="img-wrapper">
-                        <img src="https://scontent.fskp3-1.fna.fbcdn.net/v/t39.30808-6/495307051_23943478098570725_5744571762805986400_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2a1932&_nc_ohc=Av3a1q2zOVUQ7kNvwG_xupZ&_nc_oc=AdkvZFswu9Y8YP4MVJfKYwiXEqnjGWjVoD_fHi531j8kcQz0D2mfDStyYGc0RT8eXK0&_nc_zt=23&_nc_ht=scontent.fskp3-1.fna&_nc_gid=Z6tNOYol4YHxs0LrxEjw8A&_nc_ss=8&oh=00_AfxQD7FB832JbhHjEZYwrOI2IakzS3RcLyurbaJAEICglg&oe=69BA7DCB" alt="МАССУМ ИЗБОР">
+                        <img src="AERISLUXMARTIN.jpg" alt="AERISLUX">
                     </div>
                     <div class="news-item-text">
-                        <span class="news-date">МАРТ 14, 2026</span>
-                        <h4>МАССУМ МИХАЈЛО ПУПИН ИЗБОР</h4>
+                        <span class="news-date">АПРИЛ 7, 2026</span>
+                        <h4>ЏУНИОР АЧИВМЕНТ ФИНАЛИСТИ</h4>
                     </div>
                 </div>
                 
                 <div class="news-list-item" onclick="showNews(event, 'news-3')">
                     <div class="img-wrapper">
-                        <img src="evropskaoprema.png" alt="Донирана опрема">
+                        <img src="darkodesnik.png" alt="ДDESNIK">
                     </div>
                     <div class="news-item-text">
-                        <span class="news-date">МАРТ 5, 2026</span>
-                        <h4>ЕВРОПСКА ОПРЕМА </h4>
+                        <span class="news-date">АПРИЛ 4, 2026</span>
+                        <h4>НАШИОТ ВТОР ГОСТИН </h4>
                     </div>
                 </div>
 
                 <div class="news-list-item active" onclick="showNews(event, 'news-1')">
                     <div class="img-wrapper">
-                        <img src="stopanska.png" alt="КОМ">
+                        <img src="gorastc.png" alt="GOKI">
                     </div>
                     <div class="news-item-text">
-                        <span class="news-date">ФЕВРУАРИ 24, 2026</span>
-                        <h4>СТОПАНСКА КОМОРА ВО МАКЕДОНИЈА</h4>
+                        <span class="news-date">МАРТ 28, 2026</span>
+                        <h4>ПРВИОТ ГОСТИН НА ПОТКАСТОТ!<h4>
                     </div>
                 </div>
 
@@ -590,36 +638,39 @@ window.changeLanguage = function(langCode) {
 
             <div class="news-display-area">
                 
-                <div id="news-1" class="news-content active">
+
+                <div id="news-3" class="news-content active">
                     <div class="news-main-img">
-                        <img src="stopanska.png" alt="ОПРЕМА ЕУ">
+                        <img src="darkodesnik.png" alt="ОПРЕМА ЕУ">
                     </div>
                     <div class="news-main-info">
-                        <span class="news-date-large">ФЕВРУАРИ 24, 2026</span>
-                        <h3>СТОПАНСКА КОМОРА ВО МАКЕДОНИЈА</h3>
-                        <p>Во присуство на Министерката за образование, претседателот на стопанската комора , директори на компании и други гости нашето училиште доби признание и плакета за прво училиште во дуалното образование и училиште кое е пример за дуално образование во Македонија.</p>
+                        <span class="news-date-large">АПРИЛ 4, 2026</span>
+                        <h3>ГОСТИН ДАРИО ДЕСНИЌ </h3>
+                        <p>Нов гостин,нова епизода ➡️ https://youtu.be/2bJNyEn9Elw?si=dI_CI0AZnkBS7LhZ
+
+</p>
                     </div>
                 </div>
 
                 <div id="news-2" class="news-content">
                     <div class="news-main-img">
-                        <img src="massum.png" alt="маССУМ натпревар">
+                        <img src="AERISLUXMARTIN.jpg" alt="JA MARTIN">
                     </div>
                     <div class="news-main-info">
                         <span class="news-date-large">МАРТ 14, 2026</span>
-                        <h3>КРАЕН РОК ЗА ОДБИРАЊЕ КАНДИДАТИ ЗА МАССУМ</h3>
-                        <p>Краен рок за поднесување на пријави за кандидати за МАССУМ е 16 март 2026 година.</p>
+                        <h3>ЏУНИОР АЧИВМЕНТ ФИНАЛИСТИ</h3>
+                        <p>Учениците: Мартин Дамкоски, Леонид Симоновски, Ива Јангеловска, Немања Рајковиќ и Василиса Курзакова, под менторство на професорката Тамара Боровска ќе го претставуваат нашето училиште на државниот натпревар ,,ЏУНИОР АЧИВМЕНТ,, </p>
                     </div>
                 </div>
 
-                <div id="news-3" class="news-content">
+                <div id="news-1" class="news-content">
                     <div class="news-main-img">
-                        <img src="evropskaoprema.png" alt="СТОПАНСКА КОМОРА">
+                        <img src="gorastc.png" alt="СТОПАНСКА КОМОРА">
                     </div>
                     <div class="news-main-info">
-                        <span class="news-date-large">МАРТ 5, 2026</span>
-                        <h3>ЕВРОПСКА ОПРЕМА ВО МАКЕДОНИЈА</h3>
-                        <p>Нашите ученици од денес ќе можат да учат практични вежби на новите две професионални тренинг табли наменети за електротехничка струка единствени во едно училиште во Македонија.</p>
+                        <span class="news-date-large">МАРТ 28, 2026</span>
+                        <h3>ГОСТИН ГОРAСT ЦВЕТКОВСКИ</h3>
+                        <p>Нашиот почеток и прв гостин на овој поткаст Гораст Цветковски ➡️ https://youtu.be/G0u0f_9p9jE?si=wOKT-A1SnGjWzJ2w</p>
                     </div>
                 </div>
 
@@ -627,7 +678,169 @@ window.changeLanguage = function(langCode) {
         </div>
     </div>
 </section>
- 
+<section id="arbis-promo" style="margin: 40px 0;">
+    
+    <style>
+        .aeris-promo-wrapper {
+            position: relative; /* КЛУЧНО: Ги држи лисјата внатре! */
+            overflow: hidden; /* Сече сè што ќе излезе надвор */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2e8b57;
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            gap: 20px;
+        }
+        
+        .leaves-container {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none; /* За да може да се клика на видеото */
+            z-index: 5; /* Лисјата се над зелената боја */
+        }
+
+        .aeris-leaf {
+    position: absolute;
+    width: 40px; height: 40px;
+    background-color: #80ff00; 
+    border-radius: 0 50% 0 50%;
+    right: 35%; top: 40%;
+    opacity: 0;
+    /* НОВИОТ ДЕЛ ЗА БРЗИНА: */
+    will-change: transform, opacity; /* Го подготвува прелистувачот */
+    transform: translateZ(0); /* Ја активира графичката картичка */
+}
+        .aeris-logo-col, .aeris-text-col, .aeris-video-col {
+            position: relative;
+            z-index: 10; /* Текстот и логото се над лисјата */
+        }
+
+        /* За мобилен телефон */
+        @media (max-width: 768px) {
+            .aeris-promo-wrapper { flex-direction: column !important; padding: 30px 15px !important; }
+            .aeris-logo-col { max-width: 55% !important; margin: 0 auto; }
+            .aeris-video-col { max-width: 100% !important; width: 100%; }
+        }
+        /* Контејнер за двете копчиња */
+.aeris-btn-wrapper {
+    display: flex;
+    gap: 15px; /* Простор меѓу копчињата */
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap; /* Ако се гледа на мал телефон, да паднат едно под друго */
+}
+
+/* 1. Главното копче (Дознај повеќе) */
+.aeris-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #ffffff;
+    color: #2e8b57;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.aeris-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background-color: #e6ffe6;
+}
+
+/* 2. Инстаграм копчето */
+.aeris-btn-ig {
+    display: inline-block;
+    padding: 10px 33px; /* Малку помало поради рамката */
+    background-color: transparent; /* Проѕирно */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #ffffff; /* Бела рамка */
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.aeris-btn-ig:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    /* Инстаграм бои кога ќе поминеш со маус! */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+    color: #ffffff;
+}
+
+    </style>
+
+    <div class="aeris-promo-wrapper">
+        
+        <div class="leaves-container"></div>
+        
+        <div class="aeris-logo-col" style="flex: 1; max-width: 25%; text-align: center;">
+            <img src="BEZPOZADINA.png" alt="AerisLux" style="max-width: 100%; height: auto;">
+        </div>
+        
+      <div class="aeris-text-col" style="flex: 2; text-align: center; padding: 0 20px;">
+    <h2 style="font-style: italic; color:rgb(133, 186, 238); font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom:10px; font-weight: bold; text-transform: uppercase;">AERISLUX</h2>
+    <h3 style="color: #ccffcc; margin-top: 25px; margin-bottom:25px; font-size: 1.2rem;">Иновативни еколошки решенија за чист воздух во секоја средина</h3>
+    <p style="font-size: 1.1rem; line-height: 1.5; margin-top:10px;">Ние сме ученичка компанија од СЕТУГС,,Михајло Пупин,, посветена за почист воздух и почиста средина. Истражете го нашиот продукт и дознајте како можеме да ја оствариме вашата визија.</p>
+    
+    <div class="aeris-btn-wrapper">
+        <a href="https://airluxwebsite.lovestoblog.com/" class="aeris-btn" target="_blank">Нашата web-страна</a>
+        <a href="https://www.instagram.com/aerislux2026/" class="aeris-btn-ig" target="_blank">Instagram</a>
+    </div>
+</div>
+        
+        <div class="aeris-video-col" style="flex: 1; max-width: 35%; display: flex; justify-content: center; align-items: center;">
+            <video controls poster="SLIKAPRED.jpg" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); background-color: #000;">
+                <source src="ПРОМОТИВНО ВИДЕО - Copy.mp4" type="video/mp4">
+                Вашиот прелистувач не поддржува HTML5 видео.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Мало одложување за прелистувачот да има време да го вчита сè
+        setTimeout(function() {
+            const leafContainer = document.querySelector('.leaves-container');
+            
+            if (leafContainer && typeof anime !== 'undefined') {
+                for (let i = 0; i < 25; i++) {
+                    let leaf = document.createElement('div');
+                    leaf.classList.add('aeris-leaf');
+                    leafContainer.appendChild(leaf);
+                }
+
+                anime({
+                    targets: '.aeris-leaf',
+                    translateX: function() { return anime.random(-800, 50); },
+                    translateY: function() { return anime.random(-250, 250); },
+                    rotate: function() { return anime.random(-360, 360); },
+                    scale: function() { return anime.random(0.4, 1.2); },
+                    opacity: [0, 0.9, 0], // Лисјата стануваат многу видливи
+                    duration: function() { return anime.random(4000, 7000); },
+                    easing: 'linear',
+                    delay: anime.stagger(200),
+                    loop: true
+                });
+            } else {
+                console.log("Anime.js не е вчитан. Провери го чекор 1!");
+            }
+        }, 500);
+    </script>
+</section>
+ <br><br>
+
+
 <section class="pupin-bio-section" id="biografija">
     <div class="bio-container">
         <div class="bio-text">
@@ -926,6 +1139,62 @@ window.changeLanguage = function(langCode) {
         </div>
     </div>
 </section>
+<section class="transport-section" id="jsp">
+    <div class="transport-container" >
+        
+        <div class="transport-info-col">
+            <h1 class="transport-title">ИНФОРМАЦИИ ЗА ТРАНСПОРТ</h1>
+            
+            <div class="transport-cards-wrapper">
+                <div class="transport-card">
+                    <div class="card-header">
+                        <span class="red-line"></span>
+                        <h3>ГРАДСКИ ЛИНИИ</h3>
+                    </div>
+                    <ul class="lines-table">
+                        <li>3А</li>
+                        <li>23П</li>
+                        <li>45П</li>
+                        <li>50, 50А</li>
+                        <li>65Б, 65В</li>
+                    </ul>
+                </div>
+
+                <div class="transport-card">
+                    <div class="card-header">
+                        <span class="red-line"></span>
+                        <h3>ПРИГРАДСКИ ЛИНИИ</h3>
+                    </div>
+                    <ul class="lines-table">
+                        <li>51</li>
+                        <li>52, 52П</li>
+                        <li>53</li>
+                        <li>55П</li>
+                        <li>58, 58А</li>
+                        <li>61, 61П</li>
+                        <li>62</li>
+                        <li>63, 63А, 63П</li>
+                        <li>65, 65А</li>
+                        <li>66, 66А</li>
+                        <li>68</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="transport-bus-col">
+            <div class="bus-animation-wrapper">
+                <img src="jsp.jpg" alt="Автобус ЈСП" class="moving-bus">
+                
+            
+                
+                <p class="bus-caption">Автобусите кои возат до нашето училиште</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
 <section class="mission-vision-section" id="misija-vizija">
     <div class="mv-container">
         
