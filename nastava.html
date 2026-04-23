@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', function() {
         const preloader = document.getElementById('preloader');
         
-        // Мало доцнење за жирито да го види кул ефектот пред да влезе на страната
         setTimeout(function() {
             preloader.style.opacity = '0';
             preloader.style.visibility = 'hidden';
@@ -92,23 +91,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function openProfile(evt, profileId) {
-        // 1. Скриј ги сите панели со предмети
+        
         var panels = document.getElementsByClassName("tab-panel");
         for (var i = 0; i < panels.length; i++) {
             panels[i].classList.remove("active-panel");
         }
 
-        // 2. Тргни ја бојата (класата 'active') од сите копчиња
         var tablinks = document.getElementsByClassName("tab-btn");
         for (var i = 0; i < tablinks.length; i++) {
             tablinks[i].classList.remove("active");
         }
 
-        // 3. Покажи го кликнатиот панел и обој го кликнатото копче портокалово
+        
         document.getElementById(profileId).classList.add("active-panel");
         evt.currentTarget.classList.add("active");
     }
-// --- 1. DARK MODE ЛОГИКА (За сите копчиња) ---
+
 document.addEventListener('DOMContentLoaded', function() {
     // Ги бараме СИТЕ копчиња (во главното мени и во мобилното мени)
     const toggleSwitches = document.querySelectorAll('.theme-switch input[type="checkbox"]');
@@ -141,9 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// --- 2. КОД ЗА ГАСЕЊЕ НА ПРЕЛОАДЕРОТ ---
+
 window.addEventListener('load', function() {
-    // Го наоѓаме прелоадерот (во твојот случај има id="preloader")
+    
     const preloader = document.getElementById('preloader');
     
     if (preloader) {
@@ -201,7 +199,7 @@ window.addEventListener('load', function() {
     <div class="header-container">
         <div class="logo">
             <img src="https://mihajlopupin.edu.mk/wp-content/uploads/2023/08/logo-mihajlo-pupin-100x100-1.png" alt="MIHAJLO PUPIN Logo">
-            <span class="school-name">СЕТУГС МИХАЈЛО ПУПИН</span>
+            <span class="school-name" style="font-family: montserrat;">СЕТУГС МИХАЈЛО ПУПИН</span>
         </div>
 
         <div class="menu-toggle" onclick="toggleMenu()">
