@@ -5842,3 +5842,64 @@ body {
     top: 40%;
     opacity: 0;
 }
+/* =========================================
+   DARK MODE СТИЛОВИ
+   ========================================= */
+
+/* Главна позадина и текст */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Позадини на секциите */
+body.dark-mode .access-info-section,
+body.dark-mode .general-docs-section,
+body.dark-mode .data-grid-section {
+    background-color: #1a1a1a !important;
+}
+
+/* Наслови и параграфи */
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4,
+body.dark-mode .access-text-content p,
+body.dark-mode .grid-col-info {
+    color: #f0f0f0 !important;
+}
+
+/* Специфичен блок за контакт */
+body.dark-mode .contact-highlight-box {
+    background-color: #2d2d2d !important;
+    border-left-color: #fca311 !important;
+}
+
+body.dark-mode .contact-highlight-box h4,
+body.dark-mode .contact-highlight-box p,
+body.dark-mode .contact-highlight-box i {
+    color: #e0e0e0 !important;
+}
+
+/* Линкови и документи */
+body.dark-mode .doc-list-item,
+body.dark-mode .grid-col-loc a {
+    background-color: #2a2a2a !important;
+    color: #66b2ff !important; /* Светло сина за да се читаат линковите */
+    border: 1px solid #444 !important;
+}
+
+body.dark-mode .doc-list-item:hover,
+body.dark-mode .grid-col-loc a:hover {
+    background-color: #3d3d3d !important;
+    color: #ffffff !important;
+}
+
+/* Наслов на табелата (Grid Header) */
+body.dark-mode .grid-header {
+    background-color: #2a2a2a !important;
+    border-bottom: 2px solid #fca311 !important;
+}
+
+body.dark-mode .grid-row {
+    border-bottom: 1px solid #333 !important;
+}
