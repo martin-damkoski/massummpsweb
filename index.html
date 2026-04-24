@@ -591,7 +591,7 @@ window.addEventListener('load', function() {
     </div>
 </div>
 <!-- -------------------------------------------------------------------------- -->
-  <section class="news-section" id="novosti">
+ <section class="news-section" id="novosti">
     <div class="container">
         <div class="section-header-left">
             <h2 style="font-family: montserrat;">Најнови новости</h2>
@@ -599,48 +599,77 @@ window.addEventListener('load', function() {
         </div>
 
         <div class="news-layout">
-            
-            <div class="news-sidebar">
-                
-                <div class="news-list-item" onclick="showNews(event, 'news-2')">
-                    <div class="img-wrapper">
-                        <img src="AERISLUXMARTIN.jpg" alt="AERISLUX">
-                    </div>
-                    <div class="news-item-text">
-                        <span class="news-date">АПРИЛ 7, 2026</span>
-                        <h4>ЏУНИОР АЧИВМЕНТ ФИНАЛИСТИ</h4> 
-                    <div class="news-main-info">
-                        <span class="news-date-large">АПРИЛ 4, 2026</span>
-                        <h3>ГОСТИН ДАРИО ДЕСНИЌ </h3>
-                        <p>Нов гостин,нова епизода ➡️ https://youtu.be/2bJNyEn9Elw?si=dI_CI0AZnkBS7LhZ
+           <div class="news-sidebar">
+    
+    <div class="news-list-item active" onclick="showNews(event, 'news-1')">
+        <div class="img-wrapper">
+            <img src="AERISLUXMARTIN.jpg" alt="AERISLUX">
+        </div>
+        <div class="news-item-text">
+            <span class="news-date">МАРТ 14, 2026</span>
+            <h4>ЏУНИОР АЧИВМЕНТ ФИНАЛИСТИ</h4>
+        </div>
+    </div>
 
-</p>
-                    </div>
-                </div>
+    <div class="news-list-item" onclick="showNews(event, 'news-2')">
+        <div class="img-wrapper">
+            <img src="darkodesnik.png" alt="ДАРИО ДЕСНИЌ">
+        </div>
+        <div class="news-item-text">
+            <span class="news-date">АПРИЛ 4, 2026</span>
+            <h4>ГОСТИН ДАРИО ДЕСНИЌ</h4>
+        </div>
+    </div>
 
-                <div id="news-2" class="news-content">
-                    <div class="news-main-img">
-                        <img src="AERISLUXMARTIN.jpg" alt="JA MARTIN">
-                    </div>
-                    <div class="news-main-info">
-                        <span class="news-date-large">МАРТ 14, 2026</span>
-                        <h3>ЏУНИОР АЧИВМЕНТ ФИНАЛИСТИ</h3>
-                        <p>Учениците: Мартин Дамкоски, Леонид Симоновски, Ива Јангеловска, Немања Рајковиќ и Василиса Курзакова, под менторство на професорката Тамара Боровска ќе го претставуваат нашето училиште на државниот натпревар ,,ЏУНИОР АЧИВМЕНТ,, </p>
-                    </div>
-                </div>
+    <div class="news-list-item" onclick="showNews(event, 'news-3')">
+        <div class="img-wrapper">
+            <img src="gorastc.png" alt="ГОРАСТ ЦВЕТКОВСКИ">
+        </div>
+        <div class="news-item-text">
+            <span class="news-date">МАРТ 28, 2026</span>
+            <h4>ГОСТИН ГОРАСТ ЦВЕТКОВСКИ</h4>
+        </div>
+    </div>
 
-                <div id="news-1" class="news-content">
-                    <div class="news-main-img">
-                        <img src="gorastc.png" alt="СТОПАНСКА КОМОРА">
-                    </div>
-                    <div class="news-main-info">
-                        <span class="news-date-large">МАРТ 28, 2026</span>
-                        <h3>ГОСТИН ГОРAСT ЦВЕТКОВСКИ</h3>
-                        <p>Нашиот почеток и прв гостин на овој поткаст Гораст Цветковски ➡️ https://youtu.be/G0u0f_9p9jE?si=wOKT-A1SnGjWzJ2w</p>
-                    </div>
-                </div>
+    <a href="novosti.html" class="see-all-btn">Види ги сите новости →</a>
+</div>
 
-            </div>
+<div class="news-display-area">
+
+    <div id="news-1" class="news-content active">
+        <div class="news-main-img">
+            <img src="AERISLUXMARTIN.jpg" alt="JA MARTIN">
+        </div>
+        <div class="news-main-info">
+            <span class="news-date-large">МАРТ 14, 2026</span>
+            <h3>ЏУНИОР АЧИВМЕНТ ФИНАЛИСТИ</h3>
+            <p>Учениците: Мартин Дамкоски, Леонид Симоновски, Ива Јангеловска, Немања Рајковиќ и Василиса Курзакова, под менторство на професорката Тамара Боровска ќе го претставуваат нашето училиште на државниот натпревар ,,ЏУНИОР АЧИВМЕНТ,,</p>
+        </div>
+    </div>
+
+    <div id="news-2" class="news-content">
+        <div class="news-main-img">
+            <img src="darkodesnik.png" alt="ДАРИО ДЕСНИЌ">
+        </div>
+        <div class="news-main-info">
+            <span class="news-date-large">АПРИЛ 4, 2026</span>
+            <h3>ГОСТИН ДАРИО ДЕСНИЌ</h3>
+            <p>Нов гостин, нова епизода ➡️ https://youtu.be/2bJNyEn9Elw?si=dI_CI0AZnkBS7LhZ</p>
+        </div>
+    </div>
+
+    <div id="news-3" class="news-content">
+        <div class="news-main-img">
+            <img src="gorastc.png" alt="ГОРАСТ ЦВЕТКОВСКИ">
+        </div>
+        <div class="news-main-info">
+            <span class="news-date-large">МАРТ 28, 2026</span>
+            <h3>ГОСТИН ГОРАСТ ЦВЕТКОВСКИ</h3>
+            <p>Нашиот почеток и прв гостин на овој поткаст Гораст Цветковски ➡️ https://youtu.be/G0u0f_9p9jE?si=wOKT-A1SnGjWzJ2w</p>
+        </div>
+    </div>
+
+</div>
         </div>
     </div>
 </section>

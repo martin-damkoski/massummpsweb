@@ -5903,3 +5903,21 @@ body.dark-mode .grid-header {
 body.dark-mode .grid-row {
     border-bottom: 1px solid #333 !important;
 }
+.see-all-btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    color: #1a3a6b;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.see-all-btn:hover {
+    background-color: #1a3a6b;
+    color: white;
+}
